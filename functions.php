@@ -1,7 +1,16 @@
 <?php
 
-//Подключение css и javascript
 require get_stylesheet_directory() . '/includes/functions-css-and-js.php';
+
+function wptuts_setup(){
+  register_nav_menu('header_menu', 'Header menu');
+}
+add_action('after_setup_theme', 'wptuts_setup');
+
+
+
+
+
 
 
 global $wpdb2;
