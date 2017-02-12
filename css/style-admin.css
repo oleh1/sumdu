@@ -1,0 +1,35 @@
+/*qtranslate-x*/
+#wpadminbar #wp-admin-bar-language ul li{
+  background-repeat: no-repeat;
+  background-position: 98% 50%;
+  background-size: 18px;
+}
+#wpadminbar #wp-admin-bar-language>div.ab-item{
+  background-repeat: no-repeat;
+  background-position: 92% 50%;
+  background-size: 18px;
+}
+#wpadminbar #wp-admin-bar-language>div.ab-item{
+  padding-right: 40px;
+  cursor: default;
+}
+#wpadminbar .quicklinks .menupop ul li .ab-item,
+#wpadminbar .quicklinks .menupop ul li a strong,
+#wpadminbar .shortlink-input,
+#wpadminbar.nojs .quicklinks .menupop:hover ul li .ab-item{
+  line-height: 26px;
+  height: 26px;
+  white-space: nowrap;
+  min-width: 92px;
+}
+#wpadminbar .quicklinks .menupop.hover ul li .ab-item{
+  line-height: 26px;
+  height: 24px;
+  white-space: nowrap;
+  min-width: 92px;
+}
+
+#qtranxs-meta-box-lsb{
+  display: none;
+}
+/*qtranslate-x*/

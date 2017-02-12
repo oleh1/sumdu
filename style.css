@@ -4,26 +4,39 @@
  Version:       1.0.0
 */
 
-/*header menu*/
-.header-menu ul {
-  list-style: none;
+/*header*/
+#header{
   background: #D4E7EE;
-  overflow: hidden;
 }
-.header-menu li {
+#header .logo{
+
+}
+#header .name_site{
   float: left;
 }
-.header-menu a {
+#header .header-menu{
+  float: left;
+}
+#header .header-menu ul{
+  list-style: none;
+  overflow: hidden;
+}
+#header .header-menu li{
+  float: left;
+}
+#header .header-menu a{
   transition: .5s linear;
   display: block;
   padding: 1em;
-  border-right: 1px solid #ADC0CE;
-  border-left: 1px solid #ADC0CE;
+  border: 1px solid #ADC0CE;
   background: rgba(173, 192, 206, .3);
   color: #29838C;
 }
-.header-menu a:hover {
+#header .header-menu a:hover{
   background: #ADC0CE;
   text-decoration: none;
 }
-/*header menu*/
+#header .lang li{
+  list-style: none;
+}
+/*header*/
