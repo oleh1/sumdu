@@ -6,6 +6,9 @@
 
 /*header*/
 #header{
+  width: 100%;
+  padding: 10px;
+  height: 70px;
   background: #D4E7EE;
 }
 #header .logo{
@@ -36,7 +39,21 @@
   background: #ADC0CE;
   text-decoration: none;
 }
+#header .lang{
+  float: right;
+}
 #header .lang li{
+  display: none;
+}
+#header .lang li:nth-child(2),
+#header .lang li:nth-child(3){
+  padding-top: 3px;
+}
+#header .lang ul{
   list-style: none;
+  display: table-header-group;
+}
+#header .lang li.active_lang{
+  display: block;
 }
 /*header*/

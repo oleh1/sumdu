@@ -21,6 +21,22 @@ function theme_slug_widgets_init() {
 }
 add_action( 'widgets_init', 'theme_slug_widgets_init' );
 
+function show_lang($lang){
+  $lang_url = $_SERVER['REQUEST_URI'];
+  $lang_url = explode('/', $lang_url);
+  if($lang_url[1] != 'ru' && $lang_url[1] != 'en') $lang_url[1] = 'ua';
+  switch($lang_url[1]) {
+    case $lang:
+      echo $active_lang = 'class="active_lang"';
+      break;
+    case $lang:
+      echo $active_lang = 'class="active_lang"';
+      break;
+    case $lang:
+      echo $active_lang = 'class="active_lang"';
+      break;
+  }
+}
 
 
 
