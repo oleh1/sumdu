@@ -8,10 +8,14 @@
 <body>
 <header id="header">
     <div class="logo">
-        <?php if(has_custom_logo()) the_custom_logo(); ?>
+        <a href="<?php get_home_url(); ?>">
+            <?php if(has_custom_logo()) the_custom_logo(); ?>
+        </a>
     </div>
     <div class="name_site">
-        <?php bloginfo(); ?>
+        <a href="<?php get_home_url(); ?>">
+            <?php bloginfo(); ?>
+        </a>
     </div>
     <?php
         wp_nav_menu(array(

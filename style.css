@@ -4,6 +4,56 @@
  Version:       1.0.0
 */
 
+/*grid*/
+*{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.container{
+  width: 100%;
+  margin: 0 auto;
+  background: yellow;
+}
+.container .cols{
+  float: left;
+  margin: 0 0 1em;
+  padding: 0 1em;
+  background: darkgoldenrod;
+  text-align: center;
+}
+.container .cols.col-1  { width: 8.333333333% }
+.container .cols.col-2  { width: 16.666666667% }
+.container .cols.col-3  { width: 25% }
+.container .cols.col-4  { width: 33.333333333% }
+.container .cols.col-5  { width: 41.666666667% }
+.container .cols.col-6  { width: 50% }
+.container .cols.col-7  { width: 58.333333333% }
+.container .cols.col-8  { width: 66.666666667% }
+.container .cols.col-9  { width: 75% }
+.container .cols.col-10 { width: 83.333333333% }
+.container .cols.col-11 { width: 91.666666667% }
+.container .cols.col-12 { width: 100% }
+
+.container:before,
+.container:after,
+.row:before,
+.row:after,
+.clear:before,
+.clear:after{
+  content: "";
+  display: table;
+}
+
+.container:after,
+.row:after,
+.clear:after{
+  clear: both;
+}
+/*grid*/
+
 /*header*/
 #header{
   width: 100%;
@@ -12,25 +62,34 @@
   background: #D4E7EE;
 }
 #header .logo{
-
+  float: left;
 }
 #header .name_site{
+  font-size: 17pt;
+  font-weight: bold;
+  padding: 10px 0 0 30px;
   float: left;
+}
+#header .name_site a{
+  text-decoration: none;
 }
 #header .header-menu{
   float: left;
 }
 #header .header-menu ul{
-  list-style: none;
-  overflow: hidden;
+
 }
 #header .header-menu li{
+  list-style: none;
   float: left;
 }
 #header .header-menu a{
+  font-size: 15pt;
+  font-weight: bold;
+  text-decoration: none;
   transition: .5s linear;
   display: block;
-  padding: 1em;
+  padding: 0.5em;
   border: 1px solid #ADC0CE;
   background: rgba(173, 192, 206, .3);
   color: #29838C;
@@ -44,10 +103,7 @@
 }
 #header .lang li{
   display: none;
-}
-#header .lang li:nth-child(2),
-#header .lang li:nth-child(3){
-  padding-top: 3px;
+  padding: 0 0 3px 0;
 }
 #header .lang ul{
   list-style: none;
