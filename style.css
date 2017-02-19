@@ -12,15 +12,17 @@
 /*header*/
 #header{
   border-radius: 10px;
-  margin: 20px auto;
+  margin: 20px auto 10px;
   width: 1200px;
   padding: 10px;
   height: 70px;
   background: #D4E7EE;
 }
+
 #header .logo{
   float: left;
 }
+
 #header .name_site{
   font-size: 17pt;
   font-weight: bold;
@@ -30,15 +32,21 @@
 #header .name_site a{
   text-decoration: none;
 }
+
 #header .header-menu{
   float: left;
-}
-#header .header-menu ul{
-
 }
 #header .header-menu li{
   list-style: none;
   float: left;
+}
+#header .header-menu li ul.sub-menu{
+  display: none;
+  position: absolute;
+  width: 0;
+}
+#header .header-menu li:hover ul.sub-menu{
+  display: block;
 }
 #header .header-menu a{
   font-size: 15pt;
@@ -55,10 +63,14 @@
   background: #ADC0CE;
   text-decoration: none;
 }
+
 #header .lang{
   float: right;
   width: 100px;
   height: 50px;
+}
+#header .lang ul{
+  position: absolute;
 }
 #header .lang ul{
   list-style: none;
@@ -76,6 +88,17 @@
   border-radius: 5px;
 }
 /*header*/
+
+/*index*/
+.content{
+  border-radius: 10px;
+  margin: auto;
+  width: 1200px;
+  padding: 10px;
+  background: #D4E7EE;
+
+}
+/*index*/
 
 /*grid*/
 *{
