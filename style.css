@@ -89,14 +89,32 @@
 }
 /*header*/
 
-/*index*/
-.content{
-  border-radius: 10px;
+/*header footer*/
+#cen{
+  display: table;
   margin: auto;
   width: 1200px;
-  padding: 10px;
-  background: #D4E7EE;
+}
+/*header footer*/
 
+/*sidebar*/
+#sidebar{
+  padding: 10px;
+  float: left;
+  border-radius: 10px;
+  width: 295px;
+  background: #D4E7EE;
+  margin: 0 10px 0 0;
+}
+/*sidebar*/
+
+/*index*/
+#content{
+  padding: 10px;
+  float: left;
+  border-radius: 10px;
+  width: 895px;
+  background: #D4E7EE;
 }
 /*index*/
 
