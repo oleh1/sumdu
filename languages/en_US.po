@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Sumdu v1.0\n"
+"POT-Creation-Date: 2017-03-10 00:35+0200\n"
+"PO-Revision-Date: 2017-03-10 00:35+0200\n"
+"Last-Translator: Oleh Kopytsia <lyboleg@gmail.com>\n"
+"Language-Team: Sumdu <lyboleg@gmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-KeywordsList: gettext;gettext_noop;__;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../functions.php:14
+msgid "Ліва бічна панель"
+msgstr "Left sidebar"
+
+#: ../index.php:15
+msgid "Автор"
+msgstr "Author"
+
+#: ../index.php:16
+msgid "Дата публікації"
+msgstr "Date of publication"

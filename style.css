@@ -1,6 +1,6 @@
 /*
- Theme Name:    Сумський Державний Університет (Sumy State University)
- Author:        Олег Копиця (Oleh Kopytsia)
+ Theme Name:    Sumdu
+ Author:        Oleh Kopytsia
  Version:       1.0.0
 */
 
@@ -115,6 +115,7 @@
   border-radius: 10px;
   width: 895px;
   background: #D4E7EE;
+  word-break: break-word;
 }
 /*index*/
 
