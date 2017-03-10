@@ -34,6 +34,24 @@ function show_lang($lang){
   }
 }
 
+function url_country($country){
+  $g_s_u = get_site_url();
+  $r_u = $_SERVER['REQUEST_URI'];
+  $p_m_a = preg_match_all("#($g_s_u)/[uaren]{2}/#i", $g_s_u.$r_u);
+  if($p_m_a == 0){
+    $r = preg_replace("#($g_s_u)#i", "$1/$country", $g_s_u.$r_u);
+  }else{
+    $r = preg_replace("#($g_s_u)/[uaren]{2}/#i", "$1/$country/", $g_s_u.$r_u);
+  }
+  echo $r;
+}
+
+add_filter('excerpt_more', 'excerpt_more');
+function excerpt_more($more) {
+  global $post;
+  return ' <a href="'.get_permalink($post->ID).'">[…]</a>';
+}
+
 
 
 global $wpdb2;

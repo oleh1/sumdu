@@ -26,9 +26,9 @@
     ?>
     <div class="lang">
         <ul>
-            <li <?php show_lang('ua'); ?>><a href="http://sumdu/ua/" hreflang="ua" title="Українська (ua)"><img src="<?php echo get_template_directory_uri() ?>/images/lang/ua.png" alt="Українська (ua)" /></a></li>
-            <li <?php show_lang('ru'); ?>><a href="http://sumdu/ru/" hreflang="ru" title="Русский (ru)"><img src="<?php echo get_template_directory_uri() ?>/images/lang/ru.png" alt="Русский (ru)" /></a></li>
-            <li <?php show_lang('en'); ?>><a href="http://sumdu/en/" hreflang="en" title="English (en)"><img src="<?php echo get_template_directory_uri() ?>/images/lang/en.png" alt="English (en)" /></a></li>
+            <li <?php show_lang('ua'); ?>><a href="<?php url_country('ua'); ?>" hreflang="ua" title="Українська (ua)"><img src="<?php echo get_template_directory_uri() ?>/images/lang/ua.png" alt="Українська (ua)" /></a></li>
+            <li <?php show_lang('ru'); ?>><a href="<?php url_country('ru'); ?>" hreflang="ru" title="Русский (ru)"><img src="<?php echo get_template_directory_uri() ?>/images/lang/ru.png" alt="Русский (ru)" /></a></li>
+            <li <?php show_lang('en'); ?>><a href="<?php url_country('en'); ?>" hreflang="en" title="English (en)"><img src="<?php echo get_template_directory_uri() ?>/images/lang/en.png" alt="English (en)" /></a></li>
         </ul>
     </div>
 </header>

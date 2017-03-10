@@ -4,9 +4,13 @@
  Version:       1.0.0
 */
 
-* {
+*{
   margin: 0;
   padding: 0;
+}
+h1{
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /*header*/
@@ -108,7 +112,7 @@
 }
 /*sidebar*/
 
-/*index*/
+/*all template*/
 #content{
   padding: 10px;
   float: left;
@@ -117,7 +121,36 @@
   background: #D4E7EE;
   word-break: break-word;
 }
+/*all template*/
+
 /*index*/
+.one_content{
+  border: 1px solid #ADC0CE;
+  padding: 5px;
+  margin: 0 0 5px 0;
+  background: rgba(173, 192, 206, .3);
+}
+.one_content:last-child{
+  margin: 0;
+}
+.title_index{
+
+}
+.cont_content_index{
+  font-size: 14pt;
+}
+/*index*/
+
+/*footer*/
+#footer{
+  border-radius: 10px;
+  margin: 10px auto 20px;
+  width: 1200px;
+  padding: 10px;
+  height: 70px;
+  background: #D4E7EE;
+}
+/*footer*/
 
 /*grid*/
 *{
