@@ -1,4 +1,4 @@
-<ul class="commentlist">
+<ul class="commentlist comment_g">
   <?php wp_list_comments( 'type=comment&callback=sumdu_comment' ); ?>
 </ul>
 

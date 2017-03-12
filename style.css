@@ -148,6 +148,57 @@ h1{
 }
 /*index*/
 
+/*comment*/
+.comment_g{
+  margin: 15px 0 0 0;
+}
+.comment_g li{
+  list-style-type: none;
+}
+.comment_g .comment_avatar img{
+  float: left;
+  margin: 0 5px 0 0;
+}
+.comment_g .comment_name{
+  font-size: 16pt;
+  color: forestgreen;
+}
+.comment_g .comment_name a{
+  font-size: 16pt;
+  color: darkgreen;
+}
+.comment_g .comment_name_says{
+  padding: 1px 0 0 0;
+}
+.comment_text{
+  border: 1px solid #ADC0CE;
+  margin: 5px 0 0 0;
+  background: ghostwhite;
+}
+.comment_text p{
+  margin: 10px;
+}
+.comment_g .edit_p{
+  padding: 2px;
+  border: 1px solid #ADC0CE;
+}
+.comment_g .edit_p:hover{
+  background: #ADC0CE;
+}
+.comment_g .reply_p{
+  padding: 2px;
+  border: 1px solid #ADC0CE;
+}
+.comment_g .reply_p:hover{
+  background: #ADC0CE;
+}
+.comment_g .edit_p a,
+.comment_g .reply_p a{
+  transition: .5s linear;
+  text-decoration: none;
+}
+/*comment*/
+
 /*footer*/
 #footer{
   border-radius: 10px;
