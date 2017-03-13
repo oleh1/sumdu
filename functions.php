@@ -80,14 +80,17 @@ function sumdu_comment($comment, $args, $depth){
     <?php comment_text(); ?>
   </div>
 
-  <div class="comment-meta commentmetadata"><div><a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID )); ?>">
-      <?php
-      printf(__('%1$s %2$s', 'sumdu'), get_comment_date('d.m.Y'), get_comment_time()); ?></a></div><?php edit_comment_link(__('Редагувати', 'sumdu'), '<div class="edit_p">', '</div>');
-    ?>
+  <div class="comment-meta commentmetadata com_data">
+    <a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID )); ?>">
+      <?php printf(__('%1$s %2$s', 'sumdu'), get_comment_date('d.m.Y'), get_comment_time()); ?>
+    </a>
   </div>
 
-  <div class="reply reply_p">
-    <?php comment_reply_link(array_merge($args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
+  <div class="edit_p_reply_p">
+    <?php edit_comment_link(__('Редагувати', 'sumdu'), '<div class="edit_p">', '</div>'); ?>
+    <div class="reply reply_p">
+      <?php comment_reply_link(array_merge($args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
+    </div>
   </div>
   <?php if('div' != $args['style']): ?>
     </div>

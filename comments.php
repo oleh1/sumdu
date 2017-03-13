@@ -6,19 +6,19 @@
 $fields =  array(
 
   'author' =>
-    '<p class="comment-form-author"><label for="author">' . __( 'Name', 'domainreference' ) . '</label> ' .
+    '<p class="comment-form-author"><label for="author">' . __("Ім'я", 'sumdu') . '</label> ' .
     ( $req ? '<span class="required">*</span>' : '' ) .
     '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
     '" size="30"' . $aria_req . ' /></p>',
 
   'email' =>
-    '<p class="comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> ' .
+    '<p class="comment-form-email"><label for="email">' . __('Email', 'sumdu' ) . '</label> ' .
     ( $req ? '<span class="required">*</span>' : '' ) .
     '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
     '" size="30"' . $aria_req . ' /></p>',
 
   'url' =>
-    '<p class="comment-form-url"><label for="url">' . __( 'Website', 'domainreference' ) . '</label>' .
+    '<p class="comment-form-url"><label for="url">' . __('Веб-сайт', 'sumdu') . '</label>' .
     '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
     '" size="30" /></p>',
 );
@@ -28,37 +28,37 @@ $args = array(
   'id_submit'         => 'submit',
   'class_submit'      => 'submit',
   'name_submit'       => 'submit',
-  'title_reply'       => __( 'Leave a Reply' ),
-  'title_reply_to'    => __( 'Leave a Reply to %s' ),
-  'cancel_reply_link' => __( 'Cancel Reply' ),
-  'label_submit'      => __( 'Post Comment' ),
+  'title_reply'       => __('Залишити коментар', 'sumdu'),
+  'title_reply_to'    => __('Залишити відповідь до %s', 'sumdu'),
+  'cancel_reply_link' => __('Отменить ответ', 'sumdu'),
+  'label_submit'      => __('Оприлюднити коментар', 'sumdu'),
   'format'            => 'xhtml',
 
-  'comment_field' =>  '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) .
-    '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true">' .
+  'comment_field' => '<p class="comment-form-comment"><div><label for="comment">' . _x('Коментар', 'sumdu') .
+    '</label></div><textarea id="comment" class="comment_form_text" name="comment" cols="45" rows="8" aria-required="true">' .
     '</textarea></p>',
 
   'must_log_in' => '<p class="must-log-in">' .
     sprintf(
-      __( 'You must be <a href="%s">logged in</a> to post a comment.' ),
-      wp_login_url( apply_filters( 'the_permalink', get_permalink() ) )
+      __('Щоб відправити коментар вам необхідно <a href="%s">авторизуватись</a>.', 'sumdu'),
+      wp_login_url(apply_filters('the_permalink', get_permalink()))
     ) . '</p>',
 
   'logged_in_as' => '<p class="logged-in-as">' .
     sprintf(
-      __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ),
-      admin_url( 'profile.php' ),
+      __('Ви увійшли як <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Вийти?</a>', 'sumdu'),
+      admin_url('profile.php'),
       $user_identity,
-      wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) )
+      wp_logout_url(apply_filters('the_permalink', get_permalink()))
     ) . '</p>',
 
   'comment_notes_before' => '<p class="comment-notes">' .
-    __( 'Your email address will not be published.' ) . ( $req ? $required_text : '' ) .
+    __('Ваша e-mail адреса не оприлюднюватиметься.', 'sumdu') . ($req ? $required_text : '') .
     '</p>',
 
   'comment_notes_after' => '<p class="form-allowed-tags">' .
     sprintf(
-      __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ),
+      __('Ви можете використовувати ці <abbr title="HyperText Markup Language">HTML</abbr> теги і атрибути: %s', 'sumdu'),
       ' <code>' . allowed_tags() . '</code>'
     ) . '</p>',
 
