@@ -3,6 +3,20 @@ get_header();
 get_sidebar();
 ?>
   <div id="content_sumdu">
+    <div class="search_t">
+      <?php printf(__( 'Результати пошуку за запитом: %s', 'sumdu' ), '<span>'.get_search_query().'</span>'); ?>
+    </div>
+    <div class="search_c">
+      <?php
+      _e('Знайдено результатів: ', 'sumdu');
+      ?>
+      <span>
+        <?php
+        global $wp_query;
+        echo $wp_query->found_posts;
+        ?>
+      </span>
+    </div>
     <?php
     if (have_posts()): while (have_posts()): the_post();
       ?>
@@ -19,12 +33,6 @@ get_sidebar();
       <?php
     endwhile;
     endif;
-    
-    the_posts_pagination(array(
-      'mid_size' => 10,
-      'prev_text' => '<div class="arrow"><img src="'.get_template_directory_uri().'/images/pagination/prev.png"></div>',
-      'next_text' => '<div class="arrow"><img src="'.get_template_directory_uri().'/images/pagination/next.png"></div>',
-    ));
     ?>
   </div>
 <?php

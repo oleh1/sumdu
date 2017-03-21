@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sumdu v1.0\n"
-"POT-Creation-Date: 2017-03-10 00:35+0200\n"
-"PO-Revision-Date: 2017-03-10 00:35+0200\n"
+"POT-Creation-Date: 2017-03-19 19:08+0200\n"
+"PO-Revision-Date: 2017-03-19 19:08+0200\n"
 "Last-Translator: Oleh Kopytsia <lyboleg@gmail.com>\n"
 "Language-Team: Sumdu <lyboleg@gmail.com>\n"
 "Language: en\n"
@@ -16,14 +16,119 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
+#: ../category.php:16 ../index.php:16 ../page.php:16 ../search.php:30
+#: ../single.php:16
+msgid "Автор"
+msgstr "Author"
+
+#: ../category.php:17 ../index.php:17 ../page.php:17 ../search.php:31
+#: ../single.php:17
+msgid "Дата публікації"
+msgstr "Date of publication"
+
+#: ../comments.php:9
+msgid "Ім'я"
+msgstr "Name"
+
+#: ../comments.php:15
+msgid "E-mail"
+msgstr "Email"
+
+#: ../comments.php:21
+msgid "Веб-сайт"
+msgstr "Website"
+
+#: ../comments.php:31
+msgid "Залишити коментар"
+msgstr "Leave a comment"
+
+#: ../comments.php:32
+#, php-format
+msgid "Залишити відповідь до %s"
+msgstr "Leave a reply to %s"
+
+#: ../comments.php:33
+msgid "Скасувати відповідь"
+msgstr "Cancel Reply"
+
+#: ../comments.php:34
+msgid "Оприлюднити коментар"
+msgstr "Publish a comment"
+
+#: ../comments.php:37
+msgctxt "sumdu"
+msgid "Коментар"
+msgstr "Comment"
+
+#: ../comments.php:43
+#, php-format
+msgid ""
+"Щоб відправити коментар вам необхідно <a href=\"%s\">авторизуватись</a>."
+msgstr "You must be <a href=\"%s\">logged in</a> to post a comment."
+
+#: ../comments.php:49
+#, php-format
+msgid ""
+"Ви увійшли як <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Вийти з "
+"цього аккаунта\">Вийти?</a>"
+msgstr ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+
+#: ../comments.php:56
+msgid "Ваша e-mail адреса не оприлюднюватиметься."
+msgstr "Your email address will not be published."
+
+#: ../comments.php:61
+#, php-format
+msgid ""
+"Ви можете використовувати ці <abbr title=\"Мова розмітки гіпертексту\">HTML</"
+"abbr> теги і атрибути: %s"
+msgstr ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+
 #: ../functions.php:14
 msgid "Ліва бічна панель"
 msgstr "Left sidebar"
 
-#: ../index.php:15
-msgid "Автор"
-msgstr "Author"
+#: ../functions.php:71
+#, php-format
+msgid ""
+"<cite class=\"fn comment_name\">%s</cite> <span class=\"says\">говорить:</"
+"span>"
+msgstr ""
+"<cite class=\"fn comment_name\">%s</cite> <span class=\"says\">says:</span>"
 
-#: ../index.php:16
-msgid "Дата публікації"
-msgstr "Date of publication"
+#: ../functions.php:75
+msgid "Ваш коментар очікує модерації."
+msgstr "Your comment is awaiting moderation."
+
+#: ../functions.php:85
+#, php-format
+msgid "%1$s в %2$s"
+msgstr "%1$s at %2$s"
+
+#: ../functions.php:90
+msgid "Редагувати"
+msgstr "Edit"
+
+#: ../search.php:7
+#, php-format
+msgid "Результати пошуку за запитом: %s"
+msgstr "Search results for the query: %s"
+
+#: ../search.php:11
+msgid "Знайдено результатів: "
+msgstr "Found results: "
+
+#: ../searchform.php:3
+msgid "Пошук"
+msgstr "Search"
+
+#: ../searchform.php:4
+msgid "Шукати"
+msgstr "Search"
+
+#~ msgid "Результати пошуку для: %s"
+#~ msgstr "Search results for: %s"

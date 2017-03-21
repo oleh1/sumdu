@@ -82,7 +82,7 @@ function sumdu_comment($comment, $args, $depth){
 
   <div class="comment-meta commentmetadata com_data">
     <a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID )); ?>">
-      <?php printf(__('%1$s %2$s', 'sumdu'), get_comment_date('d.m.Y'), get_comment_time()); ?>
+      <?php printf(__('%1$s в %2$s', 'sumdu'), get_comment_date('d.m.Y'), get_comment_time()); ?>
     </a>
   </div>
 
@@ -97,6 +97,9 @@ function sumdu_comment($comment, $args, $depth){
   <?php endif; ?>
   <?php
 }
+
+
+
 
 
 
