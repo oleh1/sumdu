@@ -145,7 +145,6 @@ h1{
 .one_content{
   border: 1px solid #ADC0CE;
   padding: 5px;
-  margin: 0 0 5px 0;
   background: rgba(173, 192, 206, .3);
 }
 .title_index a{
@@ -161,11 +160,15 @@ h1{
   text-decoration: none;
   color: yellow;
 }
+.zero_posts{
+  font-size: 30px;
+  margin: 10px 0 10px 0;
+}
 /*index*/
 
 /*pagination*/
 #content_sumdu .navigation.pagination{
-  margin: 0;
+  margin: 10px 0 0 0;
 }
 #content_sumdu .navigation.pagination h2{
   display: none;
@@ -198,6 +201,10 @@ h1{
 }
 #content_sumdu .navigation.pagination .nav-links .page-numbers.dots{
   border: none;
+}
+#content_sumdu .navigation.pagination .nav-links .page-numbers.dots:hover{
+  background: none;
+  cursor: default;
 }
 #content_sumdu .navigation.pagination .nav-links .page-numbers.current{
   font-size: 17pt;

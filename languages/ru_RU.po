@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sumdu v1.0\n"
-"POT-Creation-Date: 2017-03-19 19:09+0200\n"
-"PO-Revision-Date: 2017-03-19 19:11+0200\n"
+"POT-Creation-Date: 2017-03-23 00:21+0200\n"
+"PO-Revision-Date: 2017-03-23 00:22+0200\n"
 "Last-Translator: Oleh Kopytsia <lyboleg@gmail.com>\n"
 "Language-Team: Sumdu <lyboleg@gmail.com>\n"
 "Language: ru\n"
@@ -114,6 +114,10 @@ msgstr "%1$s в %2$s"
 #: ../functions.php:90
 msgid "Редагувати"
 msgstr "Редактировать"
+
+#: ../index.php:30
+msgid "Ще не було жодного запису."
+msgstr "Еще не было ни одной записи."
 
 #: ../search.php:7
 #, php-format
