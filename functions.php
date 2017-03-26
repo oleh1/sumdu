@@ -98,17 +98,30 @@ function sumdu_comment($comment, $args, $depth){
   <?php
 }
 
+/*disabled update wordpress*/
+add_filter('pre_site_transient_update_core',create_function('$a', "return null;"));
+wp_clear_scheduled_hook('wp_version_check');
+/*disabled update wordpress*/
+
+/*disabled update plugins*/
+remove_action( 'load-update-core.php', 'wp_update_plugins' );
+add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
+wp_clear_scheduled_hook( 'wp_update_plugins' );
+/*disabled update plugins*/
+
+add_action('admin_menu', function(){
+  add_menu_page(__('База даних', 'sumdu'), __('База даних', 'sumdu'), 'manage_options', 'data_base', 'data_base', '', 81);
+} );
+function data_base(){
+
+  $wpdb_dek = new wpdb('root', '1', 'DEK', 'localhost');
+  if(!empty($wpdb_dek->error)){ wp_die( $wpdb_dek->error); }
+  include 'data_table/data_table.php';
+  
+}
+include 'includes/edit_form.php';
 
 
-
-
-
-
-global $wpdb2;
-$wpdb2 = new wpdb( 'root', '1', 'DEK', 'localhost' );
-if( ! empty($wpdb2->error) ) wp_die( $wpdb2->error );
-$results = $wpdb2->get_results("SELECT * FROM student");
-//var_dump($results);
 
 
 ?>

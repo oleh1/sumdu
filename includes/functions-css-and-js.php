@@ -18,4 +18,9 @@ function add_styles_admin(){
 }
 add_action('admin_head', 'add_styles_admin');
 
+function add_script_admin(){
+    wp_enqueue_script('script-admin', get_template_directory_uri().'/js/script-admin.js', array('jquery'));
+}
+add_action('admin_enqueue_scripts', 'add_script_admin');
+
 ?>
