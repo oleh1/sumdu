@@ -19,33 +19,30 @@
     <th>Хар-ка відповіді на питання 3</th>
   </tr>
   <?php
-  $report_of_exam = $wpdb_dek->get_results("SELECT * FROM report_of_exam");
+  $table = 'report_of_exam';
+  $report_of_exam = $wpdb_dek->get_results("SELECT * FROM $table");
   foreach($report_of_exam as $result){
     ?>
-    <tr>
-      <td><?php echo $result->student_id; ?></td>
-      <td><?php echo $result->id_ticket; ?></td>
-      <td><?php echo $result->start_time; ?></td>
-      <td><?php echo $result->end_time; ?></td>
-      <td><?php echo $result->rating_score; ?></td>
-      <td><?php echo $result->national_rate; ?></td>
-      <td><?php echo $result->ECTS_rating; ?></td>
-      <td><?php echo $result->id_meeting_head; ?></td>
-      <td><?php echo $result->question_1; ?></td>
-      <td><?php echo $result->question_text_1; ?></td>
-      <td><?php echo $result->id_character_answer1; ?></td>
-      <td><?php echo $result->question_2; ?></td>
-      <td><?php echo $result->question_text_2; ?></td>
-      <td><?php echo $result->id_character_answer2; ?></td>
-      <td><?php echo $result->question_3; ?></td>
-      <td><?php echo $result->question_text_3; ?></td>
-      <td><?php echo $result->id_character_answer3; ?></td>
+    <tr data-table="<?php echo $table ?>" data-id_name="student_id" data-id="<?php echo $result->student_id; ?>">
+      <td data-td="student_id"><div class="v"><?php echo $result->student_id; ?></div></td>
+      <td data-td="id_ticket"><div class="v"><?php echo $result->id_ticket; ?></div></td>
+      <td data-td="start_time"><div class="v"><?php echo $result->start_time; ?></div></td>
+      <td data-td="end_time"><div class="v"><?php echo $result->end_time; ?></div></td>
+      <td data-td="rating_score"><div class="v"><?php echo $result->rating_score; ?></div></td>
+      <td data-td="national_rate"><div class="v"><?php echo $result->national_rate; ?></div></td>
+      <td data-td="ECTS_rating"><div class="v"><?php echo $result->ECTS_rating; ?></div></td>
+      <td data-td="id_meeting_head"><div class="v"><?php echo $result->id_meeting_head; ?></div></td>
+      <td data-td="question_1"><div class="v"><?php echo $result->question_1; ?></div></td>
+      <td data-td="question_text_1"><div class="v"><?php echo $result->question_text_1; ?></div></td>
+      <td data-td="id_character_answer1"><div class="v"><?php echo $result->id_character_answer1; ?></div></td>
+      <td data-td="question_2"><div class="v"><?php echo $result->question_2; ?></div></td>
+      <td data-td="question_text_2"><div class="v"><?php echo $result->question_text_2; ?></div></td>
+      <td data-td="id_character_answer2"><div class="v"><?php echo $result->id_character_answer2; ?></div></td>
+      <td data-td="question_3"><div class="v"><?php echo $result->question_3; ?></div></td>
+      <td data-td="question_text_3"><div class="v"><?php echo $result->question_text_3; ?></div></td>
+      <td data-td="id_character_answer3"><div class="v"><?php echo $result->id_character_answer3; ?></div></td>
     </tr>
     <?php
   }
-
-//            echo '<pre>';
-//            print_r($report_of_exam);
-//            echo '<pre>';
   ?>
 </table>

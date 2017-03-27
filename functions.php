@@ -113,15 +113,19 @@ add_action('admin_menu', function(){
   add_menu_page(__('База даних', 'sumdu'), __('База даних', 'sumdu'), 'manage_options', 'data_base', 'data_base', '', 81);
 } );
 function data_base(){
-
   $wpdb_dek = new wpdb('root', '1', 'DEK', 'localhost');
   if(!empty($wpdb_dek->error)){ wp_die( $wpdb_dek->error); }
   include 'data_table/data_table.php';
-  
 }
-include 'includes/edit_form.php';
+include 'includes/data_table_ajax.php';
 
-
+add_action('admin_menu', function(){
+  add_menu_page(__('Система оповіщення', 'sumdu'), __('Система оповіщення', 'sumdu'), 'manage_options', 'warning_system', 'warning_system', '', 82);
+} );
+function warning_system(){
+  include 'warning_system/warning_system.php';
+}
+include 'includes/warning_system_ajax.php';
 
 
 ?>

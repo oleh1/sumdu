@@ -82,4 +82,22 @@ jQuery(document).ready(function(){
   });
   /*data_base*/
 
+  /*warning_system*/
+  jQuery(".add_mail").click(function(){
+
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'add_mail',
+        'text': jQuery(".add_mail_i").val()
+      },
+      function(result){
+        alert(result);
+      }
+    );
+
+  });
+  /*warning_system*/
+
 });

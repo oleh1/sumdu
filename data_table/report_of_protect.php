@@ -25,39 +25,36 @@
     <th>Текст питання 5</th>
   </tr>
   <?php
-  $report_of_protect = $wpdb_dek->get_results("SELECT * FROM report_of_protect");
+  $table = 'report_of_protect';
+  $report_of_protect = $wpdb_dek->get_results("SELECT * FROM $table");
   foreach($report_of_protect as $result){
     ?>
-    <tr>
-      <td><?php echo $result->student_id_student; ?></td>
-      <td><?php echo $result->id_meeting_head; ?></td>
-      <td><?php echo $result->pages; ?></td>
-      <td><?php echo $result->slides; ?></td>
-      <td><?php echo $result->duration; ?></td>
-      <td><?php echo $result->rating_by_head; ?></td>
-      <td><?php echo $result->rating_by_reviewer; ?></td>
-      <td><?php echo $result->insignia; ?></td>
-      <td><?php echo $result->postgraduate; ?></td>
-      <td><?php echo $result->english; ?></td>
-      <td><?php echo $result->rating_vnz; ?></td>
-      <td><?php echo $result->rating_national; ?></td>
-      <td><?php echo $result->rating_ECTS; ?></td>
-      <td><?php echo $result->question_1; ?></td>
-      <td><?php echo $result->question_text_1; ?></td>
-      <td><?php echo $result->question_2; ?></td>
-      <td><?php echo $result->question_text_2; ?></td>
-      <td><?php echo $result->question_3; ?></td>
-      <td><?php echo $result->question_text_3; ?></td>
-      <td><?php echo $result->question_4; ?></td>
-      <td><?php echo $result->question_text_4; ?></td>
-      <td><?php echo $result->question_5; ?></td>
-      <td><?php echo $result->question_text_5; ?></td>
+    <tr data-table="<?php echo $table ?>" data-id_name="student_id_student" data-id="<?php echo $result->student_id_student; ?>">
+      <td data-td="student_id_student"><div class="v"><?php echo $result->student_id_student; ?></div></td>
+      <td data-td="id_meeting_head"><div class="v"><?php echo $result->id_meeting_head; ?></div></td>
+      <td data-td="pages"><div class="v"><?php echo $result->pages; ?></div></td>
+      <td data-td="slides"><div class="v"><?php echo $result->slides; ?></div></td>
+      <td data-td="duration"><div class="v"><?php echo $result->duration; ?></div></td>
+      <td data-td="rating_by_head"><div class="v"><?php echo $result->rating_by_head; ?></div></td>
+      <td data-td="rating_by_reviewer"><div class="v"><?php echo $result->rating_by_reviewer; ?></div></td>
+      <td data-td="insignia"><div class="v"><?php echo $result->insignia; ?></div></td>
+      <td data-td="postgraduate"><div class="v"><?php echo $result->postgraduate; ?></div></td>
+      <td data-td="english"><div class="v"><?php echo $result->english; ?></div></td>
+      <td data-td="rating_vnz"><div class="v"><?php echo $result->rating_vnz; ?></div></td>
+      <td data-td="rating_national"><div class="v"><?php echo $result->rating_national; ?></div></td>
+      <td data-td="rating_ECTS"><div class="v"><?php echo $result->rating_ECTS; ?></div></td>
+      <td data-td="question_1"><div class="v"><?php echo $result->question_1; ?></div></td>
+      <td data-td="question_text_1"><div class="v"><?php echo $result->question_text_1; ?></div></td>
+      <td data-td="question_2"><div class="v"><?php echo $result->question_2; ?></div></td>
+      <td data-td="question_text_2"><div class="v"><?php echo $result->question_text_2; ?></div></td>
+      <td data-td="question_3"><div class="v"><?php echo $result->question_3; ?></div></td>
+      <td data-td="question_text_3"><div class="v"><?php echo $result->question_text_3; ?></div></td>
+      <td data-td="question_4"><div class="v"><?php echo $result->question_4; ?></div></td>
+      <td data-td="question_text_4"><div class="v"><?php echo $result->question_text_4; ?></div></td>
+      <td data-td="question_5"><div class="v"><?php echo $result->question_5; ?></div></td>
+      <td data-td="question_text_5"><div class="v"><?php echo $result->question_text_5; ?></div></td>
     </tr>
     <?php
   }
-
-//              echo '<pre>';
-//              print_r($report_of_protect);
-//              echo '<pre>';
   ?>
 </table>
