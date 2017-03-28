@@ -98,6 +98,50 @@ jQuery(document).ready(function(){
     );
 
   });
+
+  jQuery("body").on("click", ".add_group",function(){
+
+    var l,a;
+    l = jQuery(".lo");
+    a = jQuery(".add_group");
+
+    l.show();
+    a.hide();
+
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'add_group',
+        'text': jQuery(".add_group_i").val(),
+        'id': jQuery(".add_group_i").attr('data-id')
+      },
+      function(result){
+        jQuery(".content_warning_group").html(result);
+        l.hide();
+        a.show();
+      }
+    );
+
+  });
+
+  jQuery("body").on("click", ".delete_group",function(){
+
+    var t = jQuery(this);
+
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'delete_group',
+        'id': t.attr('data-id')
+      },
+      function(result){
+        t.parent().detach();
+      }
+    );
+
+  });
   /*warning_system*/
 
 });
