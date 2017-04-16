@@ -52,7 +52,6 @@ jQuery(document).ready(function(){
     l.before("<div class='l'><div class='overlay-loader'><div class='loader'><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>");
 
     var ajaxurl,l_d,i,v,b,a_c;
-
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
       ajaxurl,
@@ -83,31 +82,12 @@ jQuery(document).ready(function(){
   /*data_base*/
 
   /*warning_system*/
-  jQuery(".add_mail").click(function(){
-
-    ajaxurl = '/wp-admin/admin-ajax.php';
-    jQuery.post(
-      ajaxurl,
-      {
-        'action': 'add_mail',
-        'text': jQuery(".add_mail_i").val()
-      },
-      function(result){
-        alert(result);
-      }
-    );
-
-  });
-
   jQuery("body").on("click", ".add_group",function(){
-
     var l,a;
     l = jQuery(".lo");
     a = jQuery(".add_group");
-
     l.show();
     a.hide();
-
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
       ajaxurl,
@@ -122,25 +102,68 @@ jQuery(document).ready(function(){
         a.show();
       }
     );
-
   });
 
   jQuery("body").on("click", ".delete_group",function(){
+    var t, n;
+    t = jQuery(this);
+    t.hide();
+    n = t.prev();
+    n.show();
+  });
 
+  jQuery("body").on("click", ".sure .n",function(){
+    var t, n;
+    t = jQuery(this);
+    n = t.closest(".sure");
+    n.next().show();
+    n.hide();
+  });
+
+  jQuery("body").on("click", ".sure .y",function(){
     var t = jQuery(this);
-
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
       ajaxurl,
       {
         'action': 'delete_group',
-        'id': t.attr('data-id')
+        'id': t.closest(".warning_grop").attr("data-id")
+      },
+      function(result){
+        t.closest(".warning_grop").detach();
+      }
+    );
+  });
+
+  jQuery("body").on("click", ".add_mail",function(){
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'add_mail',
+        'text': t.parent().prev().val(),
+        'id_group': t.parent().prev().attr('data-id_group')
+      },
+      function(result){
+        jQuery(".content_warning_group").html(result);
+      }
+    );
+  });
+
+  jQuery("body").on("click", ".delete_mail",function(){
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'delete_mail',
+        'id': t.closest(".delete_mail").attr("data-id")
       },
       function(result){
         t.parent().detach();
       }
     );
-
   });
   /*warning_system*/
 
