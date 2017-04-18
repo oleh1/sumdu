@@ -113,7 +113,7 @@ add_action('admin_menu', function(){
   add_menu_page(__('База даних', 'sumdu'), __('База даних', 'sumdu'), 'manage_options', 'data_base', 'data_base', '', 81);
 } );
 function data_base(){
-  $wpdb_dek = new wpdb('root', '1', 'DEK', 'localhost');
+  $wpdb_dek = new wpdb('root', 'l4b01991', 'DEK', 'localhost');
   if(!empty($wpdb_dek->error)){ wp_die( $wpdb_dek->error); }
   include 'data_table/data_table.php';
 }

@@ -41,6 +41,8 @@ $load = "<div class='overlay-loader'><div class='loader'><div></div><div></div><
         <?php } ?>
         <input data-id_group="<?php echo $result_g->id_group; ?>" class="add_mail_i" type="text">
         <div class="a_d"><div class="add_mail">Додати email</div></div>
+        <div class="a_d"><textarea class="message"></textarea></div>
+        <div><div class="send_message">Відправити повідомлення</div></div>
       </div>
       <?php
     }
@@ -49,6 +51,17 @@ $load = "<div class='overlay-loader'><div class='loader'><div></div><div></div><
 </div>
 
 <style>
+  .message{
+    width: 100%;
+  }
+  .send_message{
+    display: initial;
+    cursor: pointer;
+    background: burlywood;
+    padding: 3px 6px;
+    color: black;
+    border-radius: 5px;
+  }
   .delete_mail{
     cursor: pointer;
     width: 15px;

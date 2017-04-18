@@ -50,6 +50,8 @@ function f_add_group()
           <?php } ?>
           <input data-id_group="<?php echo $result_g->id_group; ?>" class="add_mail_i" type="text">
           <div class="a_d"><div class="add_mail">Додати email</div></div>
+          <div class="a_d"><textarea class="message"></textarea></div>
+          <div><div class="send_message">Відправити повідомлення</div></div>
         </div>
         <?php
       }
@@ -71,6 +73,8 @@ function f_delete_group()
 
   global $wpdb;
   $sql = $wpdb->prepare("DELETE FROM sumdu_warning_system_group WHERE id_group = %d", $id);
+  $wpdb->query($sql);
+  $sql = $wpdb->prepare("DELETE FROM sumdu_warning_system_mail WHERE id_group = %d", $id);
   $wpdb->query($sql);
 
   wp_die();
@@ -131,6 +135,8 @@ $load = "<div class='overlay-loader'><div class='loader'><div></div><div></div><
         <?php } ?>
         <input data-id_group="<?php echo $result_g->id_group; ?>" class="add_mail_i" type="text">
         <div class="a_d"><div class="add_mail">Додати email</div></div>
+        <div class="a_d"><textarea class="message"></textarea></div>
+        <div><div class="send_message">Відправити повідомлення</div></div>
       </div>
       <?php
     }
