@@ -10,7 +10,7 @@ function f_edit_form(){
   $text = $_POST['text'];
   echo $text;
 
-  $wpdb_dek = new wpdb('root', '1', 'DEK', 'localhost');
+  global $wpdb_dek;
   $wpdb_dek->update( $table, array($td => $text), array($id_name => $id), array("%s"), array("%d") );
   wp_die();
 }
