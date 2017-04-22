@@ -112,8 +112,10 @@ wp_clear_scheduled_hook( 'wp_update_plugins' );
 add_action('admin_menu', function(){
   add_menu_page(__('База даних', 'sumdu'), __('База даних', 'sumdu'), 'manage_options', 'data_base', 'data_base', '', 81);
 } );
+$data_db = include 'config.php';
+$wpdb_dek = new wpdb($data_db['user'], $data_db['password'], $data_db['dbname'], $data_db['host']);
 function data_base(){
-  $wpdb_dek = new wpdb('root', 'l4b01991', 'DEK', 'localhost');
+  global $wpdb_dek;
   if(!empty($wpdb_dek->error)){ wp_die( $wpdb_dek->error); }
   include 'data_table/data_table.php';
 }
