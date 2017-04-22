@@ -168,7 +168,7 @@ jQuery(document).ready(function(){
 
   jQuery("body").on("click", ".send_message",function(){
     var t = jQuery(this);
-    t.next().show();
+    t.parent().next().show();
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
       ajaxurl,
@@ -178,8 +178,7 @@ jQuery(document).ready(function(){
         'message': t.parent().prev().find( jQuery(".message") ).val()
       },
       function(result){
-        t.next().hide();
-        alert(result);
+        t.parent().next().hide();
       }
     );
   });
