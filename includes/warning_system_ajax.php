@@ -163,3 +163,19 @@ function f_delete_mail()
   wp_die();
 }
 ?>
+
+<?php
+add_action("wp_ajax_send_message", "f_send_message");
+add_action("wp_ajax_nopriv_send_message", "f_send_message");
+function f_send_message()
+{
+  $mail = $_POST['mails'];
+  $message = $_POST['message'];
+  $subject = '[' . $_SERVER['HTTP_HOST'] . '] Test.';
+  $headers = 'From: No Answer <noanswer@' . $_SERVER['HTTP_HOST'] . '>' . "\r\n";
+
+  @wp_mail($mail, $subject, $message, $headers);
+  
+  wp_die();
+}
+?>

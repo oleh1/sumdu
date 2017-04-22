@@ -165,6 +165,24 @@ jQuery(document).ready(function(){
       }
     );
   });
+
+  jQuery("body").on("click", ".send_message",function(){
+    var t = jQuery(this);
+    t.next().show();
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'send_message',
+        'mails': t.parent().prev().find( jQuery(".message") ).attr('data-mails'),
+        'message': t.parent().prev().find( jQuery(".message") ).val()
+      },
+      function(result){
+        t.next().hide();
+        alert(result);
+      }
+    );
+  });
   /*warning_system*/
 
 });

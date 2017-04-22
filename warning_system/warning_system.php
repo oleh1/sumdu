@@ -7,14 +7,14 @@ if ($group == null) {
 } else {
   $i = (int)$group[0]->id_group + 1;
 }
-$load = "<div class='overlay-loader'><div class='loader'><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>";
+$load = "<div class='loader'><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>";
 ?>
 
 <div class="content_warning_group">
   <div class="all_groups">
     <div class="text_group"><input data-id="<?php echo $i; ?>" class="add_group_i" type="text"></div>
     <div class="add_group">Додати групу</div>
-    <div class="lo"><div class="load"><?php echo $load; ?></div></div>
+    <div class="lo"><div class="load"><div class='overlay-loader'><?php echo $load; ?></div></div></div>
   </div>
   <div style="clear: both"></div>
 
@@ -34,15 +34,25 @@ $load = "<div class='overlay-loader'><div class='loader'><div></div><div></div><
         <div class="name_group">
           <?php echo $result_g->sumdu_group; ?>
         </div>
-        <?php foreach ($mail as $result_m) { ?>
+        <?php
+        $all_mails = array();
+        $i = 0;
+        foreach ($mail as $result_m) {
+          $all_mails[$i] = $result_m->sumdu_mail;
+          $i++;
+        ?>
           <div class="mails">
             <div class="name_mail"><?php echo $result_m->sumdu_mail; ?></div><div data-id="<?php echo $result_m->id; ?>" class="delete_mail"><img src="<?php echo get_template_directory_uri(); ?>/images/warning_system/delete-mail.png"></div><br>
           </div>
-        <?php } ?>
+        <?php
+        }
+        $all_mails = implode(",", $all_mails);
+        ?>
         <input data-id_group="<?php echo $result_g->id_group; ?>" class="add_mail_i" type="text">
         <div class="a_d"><div class="add_mail">Додати email</div></div>
-        <div class="a_d"><textarea class="message"></textarea></div>
+        <div class="a_d"><textarea class="message" data-mails="<?php echo $all_mails ?>"></textarea></div>
         <div><div class="send_message">Відправити повідомлення</div></div>
+        <div class="load_message"><?php echo $load; ?></div>
       </div>
       <?php
     }
@@ -51,6 +61,11 @@ $load = "<div class='overlay-loader'><div class='loader'><div></div><div></div><
 </div>
 
 <style>
+  .load_message {
+    position: relative;
+    top: -44px;
+    display: none;
+  }
   .message{
     width: 100%;
   }
@@ -61,6 +76,9 @@ $load = "<div class='overlay-loader'><div class='loader'><div></div><div></div><
     padding: 3px 6px;
     color: black;
     border-radius: 5px;
+  }
+  .send_message:hover{
+    opacity: 0.7;
   }
   .delete_mail{
     cursor: pointer;
@@ -83,6 +101,9 @@ $load = "<div class='overlay-loader'><div class='loader'><div></div><div></div><
     padding: 3px 6px;
     color: black;
     border-radius: 5px;
+  }
+  .add_mail:hover{
+    opacity: 0.7;
   }
   .name_mail{
     display: inline-block;
