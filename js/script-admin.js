@@ -161,7 +161,7 @@ jQuery(document).ready(function(){
         'id': t.closest(".delete_mail").attr("data-id")
       },
       function(result){
-        t.parent().detach();
+        jQuery(".content_warning_group").html(result);
       }
     );
   });
