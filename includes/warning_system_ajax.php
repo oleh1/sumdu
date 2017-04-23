@@ -171,10 +171,11 @@ function f_send_message()
 {
   $mail = $_POST['mails'];
   $message = $_POST['message'];
-  $subject = '[' . $_SERVER['HTTP_HOST'] . '] Test.';
-  $headers = 'From: No Answer <noanswer@' . $_SERVER['HTTP_HOST'] . '>' . "\r\n";
-
-  wp_mail('nansy.lapa@gmail.com', $subject, $message, $headers);
+//  $subject = '[' . $_SERVER['HTTP_HOST'] . '] Test.';
+  $subject = 'Єто от меня';
+//  $headers = 'From: No Answer <noanswer@' . $_SERVER['HTTP_HOST'] . '>' . "\r\n";
+  $headers = 'From: Тесттпамап <lyboleg@gmail.com>' . "\r\n";
+  wp_mail($mail, $subject, $message, $headers);
   
   wp_die();
 }
