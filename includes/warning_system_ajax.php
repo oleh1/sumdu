@@ -148,7 +148,11 @@ $load = "<div class='overlay-loader'><div class='loader'><div></div><div></div><
           <div class="mails">
             <div class="name_mail"><?php echo $result_m->sumdu_mail; ?></div><div data-id="<?php echo $result_m->id; ?>" class="delete_mail"><img src="<?php echo get_template_directory_uri(); ?>/images/warning_system/delete-mail.png"></div><br>
           </div>
-        <?php } ?>
+        <?php
+        }
+        $all_mails = implode(",", $all_mails);
+        var_dump($all_mails);
+        ?>
         <input data-id_group="<?php echo $result_g->id_group; ?>" class="add_mail_i" type="text">
         <div class="a_d"><div class="add_mail">Додати email</div></div>
         <div class="a_d"><textarea class="message" data-mails="<?php echo $all_mails ?>"></textarea></div>
