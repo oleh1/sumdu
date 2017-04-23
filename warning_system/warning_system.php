@@ -50,10 +50,10 @@ $load = "<div class='loader'><div></div><div></div><div></div><div></div><div></
         ?>
         <input data-id_group="<?php echo $result_g->id_group; ?>" class="add_mail_i" type="text">
         <div class="a_d"><div class="add_mail">Додати email</div></div>
-        <div><input type="text" class="subject_send" value="<?php echo get_option('subject_send-'.$result_g->id_group); ?>"></div>
-        <div><input type="text" class="name_send" value="<?php echo get_option('name_send-'.$result_g->id_group); ?>"></div>
-        <div><input type="text" class="mail_send" value="<?php echo get_option('mail_send-'.$result_g->id_group); ?>"></div>
-        <div class="a_d"><textarea class="message" data-mails="<?php echo $all_mails ?>"><?php echo get_option('message_send-'.$result_g->id_group); ?></textarea></div>
+        <div><input type="text" class="subject_send" placeholder="Тема" value="<?php echo get_option('subject_send-'.$result_g->id_group); ?>"></div>
+        <div><input type="text" class="name_send" placeholder="Ім'я" value="<?php echo get_option('name_send-'.$result_g->id_group); ?>"></div>
+        <div><input type="text" class="mail_send" placeholder="E-mail" value="<?php echo get_option('mail_send-'.$result_g->id_group); ?>"></div>
+        <div class="a_d"><textarea class="message" placeholder="Повідомлення" data-mails="<?php echo $all_mails ?>"><?php echo get_option('message_send-'.$result_g->id_group); ?></textarea></div>
         <div><div class="send_message">Відправити повідомлення</div></div>
         <div class="load_message"><?php echo $load; ?></div>
       </div>
@@ -125,6 +125,9 @@ $load = "<div class='loader'><div></div><div></div><div></div><div></div><div></
     opacity: 0.7;
   }
   .lo{
+    position: relative;
+    top: -9px;
+    left: -3px;
     display: none;
     float: left;
   }
