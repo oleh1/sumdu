@@ -137,6 +137,10 @@ jQuery(document).ready(function(){
 
   jQuery("body").on("click", ".add_mail",function(){
     var t = jQuery(this);
+    if( t.parent().prev().val() == '' ){
+      t.parent().prev().css('background', 'red');
+      return;
+    }
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
       ajaxurl,
@@ -168,6 +172,63 @@ jQuery(document).ready(function(){
 
   jQuery("body").on("click", ".send_message",function(){
     var t = jQuery(this);
+    var subject_send = t.parent().prev().prev().prev().prev().find( jQuery(".subject_send") );
+    var name_send = t.parent().prev().prev().prev().find( jQuery(".name_send") );
+    var mail_send = t.parent().prev().prev().find( jQuery(".mail_send") );
+    var message = t.parent().prev().find( jQuery(".message") );
+    // check(subject_send);
+    // check(name_send);
+    // check(mail_send);
+    // check(message);
+    if( subject_send.val() == '' ){
+      subject_send.css('background', 'red');
+      return;
+    }else{
+      subject_send.css('background', 'none');
+    }
+
+    if( name_send.val() == '' ){
+      name_send.css('background', 'red');
+      return;
+    }else{
+      name_send.css('background', 'none');
+    }
+
+    function isValidEmailAddress(emailAddress) {
+      var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+      return pattern.test(emailAddress);
+    }
+
+    if( !isValidEmailAddress(mail_send.val()) ){
+      mail_send.css('background', 'red');
+      return;
+    }else{
+      mail_send.css('background', 'none');
+    }
+
+    if( mail_send.val() == '' ){
+      mail_send.css('background', 'red');
+      return;
+    }else{
+      mail_send.css('background', 'none');
+    }
+
+
+
+    if( message.val() == '' ){
+      message.css('background', 'red');
+      return;
+    }else{
+      message.css('background', 'none');
+    }
+    /*function check(a) {
+      if( a.val() == '' ){
+        a.css('background', 'red');
+        return;
+      }else{
+        a.css('background', 'none');
+      }
+    }*/
     t.parent().next().show();
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
@@ -176,10 +237,10 @@ jQuery(document).ready(function(){
         'action': 'send_message',
         'mails': t.parent().prev().find( jQuery(".message") ).attr('data-mails'),
         'data-id_group': t.parent().prev().prev().prev().prev().prev().prev().attr('data-id_group'),
-        'subject_send': t.parent().prev().prev().prev().prev().find( jQuery(".subject_send") ).val(),
-        'name_send': t.parent().prev().prev().prev().find( jQuery(".name_send") ).val(),
-        'mail_send': t.parent().prev().prev().find( jQuery(".mail_send") ).val(),
-        'message': t.parent().prev().find( jQuery(".message") ).val()
+        'subject_send': subject_send.val(),
+        'name_send': name_send.val(),
+        'mail_send': mail_send.val(),
+        'message': message.val()
       },
       function(result){
         t.parent().next().hide();

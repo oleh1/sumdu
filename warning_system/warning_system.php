@@ -66,7 +66,7 @@ $load = "<div class='loader'><div></div><div></div><div></div><div></div><div></
 <style>
   .load_message {
     position: relative;
-    top: -44px;
+    top: -49px;
     display: none;
   }
   .message{
