@@ -50,6 +50,9 @@ $load = "<div class='loader'><div></div><div></div><div></div><div></div><div></
         ?>
         <input data-id_group="<?php echo $result_g->id_group; ?>" class="add_mail_i" type="text">
         <div class="a_d"><div class="add_mail">Додати email</div></div>
+        <div><input type="text" class="subject_send"></div>
+        <div><input type="text" class="name_send"></div>
+        <div><input type="text" class="mail_send"></div>
         <div class="a_d"><textarea class="message" data-mails="<?php echo $all_mails ?>"></textarea></div>
         <div><div class="send_message">Відправити повідомлення</div></div>
         <div class="load_message"><?php echo $load; ?></div>
@@ -92,7 +95,7 @@ $load = "<div class='loader'><div></div><div></div><div></div><div></div><div></
     width: 100%;
   }
   .a_d{
-    margin: 5px 0 0 0;
+    margin: 5px 0 5px 0;
   }
   .add_mail{
     display: initial;

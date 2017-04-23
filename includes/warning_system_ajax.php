@@ -189,11 +189,13 @@ add_action("wp_ajax_send_message", "f_send_message");
 add_action("wp_ajax_nopriv_send_message", "f_send_message");
 function f_send_message()
 {
-  $mail = $_POST['mails'];
+  $subject = $_POST['subject_send'];
+  $name_send = $_POST['name_send'];
+  $mail_send = $_POST['mail_send'];
+  $mails = $_POST['mails'];
   $message = $_POST['message'];
-  $subject = '[' . $_SERVER['HTTP_HOST'] . '] Test.';
-  $headers = 'From: No Answer <noanswer@' . $_SERVER['HTTP_HOST'] . '>' . "\r\n";
-  wp_mail($mail, $subject, $message, $headers);
+  $headers = 'From: ' . $name_send . ' <' . $mail_send . '>' . "\r\n";
+  wp_mail($mails, $subject, $message, $headers);
   
   wp_die();
 }
