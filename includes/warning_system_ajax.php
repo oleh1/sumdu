@@ -189,12 +189,19 @@ add_action("wp_ajax_send_message", "f_send_message");
 add_action("wp_ajax_nopriv_send_message", "f_send_message");
 function f_send_message()
 {
-  echo $_POST['data-id_group'];
+  $id_group = $_POST['data-id_group'];
+  
   $subject = $_POST['subject_send'];
   $name_send = $_POST['name_send'];
   $mail_send = $_POST['mail_send'];
   $mails = $_POST['mails'];
   $message = $_POST['message'];
+  
+  update_option('subject_send-'.$id_group, $subject);
+  update_option('name_send-'.$id_group, $name_send);
+  update_option('mail_send-'.$id_group, $mail_send);
+  update_option('message_send-'.$id_group, $message);
+  
   $headers = 'From: ' . $name_send . ' <' . $mail_send . '>' . "\r\n";
   wp_mail($mails, $subject, $message, $headers);
   
