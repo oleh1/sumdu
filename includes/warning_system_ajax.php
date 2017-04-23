@@ -43,15 +43,25 @@ function f_add_group()
           <div class="name_group">
             <?php echo $result_g->sumdu_group; ?>
           </div>
-          <?php foreach ($mail as $result_m) { ?>
+          <?php
+          $all_mails = array();
+          $i = 0;
+          foreach ($mail as $result_m) {
+            $all_mails[$i] = $result_m->sumdu_mail;
+            $i++;
+          ?>
             <div class="mails">
               <div class="name_mail"><?php echo $result_m->sumdu_mail; ?></div><div data-id="<?php echo $result_m->id; ?>" class="delete_mail"><img src="<?php echo get_template_directory_uri(); ?>/images/warning_system/delete-mail.png"></div><br>
             </div>
-          <?php } ?>
+          <?php
+          }
+          $all_mails = implode(",", $all_mails);
+          ?>
           <input data-id_group="<?php echo $result_g->id_group; ?>" class="add_mail_i" type="text">
           <div class="a_d"><div class="add_mail">Додати email</div></div>
-          <div class="a_d"><textarea class="message"></textarea></div>
+          <div class="a_d"><textarea class="message" data-mails="<?php echo $all_mails ?>"></textarea></div>
           <div><div class="send_message">Відправити повідомлення</div></div>
+          <div class="load_message"><?php echo $load; ?></div>
         </div>
         <?php
       }
@@ -128,15 +138,22 @@ $load = "<div class='overlay-loader'><div class='loader'><div></div><div></div><
         <div class="name_group">
           <?php echo $result_g->sumdu_group; ?>
         </div>
-        <?php foreach ($mail as $result_m) { ?>
+        <?php
+        $all_mails = array();
+        $i = 0;
+        foreach ($mail as $result_m) {
+          $all_mails[$i] = $result_m->sumdu_mail;
+          $i++;
+        ?>
           <div class="mails">
             <div class="name_mail"><?php echo $result_m->sumdu_mail; ?></div><div data-id="<?php echo $result_m->id; ?>" class="delete_mail"><img src="<?php echo get_template_directory_uri(); ?>/images/warning_system/delete-mail.png"></div><br>
           </div>
         <?php } ?>
         <input data-id_group="<?php echo $result_g->id_group; ?>" class="add_mail_i" type="text">
         <div class="a_d"><div class="add_mail">Додати email</div></div>
-        <div class="a_d"><textarea class="message"></textarea></div>
+        <div class="a_d"><textarea class="message" data-mails="<?php echo $all_mails ?>"></textarea></div>
         <div><div class="send_message">Відправити повідомлення</div></div>
+        <div class="load_message"><?php echo $load; ?></div>
       </div>
       <?php
     }
@@ -171,10 +188,8 @@ function f_send_message()
 {
   $mail = $_POST['mails'];
   $message = $_POST['message'];
-//  $subject = '[' . $_SERVER['HTTP_HOST'] . '] Test.';
-  $subject = 'Єто от меня';
-//  $headers = 'From: No Answer <noanswer@' . $_SERVER['HTTP_HOST'] . '>' . "\r\n";
-  $headers = 'From: Тесттпамап <lyboleg@gmail.com>' . "\r\n";
+  $subject = '[' . $_SERVER['HTTP_HOST'] . '] Test.';
+  $headers = 'From: No Answer <noanswer@' . $_SERVER['HTTP_HOST'] . '>' . "\r\n";
   wp_mail($mail, $subject, $message, $headers);
   
   wp_die();
