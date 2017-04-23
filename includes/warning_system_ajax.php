@@ -187,10 +187,11 @@ add_action("wp_ajax_nopriv_send_message", "f_send_message");
 function f_send_message()
 {
   $mail = $_POST['mails'];
+  echo $mail;
   $message = $_POST['message'];
   $subject = '[' . $_SERVER['HTTP_HOST'] . '] Test.';
   $headers = 'From: No Answer <noanswer@' . $_SERVER['HTTP_HOST'] . '>' . "\r\n";
-  wp_mail($mail, $subject, $message, $headers);
+  wp_mail('nansy.lapa@gmail.com', $subject, $message, $headers);
   
   wp_die();
 }
