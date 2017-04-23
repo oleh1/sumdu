@@ -189,6 +189,7 @@ add_action("wp_ajax_send_message", "f_send_message");
 add_action("wp_ajax_nopriv_send_message", "f_send_message");
 function f_send_message()
 {
+  echo $_POST['data-id_group'];
   $subject = $_POST['subject_send'];
   $name_send = $_POST['name_send'];
   $mail_send = $_POST['mail_send'];

@@ -175,12 +175,14 @@ jQuery(document).ready(function(){
       {
         'action': 'send_message',
         'mails': t.parent().prev().find( jQuery(".message") ).attr('data-mails'),
+        'data-id_group': t.parent().prev().prev().prev().prev().prev().prev().attr('data-id_group'),
         'subject_send': t.parent().prev().prev().prev().prev().find( jQuery(".subject_send") ).val(),
         'name_send': t.parent().prev().prev().prev().find( jQuery(".name_send") ).val(),
         'mail_send': t.parent().prev().prev().find( jQuery(".mail_send") ).val(),
         'message': t.parent().prev().find( jQuery(".message") ).val()
       },
       function(result){
+        alert(result);
         t.parent().next().hide();
       }
     );
