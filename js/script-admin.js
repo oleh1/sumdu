@@ -178,7 +178,6 @@ jQuery(document).ready(function(){
         'message': t.parent().prev().find( jQuery(".message") ).val()
       },
       function(result){
-        alert(result);
         t.parent().next().hide();
       }
     );
