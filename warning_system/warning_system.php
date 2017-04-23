@@ -47,6 +47,7 @@ $load = "<div class='loader'><div></div><div></div><div></div><div></div><div></
         <?php
         }
         $all_mails = implode(",", $all_mails);
+        var_dump($all_mails);
         ?>
         <input data-id_group="<?php echo $result_g->id_group; ?>" class="add_mail_i" type="text">
         <div class="a_d"><div class="add_mail">Додати email</div></div>
