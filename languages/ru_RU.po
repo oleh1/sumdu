@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sumdu v1.0\n"
-"POT-Creation-Date: 2017-03-23 00:21+0200\n"
-"PO-Revision-Date: 2017-03-23 00:22+0200\n"
+"POT-Creation-Date: 2017-05-10 16:11+0300\n"
+"PO-Revision-Date: 2017-05-10 16:14+0300\n"
 "Last-Translator: Oleh Kopytsia <lyboleg@gmail.com>\n"
 "Language-Team: Sumdu <lyboleg@gmail.com>\n"
 "Language: ru\n"
@@ -25,6 +25,10 @@ msgstr "Автор"
 #: ../single.php:17
 msgid "Дата публікації"
 msgstr "Дата публикации"
+
+#: ../category.php:30 ../index.php:30
+msgid "Ще не було жодного запису."
+msgstr "Еще не было ни одной записи."
 
 #: ../comments.php:9
 msgid "Ім'я"
@@ -89,6 +93,14 @@ msgstr ""
 "Вы можете использовать эти <abbr title=\"Язык разметки гипертекста\">HTML</"
 "abbr> теги и атрибуты: %s"
 
+#: ../footer.php:32
+msgid "Факультет електроніки та інформаційних технологій"
+msgstr "Факультет электроники и информационных технологий"
+
+#: ../footer.php:34
+msgid "Сумський Державний Університет"
+msgstr "Сумской Государственный Университет"
+
 #: ../functions.php:14
 msgid "Ліва бічна панель"
 msgstr "Левая боковая панель"
@@ -115,9 +127,13 @@ msgstr "%1$s в %2$s"
 msgid "Редагувати"
 msgstr "Редактировать"
 
-#: ../index.php:30
-msgid "Ще не було жодного запису."
-msgstr "Еще не было ни одной записи."
+#: ../functions.php:119
+msgid "База даних"
+msgstr "База данных"
+
+#: ../functions.php:131
+msgid "Система оповіщення"
+msgstr "Система оповещения"
 
 #: ../search.php:7
 #, php-format
