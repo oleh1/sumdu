@@ -15,3 +15,130 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
+
+#: ../category.php:16 ../index.php:16 ../page.php:16 ../search.php:30
+#: ../single.php:16
+msgid "Автор"
+msgstr "Автор"
+
+#: ../category.php:17 ../index.php:17 ../page.php:17 ../search.php:31
+#: ../single.php:17
+msgid "Дата публікації"
+msgstr "Дата публикации"
+
+#: ../comments.php:9
+msgid "Ім'я"
+msgstr "Имя"
+
+#: ../comments.php:15
+msgid "E-mail"
+msgstr "E-mail"
+
+#: ../comments.php:21
+msgid "Веб-сайт"
+msgstr "Веб-сайт"
+
+#: ../comments.php:31
+msgid "Залишити коментар"
+msgstr "Оставить комментарий"
+
+#: ../comments.php:32
+#, php-format
+msgid "Залишити відповідь до %s"
+msgstr "Оставить ответ на %s"
+
+#: ../comments.php:33
+msgid "Скасувати відповідь"
+msgstr "Отменить ответ"
+
+#: ../comments.php:34
+msgid "Оприлюднити коментар"
+msgstr "Обнародовать комментарий"
+
+#: ../comments.php:37
+msgctxt "sumdu"
+msgid "Коментар"
+msgstr "Комментарий"
+
+#: ../comments.php:43
+#, php-format
+msgid ""
+"Щоб відправити коментар вам необхідно <a href=\"%s\">авторизуватись</a>."
+msgstr ""
+"Для отправки комментария вам необходимо <a href=\"%s\">авторизоваться</a>."
+
+#: ../comments.php:49
+#, php-format
+msgid ""
+"Ви увійшли як <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Вийти з "
+"цього аккаунта\">Вийти?</a>"
+msgstr ""
+"Вы вошли как <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Выйти из "
+"этого аккаунта\">Выйти?</a>"
+
+#: ../comments.php:56
+msgid "Ваша e-mail адреса не оприлюднюватиметься."
+msgstr "Ваш e-mail адрес не обнародуется."
+
+#: ../comments.php:61
+#, php-format
+msgid ""
+"Ви можете використовувати ці <abbr title=\"Мова розмітки гіпертексту\">HTML</"
+"abbr> теги і атрибути: %s"
+msgstr ""
+"Вы можете использовать эти <abbr title=\"Язык разметки гипертекста\">HTML</"
+"abbr> теги и атрибуты: %s"
+
+#: ../functions.php:14
+msgid "Ліва бічна панель"
+msgstr "Левая боковая панель"
+
+#: ../functions.php:71
+#, php-format
+msgid ""
+"<cite class=\"fn comment_name\">%s</cite> <span class=\"says\">говорить:</"
+"span>"
+msgstr ""
+"<cite class=\"fn comment_name\">%s</cite> <span class=\"says\">говорит:</"
+"span>"
+
+#: ../functions.php:75
+msgid "Ваш коментар очікує модерації."
+msgstr "Ваш комментарий ожидает модерации."
+
+#: ../functions.php:85
+#, php-format
+msgid "%1$s в %2$s"
+msgstr "%1$s в %2$s"
+
+#: ../functions.php:90
+msgid "Редагувати"
+msgstr "Редактировать"
+
+#: ../index.php:30
+msgid "Ще не було жодного запису."
+msgstr "Еще не было ни одной записи."
+
+#: ../search.php:7
+#, php-format
+msgid "Результати пошуку за запитом: %s"
+msgstr "Результаты поиска по запросу: %s"
+
+#: ../search.php:11
+msgid "Знайдено результатів: "
+msgstr "Найдено результатов: "
+
+#: ../searchform.php:3
+msgid "Пошук"
+msgstr "Поиск"
+
+#: ../searchform.php:4
+msgid "Шукати"
+msgstr "Искать"
+
+#~ msgid ""
+#~ "Ви можете використовувати ці <abbr title=\"HyperText Markup Language"
+#~ "\">HTML</abbr> теги і атрибути: %s"
+#~ msgstr ""
+#~ "Вы можете использовать эти <abbr title=\"HyperText Markup Language"
+#~ "\">HTML</abbr> теги и атрибуты: %s"

@@ -133,3 +133,6 @@ msgstr "Search"
 #: ../searchform.php:4
 msgid "Шукати"
 msgstr "Search"
+
+#~ msgid "Результати пошуку для: %s"
+#~ msgstr "Search results for: %s"
