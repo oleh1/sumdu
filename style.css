@@ -326,7 +326,33 @@ h1{
   height: 70px;
   background: #D4E7EE;
 }
+.logo2{
+  height: 100%;
+  margin: -5px 0 0 0;
+}
+.logo3{
+  margin: 0 5px 52px 108px;
+}
+.footer_cen{
+  height: 100%;
+}
+.text_footer{
+  position: relative;
+  top: -23px;
+  color: #337ab7;
+  font-size: 16pt;
+  font-weight: bold;
+}
+.i_line{
+  display: inline-block;
+}
 /*footer*/
+
+/*simple-ajax-shoutbox*/
+#ajax_shoutbox-2{
+  list-style-type: none;
+}
+/*simple-ajax-shoutbox*/
 
 /*grid*/
 *{

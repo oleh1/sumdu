@@ -99,20 +99,20 @@ function sumdu_comment($comment, $args, $depth){
 }
 
 /*disabled update wordpress*/
-//add_filter('pre_site_transient_update_core',create_function('$a', "return null;"));
-//wp_clear_scheduled_hook('wp_version_check');
+add_filter('pre_site_transient_update_core',create_function('$a', "return null;"));
+wp_clear_scheduled_hook('wp_version_check');
 /*disabled update wordpress*/
 
 /*disabled update plugins*/
-//remove_action( 'load-update-core.php', 'wp_update_plugins' );
-//add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
-//wp_clear_scheduled_hook( 'wp_update_plugins' );
+remove_action( 'load-update-core.php', 'wp_update_plugins' );
+add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
+wp_clear_scheduled_hook( 'wp_update_plugins' );
 /*disabled update plugins*/
 
 /*disabled update themes*/
-//remove_action('load-update-core.php','wp_update_themes');
-//add_filter('pre_site_transient_update_themes',create_function('$a', "return null;"));
-//wp_clear_scheduled_hook('wp_update_themes');
+remove_action('load-update-core.php','wp_update_themes');
+add_filter('pre_site_transient_update_themes',create_function('$a', "return null;"));
+wp_clear_scheduled_hook('wp_update_themes');
 /*disabled update themes*/
 
 add_action('admin_menu', function(){
