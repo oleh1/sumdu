@@ -25,6 +25,7 @@ h1{
 
 #header .logo{
   float: left;
+  margin: 5px 0 0 0;
 }
 
 #header .name_site{

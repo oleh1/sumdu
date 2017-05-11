@@ -8,9 +8,7 @@
 <body>
 <header id="header">
     <div class="logo">
-        <a href="<?php get_home_url(); ?>">
-            <?php if(has_custom_logo()) the_custom_logo(); ?>
-        </a>
+        <?php if(has_custom_logo()) the_custom_logo(); ?>
     </div>
     <div class="name_site">
         <a href="<?php get_home_url(); ?>">

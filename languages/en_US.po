@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sumdu v1.0\n"
-"POT-Creation-Date: 2017-05-10 16:23+0300\n"
-"PO-Revision-Date: 2017-05-10 17:12+0300\n"
+"POT-Creation-Date: 2017-05-11 17:10+0300\n"
+"PO-Revision-Date: 2017-05-11 17:19+0300\n"
 "Last-Translator: Oleh Kopytsia <lyboleg@gmail.com>\n"
 "Language-Team: Sumdu <lyboleg@gmail.com>\n"
 "Language: en\n"
@@ -132,6 +132,31 @@ msgstr "Database"
 #: ../functions.php:131
 msgid "Система оповіщення"
 msgstr "Warning system"
+
+#: ../list_themes/list_themes_bachelor.php:17
+#: ../list_themes/list_themes_master.php:17
+msgid "Виберіть свою групу"
+msgstr "Select your group"
+
+#: ../list_themes/list_themes_bachelor.php:25
+#: ../list_themes/list_themes_master.php:25
+msgid "Студент"
+msgstr "Student"
+
+#: ../list_themes/list_themes_bachelor.php:26
+#: ../list_themes/list_themes_master.php:26
+msgid "Тема"
+msgstr "Theme"
+
+#: ../list_themes/list_themes_bachelor.php:27
+#: ../list_themes/list_themes_master.php:27
+msgid "Керівник"
+msgstr "Supervisor"
+
+#: ../list_themes/list_themes_bachelor.php:28
+#: ../list_themes/list_themes_master.php:28
+msgid "Рецензент"
+msgstr "Reviewer"
 
 #: ../search.php:7
 #, php-format
