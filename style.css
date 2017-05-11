@@ -300,6 +300,27 @@ h1{
 }
 /*comment*/
 
+/*table_style*/
+.table_style{
+  word-break: normal;
+  margin: 10px 0 0 0;
+}
+.table_style th{
+  padding: 0 1px;
+  background: #E3F2FD;
+  font-size: 12px;
+  text-align: center;
+  border: 1px solid darkgreen;
+}
+.table_style td{
+  padding: 0 1px;
+  background: rgba(9, 212, 0, 0.04);
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid darkgreen;
+}
+/*table_style*/
+
 /*comment form*/
 .comment_form_text{
   max-width: 875px;
@@ -327,11 +348,10 @@ h1{
   background: #D4E7EE;
 }
 .logo2{
-  height: 100%;
   margin: -5px 0 0 0;
 }
 .logo3{
-  margin: 0 5px 52px 108px;
+  margin: 0 5px 52px 8px;
 }
 .footer_cen{
   height: 100%;

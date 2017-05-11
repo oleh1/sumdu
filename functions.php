@@ -135,5 +135,9 @@ function warning_system(){
 }
 include 'includes/warning_system_ajax.php';
 
-
+add_shortcode('list_themes_bachelor', 'list_themes_bachelor');
+function list_themes_bachelor(){
+  include 'list_themes/list_themes_bachelor.php';
+  return $result;
+}
 ?>

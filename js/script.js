@@ -18,7 +18,13 @@ jQuery(document).ready(function(){
     })
   }
   /*reply_p*/
-  
+
+  /*table_style delete date and author*/
+  if(jQuery(".table_style")){
+    jQuery(".table_style").parent().next().detach();
+    jQuery(".table_style").parent().next().detach();
+  }
+  /*table_style delete date and author*/
 });
 
 
