@@ -3,7 +3,7 @@
 global $wpdb_dek;
 $student = 'student';
 $members = 'members';
-$bachelor = $wpdb_dek->get_results("SELECT `group` FROM $student WHERE id_qualification = 1");
+$bachelor = $wpdb_dek->get_results("SELECT `group` FROM $student WHERE id_qualification = 3");
 $groups = array();
 $i = 0;
 foreach($bachelor as $r){
@@ -15,11 +15,11 @@ $groups = array_unique($groups);
 $result = $loader;
 $result .= '
   <div class="s_g">Виберіть свою групу 
-  <select data-level="1" class="group_select">';
+  <select data-level="3" class="group_select">';
 foreach($groups as $g){
-      $result .= '<option value="'.$g.'">'.$g.'</option>';
-    }
-  $result .= '</select></div>
+  $result .= '<option value="'.$g.'">'.$g.'</option>';
+}
+$result .= '</select></div>
   <table class="table_style">
   <tr>
     <th>Студент</th>

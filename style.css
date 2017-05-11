@@ -306,21 +306,21 @@ h1{
   margin: 10px 0 0 0;
 }
 .table_style th{
-  padding: 0 1px;
+  padding: 0 3px;
   background: #E3F2FD;
   font-size: 12px;
   text-align: center;
   border: 1px solid darkgreen;
 }
 .table_style td{
-  padding: 0 1px;
+  padding: 0 3px;
   background: rgba(9, 212, 0, 0.04);
   font-size: 14px;
   text-align: center;
   border: 1px solid darkgreen;
 }
-.table_style .l{
-  display: none;
+.s_g{
+  margin: 10px 0 0 0;
 }
 /*table_style*/
 
@@ -377,12 +377,22 @@ h1{
 }
 /*simple-ajax-shoutbox*/
 
+/*all*/
+.l_b_m{
+  display: none;
+  position: absolute;
+}
+.l{
+  left: 194px;
+  position: relative;
+  top: 12.5px;
+}
 .loader {
-  /*position: absolute;*/
-  /*top: 0;*/
-  /*left: 0;*/
-  /*right: 0;*/
-  /*bottom: 0;*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   margin: auto;
   width: 52px;
   height: 52px;
@@ -514,6 +524,7 @@ h1{
     -moz-transform: rotate(0deg);
   }
 }
+/*all*/
 
 /*grid*/
 *{

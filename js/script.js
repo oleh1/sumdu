@@ -27,7 +27,7 @@ jQuery(document).ready(function(){
 
   jQuery(".group_select").change(function () {
     jQuery('.data_table_themes').detach();
-    jQuery('.table_style .l').css({'display':'block'});
+    jQuery('.l_b_m').css({'display':'block'});
     var t = jQuery(this);
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
@@ -38,7 +38,7 @@ jQuery(document).ready(function(){
         'level': t.attr('data-level')
       },
       function(result){
-        jQuery('.table_style .l').css({'display':'none'});
+        jQuery('.l_b_m').css({'display':'none'});
         jQuery('.data_table_themes').detach();
         jQuery('.table_style > tbody').append(result);
       }
