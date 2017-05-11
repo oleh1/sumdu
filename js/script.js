@@ -26,19 +26,24 @@ jQuery(document).ready(function(){
   }
 
   jQuery(".group_select").change(function () {
+    jQuery('.data_table_themes').detach();
+    jQuery('.table_style .l').css({'display':'block'});
     var t = jQuery(this);
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
       ajaxurl,
       {
-        'action': 'group_select',
-        'group': t
+        'action': 'group_select_bachelor_master',
+        'group': t.val(),
+        'level': t.attr('data-level')
       },
       function(result){
-
+        jQuery('.table_style .l').css({'display':'none'});
+        jQuery('.data_table_themes').detach();
+        jQuery('.table_style > tbody').append(result);
       }
     );
-  });
+  }).trigger("change");
   /*list_themes*/
 });
 

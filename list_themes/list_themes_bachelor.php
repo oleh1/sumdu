@@ -13,9 +13,9 @@ foreach($bachelor as $r){
 $groups = array_unique($groups);
 $result = '
   Виберіть свою групу 
-  <select class="group_select">';
+  <select data-level="1" class="group_select">';
 foreach($groups as $g){
-      $result .= '<option value="'.$g.'">'.$g.'</option>';
+      $result .= '<option data-level="1" value="'.$g.'">'.$g.'</option>';
     }
   $result .= '</select>
   <table class="table_style">
@@ -25,20 +25,9 @@ foreach($groups as $g){
     <th>Керівник</th>
     <th>Рецензент</th>
   </tr>
-  ';
-foreach($bachelor as $r){
-  $result .= '
-       <tr class="data_table_themes">
-       <td>'.$r->surname_s.' '.$r->name_s.' '.$r->middle_name_s.'</td>'.
-    '<td>'.$r->topic.'</td>'.
-    '<td>'.$r->surname_head.' '.$r->name_head.' '.$r->middle_name_head.'</td>'.
-    '<td>'.$r->surname_reviewer.' '.$r->name_reviewer.' '.$r->middle_name_reviewer.'</td>
-       </tr>';
-}
-$result .= '</table>';
+  <tr class="l"><td colspan="4"><div class="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></td></tr>
+';
 
-//  echo '<pre>';
-//  var_dump($bachelor);
-//  echo '</pre>';
+$result .= '</table>';
 
 ?>
