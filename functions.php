@@ -140,4 +140,5 @@ function list_themes_bachelor(){
   include 'list_themes/list_themes_bachelor.php';
   return $result;
 }
+include 'includes/list_themes_bachelor_master_ajax.php';
 ?>
