@@ -147,4 +147,93 @@ function list_themes_master(){
   return $result;
 }
 include 'includes/list_themes_bachelor_master_ajax.php';
+
+//remove_role( 'student' );
+
+function add_roles(){
+add_role(
+  'student',
+  'Студент',
+  array(
+//            'switch_themes' => true,
+//            'edit_themes' => true,
+//            'activate_plugins' => true,
+//            'edit_plugins' => true,
+//            'edit_users' => true,
+//            'edit_files' => true,
+//            'manage_options' => true,
+//            'moderate_comments' => true,
+//            'manage_categories' => true,
+//            'manage_links' => true,
+//            'upload_files' => true,
+//            'import' => true,
+//            'unfiltered_html' => true,
+            'edit_posts' => true,
+//            'edit_others_posts' => true,
+//            'edit_published_posts' => true,
+//            'publish_posts' => true,
+//            'edit_pages' => true,
+            'read' =>  true,
+//            'level_10' => true,
+//            'level_9' => true,
+//            'level_8' => true,
+//            'level_7' => true,
+//            'level_6' => true,
+//            'level_5' => true,
+//            'level_4' => true,
+//            'level_3' => true,
+//            'level_2' => true,
+//            'level_1' => true,
+//            'level_0' => true,
+//            'edit_others_pages' => true,
+//            'edit_published_pages' => true,
+//            'publish_pages' => true,
+//            'delete_pages' => true,
+//            'delete_others_pages' => true,
+//            'delete_published_pages' => true,
+//            'delete_posts' => true,
+//            'delete_others_posts' => true,
+//            'delete_published_posts' => true,
+//            'delete_private_posts' => true,
+//            'edit_private_posts' => true,
+//            'read_private_posts' => true,
+//            'delete_private_pages' => true,
+//            'edit_private_pages' => true,
+//            'read_private_pages' => true,
+//            'delete_users' => true,
+//            'create_users' => true,
+//            'unfiltered_upload' => true,
+//            'edit_dashboard' => true,
+//            'update_plugins' => true,
+//            'delete_plugins' => true,
+//            'install_plugins' => true,
+//            'update_themes' => true,
+//            'install_themes' => true,
+//            'update_core' => true,
+//            'list_users' => true,
+//            'remove_users' => true,
+//            'promote_users' => true,
+//            'edit_theme_options' => true,
+//            'delete_themes' => true,
+//            'export' => true
+  )
+);
+}
+add_action( 'load-themes.php', 'add_roles' );
+
+//$my_role = get_role( 'administrator' ); // указываем роль, которая нам нужна
+//echo '<pre>';
+//print_r( $my_role ); // так можно вывести содержимое объекта
+//echo '</pre>';
+
+$cur_user_id = get_current_user_id();
+$roles = get_userdata($cur_user_id)->roles[1];
+
+if($roles == 'student'){
+  add_action( 'admin_menu', 'remove_menu' );
+  function remove_menu() {
+    remove_menu_page('tools.php');
+  }
+}
+
 ?>
