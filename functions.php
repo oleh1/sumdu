@@ -115,6 +115,7 @@ add_filter('pre_site_transient_update_themes',create_function('$a', "return null
 wp_clear_scheduled_hook('wp_update_themes');
 /*disabled update themes*/
 
+/*data_base*/
 add_action('admin_menu', function(){
   add_menu_page(__('База даних', 'sumdu'), __('База даних', 'sumdu'), 'manage_options', 'data_base', 'data_base', '', 81);
 } );
@@ -126,7 +127,9 @@ function data_base(){
   include 'data_table/data_table.php';
 }
 include 'includes/data_table_ajax.php';
+/*data_base*/
 
+/*warning_system*/
 add_action('admin_menu', function(){
   add_menu_page(__('Система оповіщення', 'sumdu'), __('Система оповіщення', 'sumdu'), 'manage_options', 'warning_system', 'warning_system', '', 82);
 } );
@@ -134,7 +137,9 @@ function warning_system(){
   include 'warning_system/warning_system.php';
 }
 include 'includes/warning_system_ajax.php';
+/*warning_system*/
 
+/*list_themes_bachelor_master*/
 add_shortcode('list_themes_bachelor', 'list_themes_bachelor');
 function list_themes_bachelor(){
   include 'list_themes/list_themes_bachelor.php';
@@ -147,7 +152,9 @@ function list_themes_master(){
   return $result;
 }
 include 'includes/list_themes_bachelor_master_ajax.php';
+/*list_themes_bachelor_master*/
 
+/*roles*/
 //remove_role( 'student' );
 
 function add_roles(){
@@ -235,5 +242,7 @@ if($roles == 'student'){
     remove_menu_page('tools.php');
   }
 }
+/*roles*/
+
 
 ?>
