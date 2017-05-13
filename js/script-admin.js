@@ -252,6 +252,7 @@ jQuery(document).ready(function(){
   /*protection_schedule*/
   jQuery("body").on("click", ".add_date_time",function(){
     var t = jQuery(this);
+    var l = t.prev().attr('data-level');
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
       ajaxurl,
@@ -259,12 +260,27 @@ jQuery(document).ready(function(){
         'action': 'add_date_time',
         'name': t.prev().val(),
         'user_id': t.prev().attr('data-user_id'),
-        'level': t.prev().attr('data-level'),
+        'level': l,
         'time': t.prev().prev().prev().val(),
         'date': t.prev().prev().prev().prev().prev().val()
       },
       function(result){
-        alert(result);
+
+        jQuery('.data_table_themes_p_'+l).detach();
+        jQuery('.l_b_m').css({'display':'block'});
+        ajaxurl = '/wp-admin/admin-ajax.php';
+        jQuery.post(
+          ajaxurl,
+          {
+            'action': 'group_select_protection_schedule_'+l+'2',
+            'group': t.attr('data-g')
+          },
+          function(result){
+            jQuery('.l_b_m').css({'display':'none'});
+            jQuery('.data_table_themes_p_'+l).detach();
+            jQuery('.table_style_p_'+l+' > tbody').append(result);
+          });
+        
       }
     );
   });
@@ -287,7 +303,7 @@ jQuery(document).ready(function(){
     );
   }).trigger("change");
   
-  /*jQuery(".group_select_p_b").change(function () {
+  jQuery(".group_select_p_b").change(function () {
     jQuery('.data_table_themes_p_b').detach();
     jQuery('.l_b_m').css({'display':'block'});
     var t = jQuery(this);
@@ -295,7 +311,7 @@ jQuery(document).ready(function(){
     jQuery.post(
       ajaxurl,
       {
-        'action': 'group_select_protection_schedule_b',
+        'action': 'group_select_protection_schedule_b2',
         'group': t.val()
       },
       function(result){
@@ -304,7 +320,7 @@ jQuery(document).ready(function(){
         jQuery('.table_style_p_b > tbody').append(result);
       }
     );
-  }).trigger("change");*/
+  }).trigger("change");
 
   jQuery(".group_select_p_m").change(function () {
     jQuery('.l_b_m').css({'display':'block'});
@@ -320,6 +336,25 @@ jQuery(document).ready(function(){
         jQuery('.l_b_m').css({'display':'none'});
         jQuery('.f_m').detach();
         jQuery('.s_g_p_m').after(result);
+      }
+    );
+  }).trigger("change");
+
+  jQuery(".group_select_p_m").change(function () {
+    jQuery('.data_table_themes_p_m').detach();
+    jQuery('.l_b_m').css({'display':'block'});
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'group_select_protection_schedule_m2',
+        'group': t.val()
+      },
+      function(result){
+        jQuery('.l_b_m').css({'display':'none'});
+        jQuery('.data_table_themes_p_m').detach();
+        jQuery('.table_style_p_m > tbody').append(result);
       }
     );
   }).trigger("change");

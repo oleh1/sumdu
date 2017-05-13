@@ -22,6 +22,8 @@ foreach($groups as $g){
 $result .= '</select></div>
   <table class="table_style_p_m">
   <tr>
+    <th>Дата</th>
+    <th>Час</th>
     <th>Студент</th>
     <th>Тема</th>
     <th>Керівник</th>
