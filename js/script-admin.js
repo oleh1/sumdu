@@ -251,6 +251,24 @@ jQuery(document).ready(function(){
 
   /*protection_schedule*/
   jQuery(".group_select_p_b").change(function () {
+    jQuery('.l_b_m').css({'display':'block'});
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'group_select_protection_schedule_b',
+        'group': t.val()
+      },
+      function(result){
+        jQuery('.l_b_m').css({'display':'none'});
+        jQuery('.f_b').detach();
+        jQuery('.s_g_p_b').after(result);
+      }
+    );
+  }).trigger("change");
+  
+  /*jQuery(".group_select_p_b").change(function () {
     jQuery('.data_table_themes_p_b').detach();
     jQuery('.l_b_m').css({'display':'block'});
     var t = jQuery(this);
@@ -267,10 +285,9 @@ jQuery(document).ready(function(){
         jQuery('.table_style_p_b > tbody').append(result);
       }
     );
-  }).trigger("change");
+  }).trigger("change");*/
 
   jQuery(".group_select_p_m").change(function () {
-    jQuery('.data_table_themes_p_m').detach();
     jQuery('.l_b_m').css({'display':'block'});
     var t = jQuery(this);
     ajaxurl = '/wp-admin/admin-ajax.php';
@@ -282,8 +299,8 @@ jQuery(document).ready(function(){
       },
       function(result){
         jQuery('.l_b_m').css({'display':'none'});
-        jQuery('.data_table_themes_p_m').detach();
-        jQuery('.table_style_p_m > tbody').append(result);
+        jQuery('.f_m').detach();
+        jQuery('.s_g_p_m').after(result);
       }
     );
   }).trigger("change");

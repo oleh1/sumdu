@@ -14,6 +14,14 @@
 </div>
 
 <style>
+  .s{
+    padding-top: inherit;
+  }
+  
+  .p{
+    cursor: pointer;
+  }
+  
   .table_style_p_b,
   .table_style_p_m{
     word-break: normal;
@@ -70,3 +78,10 @@
     background: seagreen;
   }
 </style>
+
+<?php
+if($l = $_POST['level']){
+  global $wpdb;
+  $wpdb->insert('sumdu_protection_schedule_'.$l, array("id" => '', "sumdu_group" => $text, "id_group" => $id), array("%d", "%s", "%d"));
+}
+?>

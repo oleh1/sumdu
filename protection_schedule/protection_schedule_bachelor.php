@@ -23,7 +23,6 @@ $result .= '</select></div>
   <table class="table_style_p_b">
   <tr>
     <th>Студент</th>
-    <th>Група</th>
     <th>Тема</th>
     <th>Керівник</th>
     <th>Рецензент</th>
