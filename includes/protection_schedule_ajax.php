@@ -11,20 +11,17 @@ function f_group_select_protection_schedule_b()
   $members = 'members';
   $bachelor = $wpdb_dek->get_results("SELECT s.surname AS surname_s, s.`name` AS name_s, s.middle_name AS middle_name_s, topic, `group`, head.surname AS surname_head, head.`name` AS name_head, head.middle_name AS middle_name_head, reviewer.surname AS surname_reviewer, reviewer.`name` AS name_reviewer, reviewer.middle_name AS middle_name_reviewer FROM $student AS s LEFT JOIN $members AS head ON (head.id_member = s.id_head) LEFT JOIN $members AS reviewer ON (reviewer.id_member = s.id_reviewer) WHERE s.id_qualification = 1 AND `group` = '{$group}'");
 
-  $result = '<div class="f_b"><form method="POST" action="">
-      <input type="hidden" name="level" value="b">
-      <input type="hidden" name="user_id" value="'.$cur_user_id.'">
-      <b>Дата</b> <input name="date" class="p" type="date"> 
-      <b>Час</b> <input name="time" class="p" type="time"> 
-      <b>П.І.П</b> <select name="name" class="s_name_b p">';
+  $result = '<div class="f_b">
+      <b>Дата</b> <input class="p" type="date"> 
+      <b>Час</b> <input class="p" type="time"> 
+      <b>П.І.П</b> <select class="s_name_b p" data-user_id="'.$cur_user_id.'" data-level="b">';
   foreach($bachelor as $r){
     $result .= '
         <option value="'.$r->surname_s.' '.$r->name_s.' '.$r->middle_name_s.'|+|'.$r->topic.'|+|'.$r->surname_head.' '.$r->name_head.' '.$r->middle_name_head.'|+|'.$r->surname_reviewer.' '.$r->name_reviewer.' '.$r->middle_name_reviewer.'|+|'.$r->group.'">'.$r->surname_s.' '.$r->name_s.' '.$r->middle_name_s.'</option>
       ';
   }
   $result .= '</select> 
-    <input class="p s" type="submit" value="Додати">
-    </form></div>';
+    <button class="p add_date_time">Додати</button></div>';
   echo $result;
   wp_die();
 }
@@ -40,21 +37,38 @@ function f_group_select_protection_schedule_m()
   $members = 'members';
   $master = $wpdb_dek->get_results("SELECT s.surname AS surname_s, s.`name` AS name_s, s.middle_name AS middle_name_s, topic, `group`, head.surname AS surname_head, head.`name` AS name_head, head.middle_name AS middle_name_head, reviewer.surname AS surname_reviewer, reviewer.`name` AS name_reviewer, reviewer.middle_name AS middle_name_reviewer FROM $student AS s LEFT JOIN $members AS head ON (head.id_member = s.id_head) LEFT JOIN $members AS reviewer ON (reviewer.id_member = s.id_reviewer) WHERE s.id_qualification = 3 AND `group` = '{$group}'");
 
-  $result = '<div class="f_m"><form method="POST" action="">
-      <input type="hidden" name="level" value="m">
-      <input type="hidden" name="user_id" value="'.$cur_user_id.'">
-      <b>Дата</b> <input name="date" class="p" type="date"> 
-      <b>Час</b> <input name="time" class="p" type="time"> 
-      <b>П.І.П</b> <select name="name" class="s_name_m p">';
+  $result = '<div class="f_m">
+      <b>Дата</b> <input class="p" type="date"> 
+      <b>Час</b> <input class="p" type="time"> 
+      <b>П.І.П</b> <select class="s_name_m p" data-user_id="'.$cur_user_id.'" data-level="b">';
   foreach($master as $r){
     $result .= '
         <option value="'.$r->surname_s.' '.$r->name_s.' '.$r->middle_name_s.'|+|'.$r->topic.'|+|'.$r->surname_head.' '.$r->name_head.' '.$r->middle_name_head.'|+|'.$r->surname_reviewer.' '.$r->name_reviewer.' '.$r->middle_name_reviewer.'|+|'.$r->group.'">'.$r->surname_s.' '.$r->name_s.' '.$r->middle_name_s.'</option>
       ';
   }
   $result .= '</select> 
-    <input class="p s" type="submit" value="Додати">
-    </form></div>';
+    <button class="p add_date_time">Додати</button></div>';
   echo $result;
+  wp_die();
+}
+
+add_action("wp_ajax_add_date_time", "f_add_date_time");
+add_action("wp_ajax_nopriv_add_date_time", "f_add_date_time");
+function f_add_date_time()
+{
+  $l = $_POST['level'];
+  $user_id = $_POST['user_id'];
+  $date = $_POST['date'];
+  $time = $_POST['time'];
+  $name_data = explode('|+|', $_POST['name']);
+  $name = $name_data[0];
+  $theme = $name_data[1];
+  $head = $name_data[2];
+  $reviewer = $name_data[3];
+  $group = $name_data[4];
+  global $wpdb;
+  $wpdb->insert('sumdu_protection_schedule_'.$l, array("id" => '', "name_".$l => $name, "theme_".$l => $theme, "head_".$l => $head, "reviewer_".$l => $reviewer, "date_".$l => $date, "time_".$l => $time, "group_".$l => $group, "user_id" => $user_id), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d"));
+
   wp_die();
 }
 

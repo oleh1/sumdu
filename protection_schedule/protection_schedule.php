@@ -14,7 +14,7 @@
 </div>
 
 <style>
-  .s{
+  .add_date_time{
     padding-top: inherit;
   }
   
@@ -78,19 +78,3 @@
     background: seagreen;
   }
 </style>
-
-<?php
-if($l = $_POST['level']){
-  $user_id = $_POST['user_id'];
-  $date = $_POST['date'];
-  $time = $_POST['time'];
-  $name_data = explode('|+|', $_POST['name']);
-  $name = $name_data[0];
-  $theme = $name_data[1];
-  $head = $name_data[2];
-  $reviewer = $name_data[3];
-  $group = $name_data[4];
-  global $wpdb;
-  $wpdb->insert('sumdu_protection_schedule_'.$l, array("id" => '', "name_".$l => $name, "theme_".$l => $theme, "head_".$l => $head, "reviewer_".$l => $reviewer, "date_".$l => $date, "time_".$l => $time, "group_".$l => $group, "user_id" => $user_id), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d"));
-}
-?>

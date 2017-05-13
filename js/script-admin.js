@@ -250,6 +250,25 @@ jQuery(document).ready(function(){
   /*warning_system*/
 
   /*protection_schedule*/
+  jQuery("body").on("click", ".add_date_time",function(){
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'add_date_time',
+        'name': t.prev().val(),
+        'user_id': t.prev().attr('data-user_id'),
+        'level': t.prev().attr('data-level'),
+        'time': t.prev().prev().prev().val(),
+        'date': t.prev().prev().prev().prev().prev().val()
+      },
+      function(result){
+        alert(result);
+      }
+    );
+  });
+  
   jQuery(".group_select_p_b").change(function () {
     jQuery('.l_b_m').css({'display':'block'});
     var t = jQuery(this);
