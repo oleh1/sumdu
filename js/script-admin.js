@@ -266,6 +266,10 @@ jQuery(document).ready(function(){
       },
       function(result){
 
+        if(result == 1){
+          t.css({'background':'red'});
+        }
+
         jQuery('.data_table_themes_p_'+l).detach();
         jQuery('.l_b_m').css({'display':'block'});
         ajaxurl = '/wp-admin/admin-ajax.php';

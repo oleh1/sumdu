@@ -69,8 +69,13 @@ function f_add_date_time()
   $reviewer = $name_data[3];
   $group = $name_data[4];
   global $wpdb;
-  $wpdb->insert('sumdu_protection_schedule_'.$l, array("id" => '', "name_".$l => $name, "theme_".$l => $theme, "head_".$l => $head, "reviewer_".$l => $reviewer, "date_".$l => $date, "time_".$l => $time, "group_".$l => $group, "user_id" => $user_id), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d"));
 
+  $r = $wpdb->get_results("SELECT * FROM sumdu_protection_schedule_".$l." WHERE group_".$l." = '{$group}' AND user_id = '{$user_id}'");
+  if($r == null) {
+    $wpdb->insert('sumdu_protection_schedule_' . $l, array("id" => '', "name_" . $l => $name, "theme_" . $l => $theme, "head_" . $l => $head, "reviewer_" . $l => $reviewer, "date_" . $l => $date, "time_" . $l => $time, "group_" . $l => $group, "user_id" => $user_id), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d"));
+  }else{
+    echo '1';
+  }
   wp_die();
 }
 
@@ -84,7 +89,7 @@ function f_group_select_protection_schedule_b2()
 
   foreach ($result as $r){
     ?>
-    <tr class="data_table_themes_p_b">
+    <tr class="data_table_themes_p_b color_<?php echo $r->user_id; ?>">
       <td><?php echo $r->date_b; ?></td>
       <td><?php echo $r->time_b; ?></td>
       <td><?php echo $r->name_b; ?></td>
@@ -108,7 +113,7 @@ function f_group_select_protection_schedule_m2()
 
   foreach ($result as $r){
     ?>
-    <tr class="data_table_themes_p_m">
+    <tr class="data_table_themes_p_m color_<?php echo $r->user_id; ?>">
       <td><?php echo $r->date_m; ?></td>
       <td><?php echo $r->time_m; ?></td>
       <td><?php echo $r->name_m; ?></td>
