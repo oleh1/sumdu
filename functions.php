@@ -177,7 +177,7 @@ add_role(
 //            'unfiltered_html' => true,
             'edit_posts' => true,
 //            'edit_others_posts' => true,
-//            'edit_published_posts' => true,
+            'edit_published_posts' => true,
 //            'publish_posts' => true,
 //            'edit_pages' => true,
             'read' =>  true,
@@ -198,9 +198,9 @@ add_role(
 //            'delete_pages' => true,
 //            'delete_others_pages' => true,
 //            'delete_published_pages' => true,
-//            'delete_posts' => true,
+            'delete_posts' => true,
 //            'delete_others_posts' => true,
-//            'delete_published_posts' => true,
+            'delete_published_posts' => true,
 //            'delete_private_posts' => true,
 //            'edit_private_posts' => true,
 //            'read_private_posts' => true,
@@ -227,22 +227,32 @@ add_role(
 );
 }
 add_action( 'load-themes.php', 'add_roles' );
+/*roles*/
 
+/*protection_schedule*/
 //$my_role = get_role( 'administrator' ); // указываем роль, которая нам нужна
 //echo '<pre>';
 //print_r( $my_role ); // так можно вывести содержимое объекта
 //echo '</pre>';
 
 $cur_user_id = get_current_user_id();
-$roles = get_userdata($cur_user_id)->roles[1];
+$student = get_userdata($cur_user_id)->roles[1];
+$administrator = get_userdata($cur_user_id)->roles[0];
 
-if($roles == 'student'){
+if($student == 'student'){
   add_action( 'admin_menu', 'remove_menu' );
   function remove_menu() {
     remove_menu_page('tools.php');
   }
-}
-/*roles*/
 
+  add_action('admin_menu', function(){
+    add_menu_page(__('Графік захистів дипломних робіт', 'sumdu'), __('Графік захистів дипломних робіт', 'sumdu'), 'read', 'protection_schedule', 'protection_schedule', '', 83);
+  } );
+  function protection_schedule(){
+    include 'protection_schedule/protection_schedule.php';
+  }
+}
+include 'includes/protection_schedule_ajax.php';
+/*protection_schedule*/
 
 ?>

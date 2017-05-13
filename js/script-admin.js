@@ -249,4 +249,44 @@ jQuery(document).ready(function(){
   });
   /*warning_system*/
 
+  /*protection_schedule*/
+  jQuery(".group_select_p_b").change(function () {
+    jQuery('.data_table_themes_p_b').detach();
+    jQuery('.l_b_m').css({'display':'block'});
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'group_select_protection_schedule_b',
+        'group': t.val()
+      },
+      function(result){
+        jQuery('.l_b_m').css({'display':'none'});
+        jQuery('.data_table_themes_p_b').detach();
+        jQuery('.table_style_p_b > tbody').append(result);
+      }
+    );
+  }).trigger("change");
+
+  jQuery(".group_select_p_m").change(function () {
+    jQuery('.data_table_themes_p_m').detach();
+    jQuery('.l_b_m').css({'display':'block'});
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'group_select_protection_schedule_m',
+        'group': t.val()
+      },
+      function(result){
+        jQuery('.l_b_m').css({'display':'none'});
+        jQuery('.data_table_themes_p_m').detach();
+        jQuery('.table_style_p_m > tbody').append(result);
+      }
+    );
+  }).trigger("change");
+  /*protection_schedule*/
+
 });
