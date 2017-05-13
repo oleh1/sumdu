@@ -49,7 +49,7 @@ jQuery(document).ready(function(){
     text = t.closest("td").find( jQuery("input") );
     text = text.val();
     l = t.closest("td").find( jQuery("input") );
-    l.before("<div class='l'><div class='overlay-loader'><div class='loader'><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>");
+    l.before("<div class='d'><img src='/wp-content/themes/sumdu/images/load.gif'></div>");
 
     var ajaxurl,l_d,i,v,b,a_c;
     ajaxurl = '/wp-admin/admin-ajax.php';
@@ -64,7 +64,7 @@ jQuery(document).ready(function(){
         'text': text
       },
       function(result){
-        l_d = t.closest("td").find( jQuery(".l") );
+        l_d = t.closest("td").find( jQuery(".d") );
         l_d.detach();
         i = t.closest("td").find( jQuery("input") );
         i.detach();
@@ -252,6 +252,7 @@ jQuery(document).ready(function(){
   /*protection_schedule*/
   jQuery("body").on("click", ".add_date_time",function(){
     var t = jQuery(this);
+    jQuery(".load_p").css({'display':'block'});
     var l = t.prev().attr('data-level');
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
@@ -283,6 +284,7 @@ jQuery(document).ready(function(){
             jQuery('.l_b_m').css({'display':'none'});
             jQuery('.data_table_themes_p_'+l).detach();
             jQuery('.table_style_p_'+l+' > tbody').append(result);
+            jQuery(".load_p").css({'display':'none'});
           });
         
       }
@@ -290,7 +292,7 @@ jQuery(document).ready(function(){
   });
   
   jQuery(".group_select_p_b").change(function () {
-    jQuery('.l_b_m').css({'display':'block'});
+    jQuery(".load_p").css({'display':'block'});
     var t = jQuery(this);
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
@@ -300,7 +302,7 @@ jQuery(document).ready(function(){
         'group': t.val()
       },
       function(result){
-        jQuery('.l_b_m').css({'display':'none'});
+        jQuery(".load_p").css({'display':'none'});
         jQuery('.f_b').detach();
         jQuery('.s_g_p_b').after(result);
       }
@@ -309,7 +311,7 @@ jQuery(document).ready(function(){
   
   jQuery(".group_select_p_b").change(function () {
     jQuery('.data_table_themes_p_b').detach();
-    jQuery('.l_b_m').css({'display':'block'});
+    jQuery(".load_p").css({'display':'block'});
     var t = jQuery(this);
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
@@ -319,7 +321,7 @@ jQuery(document).ready(function(){
         'group': t.val()
       },
       function(result){
-        jQuery('.l_b_m').css({'display':'none'});
+        jQuery(".load_p").css({'display':'none'});
         jQuery('.data_table_themes_p_b').detach();
         jQuery('.table_style_p_b > tbody').append(result);
       }
@@ -327,7 +329,7 @@ jQuery(document).ready(function(){
   }).trigger("change");
 
   jQuery(".group_select_p_m").change(function () {
-    jQuery('.l_b_m').css({'display':'block'});
+    jQuery(".load_p").css({'display':'block'});
     var t = jQuery(this);
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
@@ -337,7 +339,7 @@ jQuery(document).ready(function(){
         'group': t.val()
       },
       function(result){
-        jQuery('.l_b_m').css({'display':'none'});
+        jQuery(".load_p").css({'display':'none'});
         jQuery('.f_m').detach();
         jQuery('.s_g_p_m').after(result);
       }
@@ -346,7 +348,7 @@ jQuery(document).ready(function(){
 
   jQuery(".group_select_p_m").change(function () {
     jQuery('.data_table_themes_p_m').detach();
-    jQuery('.l_b_m').css({'display':'block'});
+    jQuery(".load_p").css({'display':'block'});
     var t = jQuery(this);
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
@@ -356,7 +358,7 @@ jQuery(document).ready(function(){
         'group': t.val()
       },
       function(result){
-        jQuery('.l_b_m').css({'display':'none'});
+        jQuery(".load_p").css({'display':'none'});
         jQuery('.data_table_themes_p_m').detach();
         jQuery('.table_style_p_m > tbody').append(result);
       }

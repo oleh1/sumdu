@@ -10,10 +10,8 @@ foreach($bachelor as $r){
   $groups[$i] = $r->group;
   $i++;
 }
-$loader = '<div class="l_b_m"><div class="l"><div class="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>';
 $groups = array_unique($groups);
-$result = $loader;
-$result .= '
+$result = '
   <div class="s_g_p_b">Виберіть свою групу 
   <select data-level="1" class="group_select_p_b">';
 foreach($groups as $g){

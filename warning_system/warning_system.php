@@ -7,14 +7,14 @@ if ($group == null) {
 } else {
   $i = (int)$group[0]->id_group + 1;
 }
-$load = "<div class='loader'><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>";
+$load = "<img src='".get_template_directory_uri()."/images/load.gif'>";
 ?>
 
 <div class="content_warning_group">
   <div class="all_groups">
     <div class="text_group"><input data-id="<?php echo $i; ?>" class="add_group_i" type="text"></div>
     <div class="add_group">Додати групу</div>
-    <div class="lo"><div class="load"><div class='overlay-loader'><?php echo $load; ?></div></div></div>
+    <div class="lo"><div class="load"><?php echo $load; ?></div></div>
   </div>
   <div style="clear: both"></div>
 
@@ -66,7 +66,7 @@ $load = "<div class='loader'><div></div><div></div><div></div><div></div><div></
 <style>
   .load_message {
     position: relative;
-    top: -49px;
+    top: 5px;
     display: none;
   }
   .message{
@@ -126,14 +126,12 @@ $load = "<div class='loader'><div></div><div></div><div></div><div></div><div></
   }
   .lo{
     position: relative;
-    top: -9px;
-    left: -3px;
+    top: -11px;
+    left: 27px;
     display: none;
     float: left;
   }
   .load{
-    top: 6px;
-    width: 30px;
     position: absolute;
   }
   .all_groups{

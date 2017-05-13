@@ -10,7 +10,7 @@ foreach($bachelor as $r){
   $groups[$i] = $r->group;
   $i++;
 }
-$loader = '<div class="l_b_m"><div class="l"><div class="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>';
+$loader = '<div class="l_b_m"><div class="l"><img src="'.get_template_directory_uri().'/images/load.gif"></div></div>';
 $groups = array_unique($groups);
 $result = $loader;
 $result .= '

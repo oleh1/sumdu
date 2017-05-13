@@ -16,7 +16,7 @@ function f_add_group()
   } else {
     $i = (int)$group[0]->id_group + 1;
   }
-  $load = "<div class='overlay-loader'><div class='loader'><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>";
+  $load = "<img src='".get_template_directory_uri()."/images/load.gif'>";
   ?>
 
   <div class="content_warning_group">
@@ -117,7 +117,7 @@ if ($group == null) {
 } else {
   $i = (int)$group[0]->id_group + 1;
 }
-$load = "<div class='overlay-loader'><div class='loader'><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>";
+$load = "<img src='".get_template_directory_uri()."/images/load.gif'>";
 ?>
 
 <div class="content_warning_group">
@@ -196,7 +196,7 @@ function f_delete_mail()
   } else {
     $i = (int)$group[0]->id_group + 1;
   }
-  $load = "<div class='overlay-loader'><div class='loader'><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>";
+  $load = "<img src='".get_template_directory_uri()."/images/load.gif'>";
   ?>
 
   <div class="content_warning_group">

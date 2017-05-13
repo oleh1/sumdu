@@ -3,6 +3,7 @@
   <label for="n1">Бакалавр</label>
   <input type="radio" name="tabs2" id="n2" />
   <label for="n2">Магистр</label>
+  <img class="load_p" src="<?php echo get_template_directory_uri(); ?>/images/load.gif">
   <div id="tabs2">
     <div>
       <?php include 'protection_schedule_bachelor.php'; ?>
@@ -16,6 +17,13 @@
 <style>
   .color_<?php echo $cur_user_id; ?>{
     background: greenyellow;
+  }
+
+  .load_p{
+    position: absolute;
+    top: 14px;
+    display: none;
+    left: 200px;
   }
 
   .add_date_time{
