@@ -155,7 +155,7 @@ include 'includes/list_themes_bachelor_master_ajax.php';
 /*list_themes_bachelor_master*/
 
 /*roles*/
-//remove_role( 'student' );
+remove_role( 'student' );
 
 function add_roles(){
 add_role(
@@ -174,7 +174,7 @@ add_role(
 //            'manage_links' => true,
 //            'upload_files' => true,
 //            'import' => true,
-//            'unfiltered_html' => true,
+            'unfiltered_html' => true,
             'edit_posts' => true,
 //            'edit_others_posts' => true,
             'edit_published_posts' => true,
