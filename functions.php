@@ -174,7 +174,7 @@ add_role(
 //            'manage_links' => true,
 //            'upload_files' => true,
 //            'import' => true,
-            'unfiltered_html' => true,
+//            'unfiltered_html' => true,
             'edit_posts' => true,
 //            'edit_others_posts' => true,
             'edit_published_posts' => true,
