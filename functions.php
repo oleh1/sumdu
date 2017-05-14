@@ -155,7 +155,7 @@ include 'includes/list_themes_bachelor_master_ajax.php';
 /*list_themes_bachelor_master*/
 
 /*roles*/
-//remove_role( 'student' );
+remove_role( 'student' );
 
 function add_roles(){
 add_role(
@@ -172,7 +172,7 @@ add_role(
 //            'moderate_comments' => true,
 //            'manage_categories' => true,
 //            'manage_links' => true,
-//            'upload_files' => true,
+            'upload_files' => true,
 //            'import' => true,
             'unfiltered_html' => true,
             'edit_posts' => true,
@@ -306,7 +306,7 @@ add_action( 'load-themes.php', 'add_roles' );
 $cur_user_id = get_current_user_id();
 $roles = get_userdata($cur_user_id)->roles[1];
 $administrator = get_userdata($cur_user_id)->roles[0];
-
+var_dump($roles);
 if($roles == 'student' || $roles == 'teacher'){
   add_action( 'admin_menu', 'remove_menu' );
   function remove_menu() {
