@@ -172,9 +172,9 @@ add_role(
 //            'moderate_comments' => true,
 //            'manage_categories' => true,
 //            'manage_links' => true,
-//            'upload_files' => true,
+            'upload_files' => true,
 //            'import' => true,
-//            'unfiltered_html' => true,
+            'unfiltered_html' => true,
             'edit_posts' => true,
 //            'edit_others_posts' => true,
             'edit_published_posts' => true,
@@ -225,6 +225,74 @@ add_role(
 //            'export' => true
   )
 );
+
+add_role(
+  'teacher',
+  'Викладач',
+  array(
+//            'switch_themes' => true,
+//            'edit_themes' => true,
+//            'activate_plugins' => true,
+//            'edit_plugins' => true,
+//            'edit_users' => true,
+//            'edit_files' => true,
+//            'manage_options' => true,
+            'moderate_comments' => true,
+            'manage_categories' => true,
+//            'manage_links' => true,
+            'upload_files' => true,
+//            'import' => true,
+            'unfiltered_html' => true,
+      'edit_posts' => true,
+            'edit_others_posts' => true,
+      'edit_published_posts' => true,
+            'publish_posts' => true,
+            'edit_pages' => true,
+      'read' =>  true,
+//            'level_10' => true,
+//            'level_9' => true,
+//            'level_8' => true,
+//            'level_7' => true,
+//            'level_6' => true,
+//            'level_5' => true,
+//            'level_4' => true,
+//            'level_3' => true,
+//            'level_2' => true,
+//            'level_1' => true,
+//            'level_0' => true,
+            'edit_others_pages' => true,
+            'edit_published_pages' => true,
+            'publish_pages' => true,
+            'delete_pages' => true,
+            'delete_others_pages' => true,
+            'delete_published_pages' => true,
+      'delete_posts' => true,
+            'delete_others_posts' => true,
+      'delete_published_posts' => true,
+            'delete_private_posts' => true,
+            'edit_private_posts' => true,
+            'read_private_posts' => true,
+            'delete_private_pages' => true,
+            'edit_private_pages' => true,
+            'read_private_pages' => true,
+//            'delete_users' => true,
+//            'create_users' => true,
+//            'unfiltered_upload' => true,
+//            'edit_dashboard' => true,
+//            'update_plugins' => true,
+//            'delete_plugins' => true,
+//            'install_plugins' => true,
+//            'update_themes' => true,
+//            'install_themes' => true,
+//            'update_core' => true,
+//            'list_users' => true,
+//            'remove_users' => true,
+//            'promote_users' => true,
+//            'edit_theme_options' => true,
+//            'delete_themes' => true,
+//            'export' => true
+    )
+  );
 }
 add_action( 'load-themes.php', 'add_roles' );
 /*roles*/
@@ -236,10 +304,10 @@ add_action( 'load-themes.php', 'add_roles' );
 //echo '</pre>';
 
 $cur_user_id = get_current_user_id();
-$student = get_userdata($cur_user_id)->roles[1];
+$roles = get_userdata($cur_user_id)->roles[1];
 $administrator = get_userdata($cur_user_id)->roles[0];
 
-if($student == 'student'){
+if($roles == 'student' || $roles == 'teacher'){
   add_action( 'admin_menu', 'remove_menu' );
   function remove_menu() {
     remove_menu_page('tools.php');
@@ -266,4 +334,12 @@ function list_protection_schedule_m(){
 include 'includes/protection_schedule_ajax.php';
 /*protection_schedule*/
 
+/*work_table*/
+add_action('admin_menu', function(){
+  add_menu_page(__('Робоча таблиця', 'sumdu'), __('Робоча таблиця', 'sumdu'), 'edit_pages', 'work_table', 'work_table', '', 84);
+} );
+function work_table(){
+  include 'work_table/work_table.php';
+}
+/*work_table*/
 ?>
