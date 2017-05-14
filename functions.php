@@ -155,7 +155,7 @@ include 'includes/list_themes_bachelor_master_ajax.php';
 /*list_themes_bachelor_master*/
 
 /*roles*/
-remove_role( 'student' );
+//remove_role( 'student' );
 
 function add_roles(){
 add_role(
