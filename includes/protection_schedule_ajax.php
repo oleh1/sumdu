@@ -15,7 +15,7 @@ function f_group_select_protection_schedule_b()
   $result = '<div class="f_b">
       <b>Дата</b> <input class="p" type="date"> 
       <b>Час</b> <input class="p" type="time"> 
-      <b>П.І.П</b> <select class="s_name_b p" data-user_id="'.$cur_user_id.'" data-level="b">';
+      <b>П.І.Б</b> <select class="s_name_b p" data-user_id="'.$cur_user_id.'" data-level="b">';
   foreach($bachelor as $r){
     $result .= '
         <option value="'.$r->surname_s.' '.$r->name_s.' '.$r->middle_name_s.'|+|'.$r->topic.'|+|'.$r->surname_head.' '.$r->name_head.' '.$r->middle_name_head.'|+|'.$r->surname_reviewer.' '.$r->name_reviewer.' '.$r->middle_name_reviewer.'|+|'.$r->group.'">'.$r->surname_s.' '.$r->name_s.' '.$r->middle_name_s.'</option>
@@ -43,7 +43,7 @@ function f_group_select_protection_schedule_m()
   $result = '<div class="f_m">
       <b>Дата</b> <input class="p" type="date"> 
       <b>Час</b> <input class="p" type="time"> 
-      <b>П.І.П</b> <select class="s_name_m p" data-user_id="'.$cur_user_id.'" data-level="m">';
+      <b>П.І.Б</b> <select class="s_name_m p" data-user_id="'.$cur_user_id.'" data-level="m">';
   foreach($master as $r){
     $result .= '
         <option value="'.$r->surname_s.' '.$r->name_s.' '.$r->middle_name_s.'|+|'.$r->topic.'|+|'.$r->surname_head.' '.$r->name_head.' '.$r->middle_name_head.'|+|'.$r->surname_reviewer.' '.$r->name_reviewer.' '.$r->middle_name_reviewer.'|+|'.$r->group.'">'.$r->surname_s.' '.$r->name_s.' '.$r->middle_name_s.'</option>
