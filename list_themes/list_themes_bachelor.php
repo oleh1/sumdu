@@ -10,16 +10,15 @@ foreach($bachelor as $r){
   $groups[$i] = $r->group;
   $i++;
 }
-$loader = '<div class="l_b_m"><div class="l"><img src="'.get_template_directory_uri().'/images/load.gif"></div></div>';
 $groups = array_unique($groups);
-$result = $loader;
-$result .= '
+$result = '
   <div class="s_g">'.__('Виберіть свою групу', 'sumdu').' 
   <select data-level="1" class="group_select">';
 foreach($groups as $g){
       $result .= '<option value="'.$g.'">'.$g.'</option>';
     }
   $result .= '</select></div>
+  <div class="lists_b_m"><img src="'.get_template_directory_uri().'/images/load.gif"></div>
   <table class="table_style">
   <tr>
     <th>'.__('Студент', 'sumdu').'</th>

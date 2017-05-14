@@ -302,25 +302,33 @@ h1{
 /*comment*/
 
 /*table_style*/
-.table_style{
+.table_style,
+.table_style2{
   word-break: normal;
   margin: 10px 0 0 0;
 }
-.table_style th{
+.table_style th,
+.table_style2 th{
   padding: 0 3px;
   background: #E3F2FD;
   font-size: 12px;
   text-align: center;
   border: 1px solid darkgreen;
 }
-.table_style td{
+.table_style th:first-child,
+.table_style2 th:first-child{
+  width: 80px;
+}
+.table_style td,
+.table_style2 td{
   padding: 0 3px;
   background: rgba(9, 212, 0, 0.04);
   font-size: 14px;
   text-align: center;
   border: 1px solid darkgreen;
 }
-.s_g{
+.s_g,
+.s_g2{
   margin: 10px 0 0 0;
 }
 /*table_style*/
@@ -379,14 +387,14 @@ h1{
 /*simple-ajax-shoutbox*/
 
 /*all*/
-.l_b_m{
+.lists_b_m{
   display: none;
   position: absolute;
 }
-.l{
-  left: 194px;
+.lists_b_m img{
   position: relative;
-  top: 12.5px;
+  top: -34px;
+  left: 325px;
 }
 /*all*/
 

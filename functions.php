@@ -253,6 +253,16 @@ function protection_schedule(){
   include 'protection_schedule/protection_schedule.php';
 }
 
+add_shortcode('list_protection_schedule_b', 'list_protection_schedule_b');
+function list_protection_schedule_b(){
+  include 'protection_schedule/list_protection_schedule_b.php';
+  return $result;
+}
+add_shortcode('list_protection_schedule_m', 'list_protection_schedule_m');
+function list_protection_schedule_m(){
+  include 'protection_schedule/list_protection_schedule_m.php';
+  return $result;
+}
 include 'includes/protection_schedule_ajax.php';
 /*protection_schedule*/
 

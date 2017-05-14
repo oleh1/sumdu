@@ -180,4 +180,29 @@ function f_del_date_time()
   wp_die();
 }
 
+add_action("wp_ajax_group_select_bachelor_master2", "f_group_select_bachelor_master2");
+add_action("wp_ajax_nopriv_group_select_bachelor_master2", "f_group_select_bachelor_master2");
+function f_group_select_bachelor_master2()
+{
+  $group = $_POST['group'];
+  $l = $_POST['level'];
+  global $wpdb;
+  $b_m = $wpdb->get_results("SELECT * FROM sumdu_protection_schedule_".$l, ARRAY_N);
+print_r($b_m);
+  $result = '';
+  foreach($b_m as $r){
+    $result .= '
+         <tr class="data_table_themes2">
+         <td>'.$r[5].'</td>'.
+      '<td>'.$r[6].'</td>'.
+      '<td>'.$r[1].'</td>'.
+      '<td>'.$r[2].'</td>'.
+      '<td>'.$r[3].'</td>'.
+      '<td>'.$r[4].'</td>
+         </tr>';
+  }
+  echo $result;
+  wp_die();
+}
+
 ?>

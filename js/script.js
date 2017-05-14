@@ -27,7 +27,7 @@ jQuery(document).ready(function(){
 
   jQuery(".group_select").change(function () {
     jQuery('.data_table_themes').detach();
-    jQuery('.l_b_m').css({'display':'block'});
+    jQuery('.lists_b_m').css({'display':'block'});
     var t = jQuery(this);
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
@@ -38,13 +38,40 @@ jQuery(document).ready(function(){
         'level': t.attr('data-level')
       },
       function(result){
-        jQuery('.l_b_m').css({'display':'none'});
+        jQuery('.lists_b_m').css({'display':'none'});
         jQuery('.data_table_themes').detach();
         jQuery('.table_style > tbody').append(result);
       }
     );
   }).trigger("change");
   /*list_themes*/
+
+  /*protection_schedule*/
+  if(jQuery(".table_style2")){
+    jQuery(".table_style2").parent().next().detach();
+    jQuery(".table_style2").parent().next().detach();
+  }
+
+  jQuery(".group_select2").change(function () {
+    jQuery('.data_table_themes2').detach();
+    jQuery('.lists_b_m').css({'display':'block'});
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'group_select_bachelor_master2',
+        'group': t.val(),
+        'level': t.attr('data-level')
+      },
+      function(result){
+        jQuery('.lists_b_m').css({'display':'none'});
+        jQuery('.data_table_themes2').detach();
+        jQuery('.table_style2 > tbody').append(result);
+      }
+    );
+  }).trigger("change");
+  /*protection_schedule*/
 });
 
 

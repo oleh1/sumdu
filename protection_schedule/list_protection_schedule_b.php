@@ -1,26 +1,26 @@
 <?php
 
-global $wpdb_dek;
-$student = 'student';
-$members = 'members';
-$bachelor = $wpdb_dek->get_results("SELECT `group` FROM $student WHERE id_qualification = 3");
+global $wpdb;
+$bachelor = $wpdb->get_results("SELECT `group_b` FROM sumdu_protection_schedule_b");
 $groups = array();
 $i = 0;
 foreach($bachelor as $r){
-  $groups[$i] = $r->group;
+  $groups[$i] = $r->group_b;
   $i++;
 }
 $groups = array_unique($groups);
 $result = '
-  <div class="s_g">'.__('Виберіть свою групу', 'sumdu').' 
-  <select data-level="3" class="group_select">';
+  <div class="s_g2">'.__('Виберіть свою групу', 'sumdu').' 
+  <select data-level="b" class="group_select2">';
 foreach($groups as $g){
   $result .= '<option value="'.$g.'">'.$g.'</option>';
 }
 $result .= '</select></div>
   <div class="lists_b_m"><img src="'.get_template_directory_uri().'/images/load.gif"></div>
-  <table class="table_style">
+  <table class="table_style2">
   <tr>
+    <th>'.__('Дата', 'sumdu').'</th>
+    <th>'.__('Час', 'sumdu').'</th>
     <th>'.__('Студент', 'sumdu').'</th>
     <th>'.__('Тема', 'sumdu').'</th>
     <th>'.__('Керівник', 'sumdu').'</th>
