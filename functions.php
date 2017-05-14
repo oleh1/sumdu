@@ -172,7 +172,7 @@ add_role(
 //            'moderate_comments' => true,
 //            'manage_categories' => true,
 //            'manage_links' => true,
-            'upload_files' => true,
+//            'upload_files' => true,
 //            'import' => true,
             'unfiltered_html' => true,
             'edit_posts' => true,
