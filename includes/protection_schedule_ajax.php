@@ -198,7 +198,6 @@ function f_group_select_bachelor_master2()
   $l = $_POST['level'];
   global $wpdb;
   $b_m = $wpdb->get_results("SELECT * FROM sumdu_protection_schedule_".$l, ARRAY_N);
-print_r($b_m);
   $result = '';
   foreach($b_m as $r){
     $result .= '
