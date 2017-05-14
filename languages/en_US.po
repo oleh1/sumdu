@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sumdu v1.0\n"
-"POT-Creation-Date: 2017-05-11 17:10+0300\n"
-"PO-Revision-Date: 2017-05-11 17:19+0300\n"
+"POT-Creation-Date: 2017-05-14 22:15+0300\n"
+"PO-Revision-Date: 2017-05-14 22:27+0300\n"
 "Last-Translator: Oleh Kopytsia <lyboleg@gmail.com>\n"
 "Language-Team: Sumdu <lyboleg@gmail.com>\n"
 "Language: en\n"
@@ -125,38 +125,66 @@ msgstr "%1$s at %2$s"
 msgid "Редагувати"
 msgstr "Edit"
 
-#: ../functions.php:119
+#: ../functions.php:120
 msgid "База даних"
 msgstr "Database"
 
-#: ../functions.php:131
+#: ../functions.php:134
 msgid "Система оповіщення"
 msgstr "Warning system"
 
-#: ../list_themes/list_themes_bachelor.php:17
-#: ../list_themes/list_themes_master.php:17
+#: ../functions.php:318
+msgid "Графік захистів дипломних робіт"
+msgstr "График защиты дипломной работы"
+
+#: ../functions.php:339
+msgid "Робоча таблиця"
+msgstr "Working table"
+
+#: ../list_themes/list_themes_bachelor.php:15
+#: ../list_themes/list_themes_master.php:15
+#: ../protection_schedule/list_protection_schedule_b.php:13
+#: ../protection_schedule/list_protection_schedule_m.php:13
 msgid "Виберіть свою групу"
 msgstr "Select your group"
 
-#: ../list_themes/list_themes_bachelor.php:25
-#: ../list_themes/list_themes_master.php:25
+#: ../list_themes/list_themes_bachelor.php:24
+#: ../list_themes/list_themes_master.php:24
+#: ../protection_schedule/list_protection_schedule_b.php:24
+#: ../protection_schedule/list_protection_schedule_m.php:24
 msgid "Студент"
 msgstr "Student"
 
-#: ../list_themes/list_themes_bachelor.php:26
-#: ../list_themes/list_themes_master.php:26
+#: ../list_themes/list_themes_bachelor.php:25
+#: ../list_themes/list_themes_master.php:25
+#: ../protection_schedule/list_protection_schedule_b.php:25
+#: ../protection_schedule/list_protection_schedule_m.php:25
 msgid "Тема"
 msgstr "Theme"
 
-#: ../list_themes/list_themes_bachelor.php:27
-#: ../list_themes/list_themes_master.php:27
+#: ../list_themes/list_themes_bachelor.php:26
+#: ../list_themes/list_themes_master.php:26
+#: ../protection_schedule/list_protection_schedule_b.php:26
+#: ../protection_schedule/list_protection_schedule_m.php:26
 msgid "Керівник"
 msgstr "Supervisor"
 
-#: ../list_themes/list_themes_bachelor.php:28
-#: ../list_themes/list_themes_master.php:28
+#: ../list_themes/list_themes_bachelor.php:27
+#: ../list_themes/list_themes_master.php:27
+#: ../protection_schedule/list_protection_schedule_b.php:27
+#: ../protection_schedule/list_protection_schedule_m.php:27
 msgid "Рецензент"
 msgstr "Reviewer"
+
+#: ../protection_schedule/list_protection_schedule_b.php:22
+#: ../protection_schedule/list_protection_schedule_m.php:22
+msgid "Дата"
+msgstr "Date"
+
+#: ../protection_schedule/list_protection_schedule_b.php:23
+#: ../protection_schedule/list_protection_schedule_m.php:23
+msgid "Час"
+msgstr "Time"
 
 #: ../search.php:7
 #, php-format
