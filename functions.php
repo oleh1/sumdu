@@ -244,14 +244,15 @@ if($student == 'student'){
   function remove_menu() {
     remove_menu_page('tools.php');
   }
-
-  add_action('admin_menu', function(){
-    add_menu_page(__('Графік захистів дипломних робіт', 'sumdu'), __('Графік захистів дипломних робіт', 'sumdu'), 'read', 'protection_schedule', 'protection_schedule', '', 83);
-  } );
-  function protection_schedule(){
-    include 'protection_schedule/protection_schedule.php';
-  }
 }
+
+add_action('admin_menu', function(){
+  add_menu_page(__('Графік захистів дипломних робіт', 'sumdu'), __('Графік захистів дипломних робіт', 'sumdu'), 'read', 'protection_schedule', 'protection_schedule', '', 83);
+} );
+function protection_schedule(){
+  include 'protection_schedule/protection_schedule.php';
+}
+
 include 'includes/protection_schedule_ajax.php';
 /*protection_schedule*/
 

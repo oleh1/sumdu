@@ -254,6 +254,7 @@ jQuery(document).ready(function(){
     var t = jQuery(this);
     jQuery(".load_p").css({'display':'block'});
     var l = t.prev().attr('data-level');
+    var access = t.attr('data-access');
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
       ajaxurl,
@@ -263,7 +264,8 @@ jQuery(document).ready(function(){
         'user_id': t.prev().attr('data-user_id'),
         'level': l,
         'time': t.prev().prev().prev().val(),
-        'date': t.prev().prev().prev().prev().prev().val()
+        'date': t.prev().prev().prev().prev().prev().val(),
+        'access': access
       },
       function(result){
 

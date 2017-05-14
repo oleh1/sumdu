@@ -13,7 +13,9 @@
     </div>
   </div>
 </div>
-<?php $cur_user_id = get_current_user_id(); ?>
+<?php
+$cur_user_id = get_current_user_id();
+?>
 <style>
   .color_<?php echo $cur_user_id; ?>{
     background: greenyellow;

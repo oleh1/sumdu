@@ -5,6 +5,7 @@ add_action("wp_ajax_nopriv_group_select_protection_schedule_b", "f_group_select_
 function f_group_select_protection_schedule_b()
 {
   $cur_user_id = get_current_user_id();
+  $access = get_userdata($cur_user_id)->roles[0];
   $group = $_POST['group'];
   global $wpdb_dek;
   $student = 'student';
@@ -22,7 +23,7 @@ function f_group_select_protection_schedule_b()
     $g = $r->group;
   }
   $result .= '</select> 
-    <div data-g="'.$g.'" class="p add_date_time"><b>Додати</b></div><div class="error_p_b"></div></div>';
+    <div data-access="'.$access.'" data-g="'.$g.'" class="p add_date_time"><b>Додати</b></div><div class="error_p_b"></div></div>';
   echo $result;
   wp_die();
 }
@@ -32,6 +33,7 @@ add_action("wp_ajax_nopriv_group_select_protection_schedule_m", "f_group_select_
 function f_group_select_protection_schedule_m()
 {
   $cur_user_id = get_current_user_id();
+  $access = get_userdata($cur_user_id)->roles[0];
   $group = $_POST['group'];
   global $wpdb_dek;
   $student = 'student';
@@ -49,7 +51,7 @@ function f_group_select_protection_schedule_m()
     $g = $r->group;
   }
   $result .= '</select> 
-    <div data-g="'.$g.'" class="p add_date_time"><b>Додати</b></div><div class="error_p_m"></div></div>';
+    <div data-access="'.$access.'" data-g="'.$g.'" class="p add_date_time"><b>Додати</b></div><div class="error_p_m"></div></div>';
   echo $result;
   wp_die();
 }
@@ -68,12 +70,37 @@ function f_add_date_time()
   $head = $name_data[2];
   $reviewer = $name_data[3];
   $group = $name_data[4];
+  $access = $_POST['access'];
   global $wpdb;
+
+
 
   $r_b = $wpdb->get_results("SELECT * FROM sumdu_protection_schedule_b WHERE user_id = '{$user_id}'");
   $r_m = $wpdb->get_results("SELECT * FROM sumdu_protection_schedule_m WHERE user_id = '{$user_id}'");
 
-  if($r_b == null && $r_m == null) {
+  if($access == 'administrator') {
+    $r_b2 = $wpdb->get_results("SELECT * FROM sumdu_protection_schedule_b ORDER BY `user_id` DESC");
+    $r_m2 = $wpdb->get_results("SELECT * FROM sumdu_protection_schedule_m ORDER BY `user_id` DESC");
+    
+    $b2 = (int)$r_b2[0]->user_id;
+    $m2 = (int)$r_m2[0]->user_id;
+    if($b2 >= 77777 && $m2 >= 77777){
+      if($b2 > $m2){
+        $user_id = $b2 + 1;
+      }elseif($b2 < $m2){
+        $user_id = $m2 + 1;
+      }
+    }elseif($b2 >= 77777){
+      $user_id = $b2 + 1;
+    }elseif($m2 >= 77777){
+      $user_id = $m2 + 1;
+    }elseif($r_b2 == null && $r_m2 == null || $r_b == null && $r_m == null){
+      $user_id = 77777;
+    }
+
+    $wpdb->insert('sumdu_protection_schedule_' . $l, array("id" => '', "name_" . $l => $name, "theme_" . $l => $theme, "head_" . $l => $head, "reviewer_" . $l => $reviewer, "date_" . $l => $date, "time_" . $l => $time, "group_" . $l => $group, "user_id" => $user_id), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d"));
+
+  }elseif($r_b == null && $r_m == null) {
     $wpdb->insert('sumdu_protection_schedule_' . $l, array("id" => '', "name_" . $l => $name, "theme_" . $l => $theme, "head_" . $l => $head, "reviewer_" . $l => $reviewer, "date_" . $l => $date, "time_" . $l => $time, "group_" . $l => $group, "user_id" => $user_id), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d"));
   }else{
     echo '1';
@@ -86,6 +113,7 @@ add_action("wp_ajax_nopriv_group_select_protection_schedule_b2", "f_group_select
 function f_group_select_protection_schedule_b2()
 {
   $cur_user_id = get_current_user_id();
+  $access = get_userdata($cur_user_id)->roles[0];
   $group = $_POST['group'];
   global $wpdb;
   $result = $wpdb->get_results("SELECT * FROM sumdu_protection_schedule_b WHERE group_b = '{$group}'");
@@ -100,7 +128,7 @@ function f_group_select_protection_schedule_b2()
       <td><?php echo $r->head_b; ?></td>
       <td><?php echo $r->reviewer_b; ?></td>
       <?php
-      if($r->user_id == $cur_user_id){ echo '<td><img data-user_id="'.$r->user_id.'" data-group="'.$r->group_b.'" data-l="b" class="del_date_time" src="'.get_template_directory_uri().'/images/delete.png"></td>'; }
+      if($r->user_id == $cur_user_id || $access == 'administrator'){ echo '<td><img data-user_id="'.$r->user_id.'" data-group="'.$r->group_b.'" data-l="b" class="del_date_time" src="'.get_template_directory_uri().'/images/delete.png"></td>'; }
       ?>
     </tr>
     <?php
@@ -114,6 +142,7 @@ add_action("wp_ajax_nopriv_group_select_protection_schedule_m2", "f_group_select
 function f_group_select_protection_schedule_m2()
 {
   $cur_user_id = get_current_user_id();
+  $access = get_userdata($cur_user_id)->roles[0];
   $group = $_POST['group'];
   global $wpdb;
   $result = $wpdb->get_results("SELECT * FROM sumdu_protection_schedule_m WHERE group_m = '{$group}'");
@@ -128,7 +157,7 @@ function f_group_select_protection_schedule_m2()
       <td><?php echo $r->head_m; ?></td>
       <td><?php echo $r->reviewer_m; ?></td>
       <?php
-      if($r->user_id == $cur_user_id){ echo '<td><img data-user_id="'.$r->user_id.'" data-group="'.$r->group_m.'" data-l="m" class="del_date_time" src="'.get_template_directory_uri().'/images/delete.png"></td>'; }
+      if($r->user_id == $cur_user_id || $access == 'administrator'){ echo '<td><img data-user_id="'.$r->user_id.'" data-group="'.$r->group_m.'" data-l="m" class="del_date_time" src="'.get_template_directory_uri().'/images/delete.png"></td>'; }
       ?>
     </tr>
     <?php
