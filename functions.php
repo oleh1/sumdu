@@ -307,7 +307,7 @@ $cur_user_id = get_current_user_id();
 $roles = get_userdata($cur_user_id)->roles[1];
 $administrator = get_userdata($cur_user_id)->roles[0];
 var_dump(get_userdata($cur_user_id));
-var_dump(get_userdata($cur_user_id)->roles[1]);
+var_dump(get_userdata($cur_user_id)->roles[0]);
 if($roles == 'student' || $roles == 'teacher'){
   add_action( 'admin_menu', 'remove_menu' );
   function remove_menu() {
