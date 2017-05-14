@@ -12,7 +12,7 @@ foreach($bachelor as $r){
 }
 $groups = array_unique($groups);
 $result = '
-  <div class="s_g_p_m">Виберіть свою групу 
+  <div class="s_g_p_m"><b>Виберіть свою групу</b> 
   <select data-level="3" class="group_select_p_m">';
 foreach($groups as $g){
   $result .= '<option value="'.$g.'">'.$g.'</option>';

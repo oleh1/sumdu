@@ -18,7 +18,26 @@
   .color_<?php echo $cur_user_id; ?>{
     background: greenyellow;
   }
+  
+  .del_date_time{
+    width: 14px;
+    padding-top: 4px;
+    cursor: pointer;
+  }
 
+  .table_style_p_b th:first-child,
+  .table_style_p_m th:first-child{
+    width: 75px;
+  }
+
+  .error_p_b,
+  .error_p_m{
+    display: inline-block;
+    margin: 0 0 0 15px;
+    font-size: large;
+    color: red;
+  }
+  
   .load_p{
     position: absolute;
     top: 14px;
@@ -27,11 +46,17 @@
   }
 
   .add_date_time{
-    padding-top: inherit;
+    padding: 3px 7px 6px 7px;
+    border-radius: 5px;
+    background: gold;
+  }
+  .add_date_time:hover{
+    opacity: 0.8;
   }
   
   .p{
     cursor: pointer;
+    display: inline-block;
   }
   
   .table_style_p_b,

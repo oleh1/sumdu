@@ -269,6 +269,7 @@ jQuery(document).ready(function(){
 
         if(result == 1){
           t.css({'background':'red'});
+          jQuery('.error_p_'+l).text('Ви вже є в списку!');
         }
 
         jQuery('.data_table_themes_p_'+l).detach();
@@ -364,6 +365,30 @@ jQuery(document).ready(function(){
       }
     );
   }).trigger("change");
+
+  jQuery("body").on("click", ".del_date_time",function(){
+    jQuery(".load_p").css({'display':'block'});
+    var t = jQuery(this);
+    var user_id = t.attr('data-user_id');
+    var l = t.attr('data-l');
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'del_date_time',
+        'user_id': user_id,
+        'l': l,
+        'group': t.attr('data-group')
+      },
+      function(result){
+        jQuery(".load_p").css({'display':'none'});
+        jQuery(".color_"+user_id).detach();
+        jQuery(".add_date_time").css({'background':'gold'});
+        jQuery('.error_p_b').text('');
+        jQuery('.error_p_m').text('');
+      }
+    );
+  });
   /*protection_schedule*/
 
 });

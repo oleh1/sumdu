@@ -42,7 +42,7 @@ $load = "<img src='".get_template_directory_uri()."/images/load.gif'>";
           $i++;
         ?>
           <div class="mails">
-            <div class="name_mail"><?php echo $result_m->sumdu_mail; ?></div><div data-id="<?php echo $result_m->id; ?>" class="delete_mail"><img src="<?php echo get_template_directory_uri(); ?>/images/warning_system/delete-mail.png"></div><br>
+            <div class="name_mail"><?php echo $result_m->sumdu_mail; ?></div><div data-id="<?php echo $result_m->id; ?>" class="delete_mail"><img src="<?php echo get_template_directory_uri(); ?>/images/delete.png"></div><br>
           </div>
         <?php
         }
