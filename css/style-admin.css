@@ -281,7 +281,7 @@
   position: relative;
   left: 50%;
 }
-.add_student div{
+.add_student .a{
   cursor: pointer;
   position: absolute;
   background: greenyellow;
@@ -291,6 +291,15 @@
 }
 .add_student div:hover{
   opacity: 0.8;
+}
+.add_student .bb{
+  display: none;
+  position: absolute;
+}
+.add_student .bb img{
+  position: relative;
+  left: 100px;
+  top: -6px;
 }
 .work_table th{
   font-size: 17px;
@@ -354,5 +363,46 @@
 #work_table td .add:hover,
 #work_table td .cancel:hover{
   opacity: 0.8;
+}
+
+#work_table .edit_t_b{
+  margin: 32px 0 5px 4px;
+}
+
+#work_table .id{
+  display: none;
+}
+#work_table .number_theme input{
+
+}
+#work_table .okr input{
+
+}
+#work_table .surname input{
+
+}
+#work_table .name_w input{
+
+}
+#work_table .middle_name input{
+
+}
+#work_table .group_w input{
+
+}
+#work_table .name_head input{
+
+}
+#work_table .name_head_mon input{
+
+}
+#work_table .direction_work input{
+
+}
+#work_table .theme_english input{
+
+}
+#work_table .name_reviewer input{
+
 }
 /*work_table*/

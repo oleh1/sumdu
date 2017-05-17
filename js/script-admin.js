@@ -313,7 +313,6 @@ jQuery(document).ready(function(){
   }).trigger("change");
   
   jQuery(".group_select_p_b").change(function () {
-    jQuery('.data_table_themes_p_b').detach();
     jQuery(".load_p").css({'display':'block'});
     var t = jQuery(this);
     ajaxurl = '/wp-admin/admin-ajax.php';
@@ -350,7 +349,6 @@ jQuery(document).ready(function(){
   }).trigger("change");
 
   jQuery(".group_select_p_m").change(function () {
-    jQuery('.data_table_themes_p_m').detach();
     jQuery(".load_p").css({'display':'block'});
     var t = jQuery(this);
     ajaxurl = '/wp-admin/admin-ajax.php';
@@ -395,6 +393,7 @@ jQuery(document).ready(function(){
 
   /*work_table*/
   jQuery("body").on("click", ".add_student div",function(){
+    jQuery(".add_student .bb").css({'display':'block'});
     var t = jQuery(this);
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
@@ -414,7 +413,9 @@ jQuery(document).ready(function(){
         'a11': t.parent().prev().find( jQuery('.a11') ).val()
       },
       function(result){
-        alert(result);
+        jQuery('.work_tr').detach();
+        jQuery('.work_t > tbody').append(result);
+        jQuery(".add_student .bb").css({'display':'none'});
       }
     );
   });

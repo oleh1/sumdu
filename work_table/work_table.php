@@ -68,9 +68,9 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
   </tr>
 </table>
 
-<div class="add_student"><div>Додати</div></div>
+<div class="add_student"><div class="a">Додати</div><div class="bb"><img src="<?php echo get_template_directory_uri(); ?>/images/load.gif"></div></div>
 
-
+<div id="work_table">
 <div class="edit_t_b">
 
   <div class="edit_t">Режим редагування</div>
@@ -84,10 +84,10 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
 
 </div>
 
-<div id="work_table">
-<table>
+
+<table class="work_t">
   <tr>
-    <th>id</th>
+    <th style="display: none">id</th>
     <th>Номер теми</th>
     <th>ОКР</th>
     <th>Прізвище студента</th>
@@ -106,19 +106,19 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
   $sumdu_work_table = $wpdb->get_results("SELECT * FROM $table");
   foreach($sumdu_work_table as $result){
     ?>
-    <tr data-table="<?php echo $table ?>" data-id_name="id" data-id="<?php echo $result->id; ?>">
-      <td data-td="id"><div class="v"><?php echo $result->id; ?></td>
-      <td data-td="number_theme"><div class="v"><?php echo $result->number_theme; ?></td>
-      <td data-td="okr"><div class="v"><?php echo $result->okr; ?></div></td>
-      <td data-td="surname"><div class="v"><?php echo $result->surname; ?></div></td>
-      <td data-td="name_w"><div class="v"><?php echo $result->name_w; ?></div></td>
-      <td data-td="middle_name"><div class="v"><?php echo $result->middle_name; ?></div></td>
-      <td data-td="group_w"><div class="v"><?php echo $result->group_w; ?></div></td>
-      <td data-td="name_head"><div class="v"><?php echo $result->name_head; ?></div></td>
-      <td data-td="name_head_mon"><div class="v"><?php echo $result->name_head_mon; ?></div></td>
-      <td data-td="direction_work"><div class="v"><?php echo $result->direction_work; ?></div></td>
-      <td data-td="theme_english"><div class="v"><?php echo $result->theme_english; ?></div></td>
-      <td data-td="name_reviewer"><div class="v"><?php echo $result->name_reviewer; ?></div></td>
+    <tr data-table="<?php echo $table ?>" data-id_name="id" data-id="<?php echo $result->id; ?>" class="work_tr">
+      <td data-td="id" class="id"><div class="v"><?php echo $result->id; ?></td>
+      <td data-td="number_theme" class="number_theme"><div class="v"><?php echo $result->number_theme; ?></td>
+      <td data-td="okr" class="okr"><div class="v"><?php echo $result->okr; ?></div></td>
+      <td data-td="surname" class="surname"><div class="v"><?php echo $result->surname; ?></div></td>
+      <td data-td="name_w" class="name_w"><div class="v"><?php echo $result->name_w; ?></div></td>
+      <td data-td="middle_name" class="middle_name"><div class="v"><?php echo $result->middle_name; ?></div></td>
+      <td data-td="group_w" class="group_w"><div class="v"><?php echo $result->group_w; ?></div></td>
+      <td data-td="name_head" class="name_head"><div class="v"><?php echo $result->name_head; ?></div></td>
+      <td data-td="name_head_mon" class="name_head_mon"><div class="v"><?php echo $result->name_head_mon; ?></div></td>
+      <td data-td="direction_work" class="direction_work"><div class="v"><?php echo $result->direction_work; ?></div></td>
+      <td data-td="theme_english" class="theme_english"><div class="v"><?php echo $result->theme_english; ?></div></td>
+      <td data-td="name_reviewer" class="name_reviewer"><div class="v"><?php echo $result->name_reviewer; ?></div></td>
     </tr>
     <?php
   }
