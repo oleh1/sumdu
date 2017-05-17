@@ -275,3 +275,84 @@
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
 }
 /*data_base*/
+
+/*work_table*/
+.add_student{
+  position: relative;
+  left: 50%;
+}
+.add_student div{
+  cursor: pointer;
+  position: absolute;
+  background: greenyellow;
+  padding: 5px 8px 8px;
+  border-radius: 7px;
+  font-size: 20px;
+}
+.add_student div:hover{
+  opacity: 0.8;
+}
+.work_table th{
+  font-size: 17px;
+  text-align: center;
+}
+.work_table td{
+  text-align: center;
+}
+
+
+#work_table th{
+  background: #E3F2FD;
+  font-size: 14px;
+  padding: 5px 10px;
+  text-align: center;
+  border: 1px solid darkgreen;
+}
+#work_table td{
+  background: rgba(9, 212, 0, 0.04);
+  font-size: 16px;
+  padding: 5px 10px;
+  text-align: center;
+  border: 1px solid darkgreen;
+}
+#work_table td input{
+  text-align: center;
+}
+#work_table td .edit_form{
+  margin: 5px 0 0 0;
+}
+#work_table td .edit_form div{
+  display: initial;
+  background: #70c767;
+  padding: 3px 6px;
+  color: black;
+  border-radius: 5px;
+}
+#work_table td .edit_form div:hover{
+  background: rgba(139, 195, 74, 0.47);
+  cursor: pointer;
+}
+#work_table td .add_cancel{
+  margin: 5px 0 0 0;
+}
+#work_table td .add{
+  cursor: pointer;
+  display: inline;
+  background: green;
+  padding: 3px 6px;
+  color: black;
+  border-radius: 5px;
+}
+#work_table td .cancel{
+  cursor: pointer;
+  display: inline;
+  background: red;
+  padding: 3px 6px;
+  color: black;
+  border-radius: 5px;
+}
+#work_table td .add:hover,
+#work_table td .cancel:hover{
+  opacity: 0.8;
+}
+/*work_table*/

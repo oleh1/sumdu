@@ -12,7 +12,7 @@ jQuery(document).ready(function(){
     }
   });
 
-  jQuery("body").on("click", ".edit_form div",function(){
+  jQuery("body").on("click", "#tabs .edit_form div",function(){
     var t,v,w,i;
     t = jQuery(this);
     v = t.closest("td").find( jQuery(".v") );
@@ -392,5 +392,117 @@ jQuery(document).ready(function(){
     );
   });
   /*protection_schedule*/
+
+  /*work_table*/
+  jQuery("body").on("click", ".add_student div",function(){
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'add_student',
+        'a1': t.parent().prev().find( jQuery('.a1') ).val(),
+        'a2': t.parent().prev().find( jQuery('.a2') ).val(),
+        'a3': t.parent().prev().find( jQuery('.a3') ).val(),
+        'a4': t.parent().prev().find( jQuery('.a4') ).val(),
+        'a5': t.parent().prev().find( jQuery('.a5') ).val(),
+        'a6': t.parent().prev().find( jQuery('.a6') ).val(),
+        'a7': t.parent().prev().find( jQuery('.a7') ).val(),
+        'a8': t.parent().prev().find( jQuery('.a8') ).val(),
+        'a9': t.parent().prev().find( jQuery('.a9') ).val(),
+        'a10': t.parent().prev().find( jQuery('.a10') ).val(),
+        'a11': t.parent().prev().find( jQuery('.a11') ).val()
+      },
+      function(result){
+        alert(result);
+      }
+    );
+  });
+
+  jQuery(document).scroll(function(){
+    jQuery('.add_student div').css({
+      left: jQuery(document).scrollLeft()
+    });
+  });
+
+  jQuery(".off_on").click(function(){
+    if(jQuery(".can-toggle #b").attr("checked") != "checked"){
+      jQuery("#work_table td").append("<div class='edit_form'><div>Редагувати</div></div>");
+    }else if(jQuery(".can-toggle #b").attr("checked") == "checked"){
+      jQuery("#work_table .edit_form").detach();
+      jQuery("#work_table .add_cancel").detach();
+      jQuery("#work_table td input").detach();
+      jQuery("#work_table .v").css("display", "block");
+    }
+  });
+
+  jQuery("body").on("click", "#work_table .edit_form div",function(){
+    var t,v,w,i;
+    t = jQuery(this);
+    v = t.closest("td").find( jQuery(".v") );
+    v.css("display", "none");
+    w = t.closest("td").outerWidth();
+    w = w - 24;
+    t.closest(".edit_form").before("<input type='text'>");
+    i = t.closest("td").find( jQuery("input") );
+    i.val(v.text());
+    i.outerWidth(w);
+    t.closest(".edit_form").css("display", "none");
+    t.closest("td").append("<div class='add_cancel'><div class='add'>Змінити</div><div class='cancel'>Відмінити</div></div>");
+  });
+
+  jQuery("body").on("click", "#work_table .cancel",function(){
+    var t,v,i,b;
+    t = jQuery(this);
+    v = t.closest("td").find( jQuery(".v") );
+    v.css("display", "block");
+    i = t.closest("td").find( jQuery("input") );
+    i.detach();
+    b = t.closest("td").find( jQuery(".edit_form") );
+    b.css("display", "block");
+    t.parent().detach();
+  });
+
+  jQuery("body").on("click", "#work_table .add",function(){
+    var t,td,table,id_name,id,text,l;
+    t = jQuery(this);
+    td = t.closest("td").attr("data-td");
+    table = t.closest("tr").attr("data-table");
+    id_name = t.closest("tr").attr("data-id_name");
+    id = t.closest("tr").attr("data-id");
+    text = t.closest("td").find( jQuery("input") );
+    text = text.val();
+    l = t.closest("td").find( jQuery("input") );
+    l.before("<div class='d'><img src='/wp-content/themes/sumdu/images/load.gif'></div>");
+
+    var ajaxurl,l_d,i,v,b,a_c;
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'edit_form2',
+        'td': td,
+        'table': table,
+        'id_name': id_name,
+        'id': id,
+        'text': text
+      },
+      function(result){
+        l_d = t.closest("td").find( jQuery(".d") );
+        l_d.detach();
+        i = t.closest("td").find( jQuery("input") );
+        i.detach();
+        v = t.closest("td").find( jQuery(".v") );
+        v.css("display", "block");
+        v.text(result);
+        b = t.closest("td").find( jQuery(".edit_form") );
+        b.css("display", "block");
+        a_c = t.closest("td").find( jQuery(".add_cancel") );
+        a_c.detach();
+      }
+    );
+
+  });
+  /*work_table*/
 
 });

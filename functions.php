@@ -340,5 +340,6 @@ add_action('admin_menu', function(){
 function work_table(){
   include 'work_table/work_table.php';
 }
+include 'includes/work_table_ajax.php';
 /*work_table*/
 ?>
