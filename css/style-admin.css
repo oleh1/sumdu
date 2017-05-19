@@ -372,37 +372,7 @@
 #work_table .id{
   display: none;
 }
-#work_table .number_theme input{
-
-}
-#work_table .okr input{
-
-}
-#work_table .surname input{
-
-}
-#work_table .name_w input{
-
-}
-#work_table .middle_name input{
-
-}
-#work_table .group_w input{
-
-}
-#work_table .name_head input{
-
-}
-#work_table .name_head_mon input{
-
-}
-#work_table .direction_work input{
-
-}
-#work_table .theme_english input{
-
-}
-#work_table .name_reviewer input{
-
+#work_table .w_s{
+  display: none;
 }
 /*work_table*/

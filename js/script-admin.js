@@ -428,12 +428,16 @@ jQuery(document).ready(function(){
 
   jQuery(".off_on").click(function(){
     if(jQuery(".can-toggle #b").attr("checked") != "checked"){
-      jQuery("#work_table td").append("<div class='edit_form'><div>Редагувати</div></div>");
+      jQuery("#work_table .e").append("<div class='edit_form'><div>Редагувати</div></div>");
+      jQuery(".w_t").css({'display':'none'});
+      jQuery(".w_s").css({'display':'block'});
     }else if(jQuery(".can-toggle #b").attr("checked") == "checked"){
       jQuery("#work_table .edit_form").detach();
       jQuery("#work_table .add_cancel").detach();
       jQuery("#work_table td input").detach();
       jQuery("#work_table .v").css("display", "block");
+      jQuery(".w_t").css({'display':'block'});
+      jQuery(".w_s").css({'display':'none'});
     }
   });
 
@@ -502,7 +506,24 @@ jQuery(document).ready(function(){
         a_c.detach();
       }
     );
+  });
 
+  jQuery(".w_s select").change(function () {
+    var t = jQuery(this);
+    t.before("<div class='d'><img src='/wp-content/themes/sumdu/images/load.gif'></div>");
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'w_select',
+        'id': t.attr('data-id'),
+        'name': t.attr('data-name'),
+        'val': t.val()
+      },
+      function(result){
+        t.prev().detach();
+      }
+    );
   });
   /*work_table*/
 

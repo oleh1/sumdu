@@ -59,4 +59,17 @@ function f_edit_form2(){
   $wpdb->update( $table, array($td => $text), array($id_name => $id), array("%s"), array("%d") );
   wp_die();
 }
+
+add_action("wp_ajax_w_select", "f_w_select");
+add_action("wp_ajax_nopriv_w_select", "f_w_select");
+function f_w_select(){
+
+  $id = $_POST['id'];
+  $name = $_POST['name'];
+  $val = $_POST['val'];
+
+  global $wpdb;
+  $wpdb->update( 'sumdu_work_table', array($name => $val), array('id' => $id), array("%s"), array("%d") );
+  wp_die();
+}
 ?>
