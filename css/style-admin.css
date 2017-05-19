@@ -89,6 +89,7 @@
   border: 1px solid darkgreen;
 }
 #tabs td{
+  white-space: nowrap;
   background: rgba(9, 212, 0, 0.04);
   font-size: 16px;
   padding: 5px 10px;
@@ -301,11 +302,11 @@
   left: 100px;
   top: -6px;
 }
-.work_table th{
+.c_work_table th{
   font-size: 17px;
   text-align: center;
 }
-.work_table td{
+.c_work_table td{
   text-align: center;
 }
 
@@ -318,6 +319,7 @@
   border: 1px solid darkgreen;
 }
 #work_table td{
+  white-space: nowrap;
   background: rgba(9, 212, 0, 0.04);
   font-size: 16px;
   padding: 5px 10px;
@@ -374,5 +376,10 @@
 }
 #work_table .w_s{
   display: none;
+}
+#work_table .del_img{
+  width: 15px;
+  padding-top: 2px;
+  cursor: pointer;
 }
 /*work_table*/

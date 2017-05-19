@@ -135,7 +135,7 @@ function f_group_select_protection_schedule_b2()
       <td><?php echo $r->head_b; ?></td>
       <td><?php echo $r->reviewer_b; ?></td>
       <?php
-      if($r->user_id == $cur_user_id || $access == 'administrator' || $access == 'teacher'){ echo '<td><img data-user_id="'.$r->user_id.'" data-group="'.$r->group_b.'" data-l="b" class="del_date_time" src="'.get_template_directory_uri().'/images/delete.png"></td>'; }
+        if($r->user_id == $cur_user_id || $access == 'administrator' || $access == 'teacher'){ echo '<td><img data-user_id="'.$r->user_id.'" data-group="'.$r->group_b.'" data-l="b" class="del_date_time" src="'.get_template_directory_uri().'/images/delete.png"></td>'; }
       ?>
     </tr>
     <?php

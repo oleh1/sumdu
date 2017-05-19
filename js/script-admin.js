@@ -16,8 +16,8 @@ jQuery(document).ready(function(){
     var t,v,w,i;
     t = jQuery(this);
     v = t.closest("td").find( jQuery(".v") );
-    v.css("display", "none");
     w = t.closest("td").outerWidth();
+    v.css("display", "none");
     w = w - 24;
     t.closest(".edit_form").before("<input type='text'>");
     i = t.closest("td").find( jQuery("input") );
@@ -445,8 +445,8 @@ jQuery(document).ready(function(){
     var t,v,w,i;
     t = jQuery(this);
     v = t.closest("td").find( jQuery(".v") );
-    v.css("display", "none");
     w = t.closest("td").outerWidth();
+    v.css("display", "none");
     w = w - 24;
     t.closest(".edit_form").before("<input type='text'>");
     i = t.closest("td").find( jQuery("input") );
@@ -519,7 +519,7 @@ jQuery(document).ready(function(){
         'id': t.attr('data-id'),
         'name': t.attr('data-name'),
         'val': t.val()
-  },
+      },
       function(result){
         t.prev().detach();
         t.parent().prev().text(result);

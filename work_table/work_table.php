@@ -3,7 +3,7 @@ global $wpdb_dek;
 $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middle_name FROM members");
 ?>
 
-<table class="work_table">
+<table class="c_work_table">
   <tr>
     <th>Номер теми</th>
     <th>ОКР</th>
@@ -207,6 +207,7 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
           </select>
         </div>
       </td>
+      <td><img class="del_img" src="<?php echo get_template_directory_uri() ?>/images/delete.png"></td>
 
     </tr>
     <?php
