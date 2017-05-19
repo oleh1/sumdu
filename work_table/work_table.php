@@ -84,7 +84,6 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
 
 </div>
 
-
 <table class="work_t">
   <tr>
     <th style="display: none">id</th>
@@ -113,19 +112,23 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
       <td>
         <div class="w_t">
           <?php
-            $r = $result->okr;
-            if($r == 1){
-              echo 'Бакалавр';
-            }else{
-              echo 'Магістр';
-            }
+          $r = $result->okr;
+          if($r == 1){
+            echo 'Бакалавр';
+            $b1 = 'selected';
+            $b2 = '';
+          }else{
+            echo 'Магістр';
+            $b1 = '';
+            $b2 = 'selected';
+          }
           ?>
         </div>
 
         <div class="w_s">
           <select data-name="okr" data-id="<?php echo $result->id; ?>">
-            <option value="1">Бакалавр</option>
-            <option value="3">Магістр</option>
+            <option value="1|+|Бакалавр" <?php echo $b1; ?>>Бакалавр</option>
+            <option value="3|+|Магістр" <?php echo $b2; ?>>Магістр</option>
           </select>
         </div>
       </td>
@@ -134,8 +137,6 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
       <td data-td="name_w" class="e"><div class="v"><?php echo $result->name_w; ?></div></td>
       <td data-td="middle_name" class="e"><div class="v"><?php echo $result->middle_name; ?></div></td>
       <td data-td="group_w" class="e"><div class="v"><?php echo $result->group_w; ?></div></td>
-
-<!--      <td data-td="name_head" class="name_head"><div class="v">--><?php //echo $result->name_head; ?><!--</div></td>-->
 
       <td>
         <?php
@@ -149,19 +150,16 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
           <select data-name="name_head" data-id="<?php echo $result->id; ?>">
             <?php
             foreach ($data_teacher as $r){
-              if($r->id_member == $result->name_head) {
+              if($r->id_member == $result->name_head) { $c = "selected"; }else{ $c = ''; }
                 ?>
                 <option
-                  value="<?php echo $r->id_member; ?>"><?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?></option>
+                  value="<?php echo $r->id_member; ?>|+|<?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?>" <?php echo $c; ?>><?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?></option>
                 <?php
               }
-            }
             ?>
           </select>
         </div>
       </td>
-
-<!--      <td data-td="name_head_mon" class="name_head_mon"><div class="v">--><?php //echo $result->name_head_mon; ?><!--</div></td>-->
 
       <td>
         <?php
@@ -175,12 +173,11 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
           <select data-name="name_head_mon" data-id="<?php echo $result->id; ?>">
             <?php
             foreach ($data_teacher as $r){
-              if($r->id_member == $result->name_head_mon) {
+              if($r->id_member == $result->name_head_mon) { $c = "selected"; }else{ $c = ''; }
                 ?>
-                <option value="<?php echo $r->id_member; ?>"><?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?></option>
+                <option value="<?php echo $r->id_member; ?>|+|<?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?>" <?php echo $c; ?>><?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?></option>
                 <?php
               }
-            }
             ?>
           </select>
         </div>
@@ -188,9 +185,6 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
 
       <td data-td="direction_work" class="e direction_work"><div class="v"><?php echo $result->direction_work; ?></div></td>
       <td data-td="theme_english" class="e theme_english"><div class="v"><?php echo $result->theme_english; ?></div></td>
-
-<!--      <td data-td="name_reviewer" class="name_reviewer"><div class="v">--><?php //echo $result->name_reviewer; ?><!--</div></td>-->
-
 
       <td>
         <?php
@@ -204,9 +198,9 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
           <select data-name="name_reviewer" data-id="<?php echo $result->id; ?>">
             <?php
             foreach ($data_teacher as $r){
-              if($r->id_member == $result->name_reviewer) { $c = "checked"; }else{ $c = ''; }
+              if($r->id_member == $result->name_reviewer) { $c = "selected"; }else{ $c = ''; }
               ?>
-              <option value="<?php echo $r->id_member; ?> <?php echo $c; ?>"><?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?></option>
+              <option value="<?php echo $r->id_member; ?>|+|<?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?>" <?php echo $c; ?>><?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?></option>
               <?php
             }
             ?>

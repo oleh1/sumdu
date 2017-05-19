@@ -67,9 +67,11 @@ function f_w_select(){
   $id = $_POST['id'];
   $name = $_POST['name'];
   $val = $_POST['val'];
+  $r = explode('|+|',$val);
+  echo $r[1];
 
   global $wpdb;
-  $wpdb->update( 'sumdu_work_table', array($name => $val), array('id' => $id), array("%s"), array("%d") );
+  $wpdb->update( 'sumdu_work_table', array($name => $r[0]), array('id' => $id), array("%s"), array("%d") );
   wp_die();
 }
 ?>

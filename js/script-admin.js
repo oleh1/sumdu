@@ -519,9 +519,10 @@ jQuery(document).ready(function(){
         'id': t.attr('data-id'),
         'name': t.attr('data-name'),
         'val': t.val()
-      },
+  },
       function(result){
         t.prev().detach();
+        t.parent().prev().text(result);
       }
     );
   });
