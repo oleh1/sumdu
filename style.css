@@ -148,6 +148,9 @@ h1{
   padding: 5px;
   background: rgba(173, 192, 206, .3);
 }
+.title_index{
+  margin-bottom: 20px;
+}
 .title_index a{
   display: inline-block;
 }
