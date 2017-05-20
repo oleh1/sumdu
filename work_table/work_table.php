@@ -71,18 +71,17 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
 <div class="add_student"><div class="a">Додати</div><div class="bb"><img src="<?php echo get_template_directory_uri(); ?>/images/load.gif"></div></div>
 
 <div id="work_table">
-<div class="edit_t_b">
-
-  <div class="edit_t">Режим редагування</div>
-
-  <div class="can-toggle can-toggle--size-small">
-    <input id="b" type="checkbox">
-    <label for="b" class="off_on">
-      <div class="can-toggle__switch" data-checked="Вкл" data-unchecked="Викл"></div>
-    </label>
+  
+  <div class="edit_t_b">
+    <div class="edit_t">Режим редагування</div>
+    <div class="can-toggle can-toggle--size-small">
+      <input id="b" type="checkbox">
+      <label for="b" class="off_on">
+        <div class="can-toggle__switch" data-checked="Вкл" data-unchecked="Викл"></div>
+      </label>
+    </div>
   </div>
-
-</div>
+    
 
 <table class="work_t">
   <tr>
@@ -207,7 +206,7 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
           </select>
         </div>
       </td>
-      <td><img class="del_img" src="<?php echo get_template_directory_uri() ?>/images/delete.png"></td>
+      <td class="img_d" data-id="<?php echo $result->id; ?>"><img class="del_img" src="<?php echo get_template_directory_uri() ?>/images/delete.png"></td>
 
     </tr>
     <?php

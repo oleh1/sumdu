@@ -74,4 +74,16 @@ function f_w_select(){
   $wpdb->update( 'sumdu_work_table', array($name => $r[0]), array('id' => $id), array("%s"), array("%d") );
   wp_die();
 }
+
+add_action("wp_ajax_del_img", "f_del_img");
+add_action("wp_ajax_nopriv_del_img", "f_del_img");
+function f_del_img()
+{
+  $id = $_POST['id'];
+  
+  global $wpdb;
+  $wpdb->delete( 'sumdu_work_table', array( 'id' => $id ), array( '%d' ) );
+
+  wp_die();
+}
 ?>

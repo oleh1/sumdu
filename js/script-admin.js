@@ -425,19 +425,21 @@ jQuery(document).ready(function(){
       left: jQuery(document).scrollLeft()
     });
   });
-
+  
   jQuery(".off_on").click(function(){
     if(jQuery(".can-toggle #b").attr("checked") != "checked"){
       jQuery("#work_table .e").append("<div class='edit_form'><div>Редагувати</div></div>");
-      jQuery(".w_t").css({'display':'none'});
-      jQuery(".w_s").css({'display':'block'});
+      jQuery("#work_table .w_t").css({'display':'none'});
+      jQuery("#work_table .w_s").css({'display':'block'});
+      jQuery("#work_table .img_d").css({'display':'block'});
     }else if(jQuery(".can-toggle #b").attr("checked") == "checked"){
       jQuery("#work_table .edit_form").detach();
       jQuery("#work_table .add_cancel").detach();
       jQuery("#work_table td input").detach();
       jQuery("#work_table .v").css("display", "block");
-      jQuery(".w_t").css({'display':'block'});
-      jQuery(".w_s").css({'display':'none'});
+      jQuery("#work_table .w_t").css({'display':'block'});
+      jQuery("#work_table .w_s").css({'display':'none'});
+      jQuery("#work_table .img_d").css({'display':'none'});
     }
   });
 
@@ -523,6 +525,23 @@ jQuery(document).ready(function(){
       function(result){
         t.prev().detach();
         t.parent().prev().text(result);
+      }
+    );
+  });
+
+  jQuery("body").on("click", "#work_table .del_img",function(){
+    jQuery(".add_student .bb").css({'display':'block'});
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'del_img',
+        'id': t.parent().attr('data-id')
+      },
+      function(result){
+        t.parent().parent().detach();
+        jQuery(".add_student .bb").css({'display':'none'});
       }
     );
   });

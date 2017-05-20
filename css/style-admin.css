@@ -377,9 +377,13 @@
 #work_table .w_s{
   display: none;
 }
-#work_table .del_img{
+#work_table .img_d .del_img{
   width: 15px;
   padding-top: 2px;
   cursor: pointer;
+}
+#work_table .img_d{
+  display: none;
+  margin-top: 11px;
 }
 /*work_table*/
