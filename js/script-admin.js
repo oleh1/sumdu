@@ -425,7 +425,7 @@ jQuery(document).ready(function(){
       left: jQuery(document).scrollLeft()
     });
   });
-  
+
   jQuery(".off_on").click(function(){
     if(jQuery(".can-toggle #b").attr("checked") != "checked"){
       jQuery("#work_table .e").append("<div class='edit_form'><div>Редагувати</div></div>");
@@ -509,8 +509,8 @@ jQuery(document).ready(function(){
       }
     );
   });
-
-  jQuery(".w_s select").change(function () {
+  
+  jQuery("body").on("change", ".w_s select",function(){
     var t = jQuery(this);
     t.before("<div class='d'><img src='/wp-content/themes/sumdu/images/load.gif'></div>");
     ajaxurl = '/wp-admin/admin-ajax.php';

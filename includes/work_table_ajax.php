@@ -18,6 +18,9 @@ function f_add_student()
 
   global $wpdb;
   $wpdb->insert('sumdu_work_table', array("id" => '', "number_theme" => $a1, "okr" => $a2, "surname" => $a3, "name_w" => $a4, "middle_name" => $a5, "group_w" => $a6, "name_head" => $a7, "name_head_mon" => $a8, "direction_work" => $a9, "theme_english" => $a10 , "name_reviewer" => $a11), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s"));
+  
+  global $wpdb_dek;
+  $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middle_name FROM members");
 
   global $wpdb;
   $table = 'sumdu_work_table';
@@ -25,18 +28,109 @@ function f_add_student()
   foreach($sumdu_work_table as $result){
     ?>
     <tr data-table="<?php echo $table ?>" data-id_name="id" data-id="<?php echo $result->id; ?>" class="work_tr">
-      <td data-td="id" class="id"><div class="v"><?php echo $result->id; ?></td>
-      <td data-td="number_theme" class="number_theme"><div class="v"><?php echo $result->number_theme; ?></td>
-      <td data-td="okr" class="okr"><div class="v"><?php echo $result->okr; ?></div></td>
-      <td data-td="surname" class="surname"><div class="v"><?php echo $result->surname; ?></div></td>
-      <td data-td="name_w" class="name_w"><div class="v"><?php echo $result->name_w; ?></div></td>
-      <td data-td="middle_name" class="middle_name"><div class="v"><?php echo $result->middle_name; ?></div></td>
-      <td data-td="group_w" class="group_w"><div class="v"><?php echo $result->group_w; ?></div></td>
-      <td data-td="name_head" class="name_head"><div class="v"><?php echo $result->name_head; ?></div></td>
-      <td data-td="name_head_mon" class="name_head_mon"><div class="v"><?php echo $result->name_head_mon; ?></div></td>
-      <td data-td="direction_work" class="direction_work"><div class="v"><?php echo $result->direction_work; ?></div></td>
-      <td data-td="theme_english" class="theme_english"><div class="v"><?php echo $result->theme_english; ?></div></td>
-      <td data-td="name_reviewer" class="name_reviewer"><div class="v"><?php echo $result->name_reviewer; ?></div></td>
+      <td data-td="id" class="id"><div class="v"><?php echo $result->id; ?></div></td>
+      <td data-td="number_theme" class="e"><div class="v"><?php echo $result->number_theme; ?></div></td>
+
+      <td>
+        <div class="w_t">
+          <?php
+          $r = $result->okr;
+          if($r == 1){
+            echo 'Бакалавр';
+            $b1 = 'selected';
+            $b2 = '';
+          }else{
+            echo 'Магістр';
+            $b1 = '';
+            $b2 = 'selected';
+          }
+          ?>
+        </div>
+
+        <div class="w_s">
+          <select data-name="okr" data-id="<?php echo $result->id; ?>">
+            <option value="1|+|Бакалавр" <?php echo $b1; ?>>Бакалавр</option>
+            <option value="3|+|Магістр" <?php echo $b2; ?>>Магістр</option>
+          </select>
+        </div>
+      </td>
+
+      <td data-td="surname" class="e"><div class="v"><?php echo $result->surname; ?></div></td>
+      <td data-td="name_w" class="e"><div class="v"><?php echo $result->name_w; ?></div></td>
+      <td data-td="middle_name" class="e"><div class="v"><?php echo $result->middle_name; ?></div></td>
+      <td data-td="group_w" class="e"><div class="v"><?php echo $result->group_w; ?></div></td>
+
+      <td>
+        <?php
+        foreach ($data_teacher as $r){
+          if($r->id_member == $result->name_head){
+            ?>
+            <div class="w_t"><?php echo $r->surname.' '.$r->name.' '.$r->middle_name; ?></div>
+          <?php } } ?>
+
+        <div class="w_s">
+          <select data-name="name_head" data-id="<?php echo $result->id; ?>">
+            <?php
+            foreach ($data_teacher as $r){
+              if($r->id_member == $result->name_head) { $c = "selected"; }else{ $c = ''; }
+              ?>
+              <option
+                value="<?php echo $r->id_member; ?>|+|<?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?>" <?php echo $c; ?>><?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?></option>
+              <?php
+            }
+            ?>
+          </select>
+        </div>
+      </td>
+
+      <td>
+        <?php
+        foreach ($data_teacher as $r){
+          if($r->id_member == $result->name_head_mon){
+            ?>
+            <div class="w_t"><?php echo $r->surname.' '.$r->name.' '.$r->middle_name; ?></div>
+          <?php } } ?>
+
+        <div class="w_s">
+          <select data-name="name_head_mon" data-id="<?php echo $result->id; ?>">
+            <?php
+            foreach ($data_teacher as $r){
+              if($r->id_member == $result->name_head_mon) { $c = "selected"; }else{ $c = ''; }
+              ?>
+              <option value="<?php echo $r->id_member; ?>|+|<?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?>" <?php echo $c; ?>><?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?></option>
+              <?php
+            }
+            ?>
+          </select>
+        </div>
+      </td>
+
+      <td data-td="direction_work" class="e direction_work"><div class="v"><?php echo $result->direction_work; ?></div></td>
+      <td data-td="theme_english" class="e theme_english"><div class="v"><?php echo $result->theme_english; ?></div></td>
+
+      <td>
+        <?php
+        foreach ($data_teacher as $r){
+          if($r->id_member == $result->name_reviewer){
+            ?>
+            <div class="w_t"><?php echo $r->surname.' '.$r->name.' '.$r->middle_name; ?></div>
+          <?php } } ?>
+
+        <div class="w_s">
+          <select data-name="name_reviewer" data-id="<?php echo $result->id; ?>">
+            <?php
+            foreach ($data_teacher as $r){
+              if($r->id_member == $result->name_reviewer) { $c = "selected"; }else{ $c = ''; }
+              ?>
+              <option value="<?php echo $r->id_member; ?>|+|<?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?>" <?php echo $c; ?>><?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?></option>
+              <?php
+            }
+            ?>
+          </select>
+        </div>
+      </td>
+      <td class="img_d" data-id="<?php echo $result->id; ?>"><img class="del_img" src="<?php echo get_template_directory_uri() ?>/images/delete.png"></td>
+
     </tr>
     <?php
   }
