@@ -293,6 +293,8 @@ add_role(
 //            'export' => true
     )
   );
+
+  add_role('deny_access', 'Запретить доступ', array());
 }
 add_action( 'load-themes.php', 'add_roles' );
 /*roles*/
@@ -360,7 +362,7 @@ function dimox_breadcrumbs() {
   $sep = '›'; // разделитель между "крошками"
   $sep_before = '<span class="sep">'; // тег перед разделителем
   $sep_after = '</span>'; // тег после разделителя
-  $show_home_link = 1; // 1 - показывать ссылку "Главная", 0 - не показывать
+  $show_home_link = 0; // 1 - показывать ссылку "Главная", 0 - не показывать
   $show_on_home = 0; // 1 - показывать "хлебные крошки" на главной странице, 0 - не показывать
   $show_current = 1; // 1 - показывать название текущей страницы, 0 - не показывать
   $before = '<span class="current">'; // тег перед текущей "крошкой"
