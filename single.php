@@ -7,6 +7,7 @@ get_sidebar();
     if (have_posts()): while (have_posts()): the_post();
       ?>
       <div class="one_content">
+        <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
         <div align="center" class="title_index"><h1><?php the_title(); ?></h1></div>
 
         <div class="cont_content_index">
