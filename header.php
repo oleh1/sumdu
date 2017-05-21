@@ -11,7 +11,7 @@
         <?php if(has_custom_logo()) the_custom_logo(); ?>
     </div>
     <div class="name_site">
-        <a href="<?php get_home_url(); ?>">
+        <a href="<?php echo get_home_url(); ?>">
             <?php bloginfo(); ?>
         </a>
     </div>
