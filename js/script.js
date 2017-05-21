@@ -20,11 +20,6 @@ jQuery(document).ready(function(){
   /*reply_p*/
 
   /*list_themes*/
-  if(jQuery(".table_style")){
-    jQuery(".table_style").parent().next().detach();
-    jQuery(".table_style").parent().next().detach();
-  }
-
   jQuery(".group_select").change(function () {
     jQuery('.data_table_themes').detach();
     jQuery('.lists_b_m').css({'display':'block'});
@@ -47,11 +42,6 @@ jQuery(document).ready(function(){
   /*list_themes*/
 
   /*protection_schedule*/
-  if(jQuery(".table_style2")){
-    jQuery(".table_style2").parent().next().detach();
-    jQuery(".table_style2").parent().next().detach();
-  }
-
   jQuery(".group_select2").change(function () {
     jQuery('.data_table_themes2').detach();
     jQuery('.lists_b_m').css({'display':'block'});
@@ -72,6 +62,16 @@ jQuery(document).ready(function(){
     );
   }).trigger("change");
   /*protection_schedule*/
+
+  /*delete date and author*/
+  if( jQuery("div").is(".author_d_d") ) {
+    jQuery(".one_content .author_d").detach();
+  }
+
+  if( jQuery("div").is(".date_d_d") ) {
+    jQuery(".one_content .date_d").detach();
+  }
+  /*delete date and author*/
 });
 
 

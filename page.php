@@ -14,8 +14,8 @@ get_sidebar();
           <?php the_content(); ?>
         </div>
 
-        <div><?php _e('Автор', 'sumdu') ?>: <?php the_author(); ?></div>
-        <div><?php _e('Дата публікації', 'sumdu') ?>: <?php the_date('d.m.Y'); ?> <?php the_time(); ?></div>
+        <div class="author_d"><?php _e('Автор', 'sumdu') ?>: <?php the_author(); ?></div>
+        <div class="date_d"><?php _e('Дата публікації', 'sumdu') ?>: <?php the_date('d.m.Y'); ?> <?php the_time(); ?></div>
       </div>
       <?php
     endwhile;
