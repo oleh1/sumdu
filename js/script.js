@@ -72,6 +72,11 @@ jQuery(document).ready(function(){
     jQuery(".one_content .date_d").detach();
   }
   /*delete date and author*/
+
+  /*tablepress*/
+  jQuery(".dataTables_wrapper .dataTables_filter").after("<div class='add_table_scroll'></div>");
+  jQuery(".dataTables_wrapper .add_table_scroll").append( jQuery(".dataTables_wrapper table") );
+  /*tablepress*/
 });
 
 

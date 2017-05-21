@@ -401,6 +401,20 @@ h1{
 }
 /*all*/
 
+/*tablepress*/
+.tablepress td,
+.tablepress th{
+  white-space: nowrap;
+}
+.dataTables_wrapper{
+  font-size: 16px;
+}
+.add_table_scroll{
+  width: 100%;
+  overflow-x: scroll;
+}
+/*tablepress*/
+
 /*grid*/
 *{
   /*-webkit-box-sizing: border-box;*/
