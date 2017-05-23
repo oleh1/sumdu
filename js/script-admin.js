@@ -105,7 +105,15 @@ jQuery(document).ready(function(){
         'b1': t.parent().prev().find( jQuery(".b1") ).val(),
         'b2': t.parent().prev().find( jQuery(".b2") ).val(),
         'b3': t.parent().prev().find( jQuery(".b3") ).val(),
-        'b4': t.parent().prev().find( jQuery(".b4") ).val()
+        'b4': t.parent().prev().find( jQuery(".b4") ).val(),
+        'b5': t.parent().prev().find( jQuery(".b5") ).val(),
+        'b6': t.parent().prev().find( jQuery(".b6") ).val(),
+        'b7': t.parent().prev().find( jQuery(".b7") ).val(),
+        'b8': t.parent().prev().find( jQuery(".b8") ).val(),
+        'b9': t.parent().prev().find( jQuery(".b9") ).val(),
+        'b10': t.parent().prev().find( jQuery(".b10") ).val(),
+        'b11': t.parent().prev().find( jQuery(".b11") ).val(),
+        'b12': t.parent().prev().find( jQuery(".b12") ).val()
       },
       function(result){
         t.parent().next().find( jQuery('.'+table_name) ).detach();
