@@ -109,6 +109,11 @@ jQuery(document).ready(function(){
         t.parent().next().find( jQuery('.'+table_name) ).detach();
         t.parent().next().children().append(result);
         jQuery(".add_student2 .bb2").css({'display':'none'});
+
+        jQuery("#tabs #edit_e td.n").append("<div class='edit_form'><div>Редагувати</div></div>");
+        jQuery("#tabs .add_all").css("display", "block");
+        jQuery("#tabs .add_student2").css("display", "block");
+        jQuery("#edit_e .img_d").css("display", "block");
       }
     );
   });
