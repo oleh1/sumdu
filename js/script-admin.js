@@ -103,7 +103,9 @@ jQuery(document).ready(function(){
         'action': 'add_all',
         'table': table_name,
         'b1': t.parent().prev().find( jQuery(".b1") ).val(),
-        'b2': t.parent().prev().find( jQuery(".b2") ).val()
+        'b2': t.parent().prev().find( jQuery(".b2") ).val(),
+        'b3': t.parent().prev().find( jQuery(".b3") ).val(),
+        'b4': t.parent().prev().find( jQuery(".b4") ).val()
       },
       function(result){
         t.parent().next().find( jQuery('.'+table_name) ).detach();
