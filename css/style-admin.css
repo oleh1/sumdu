@@ -275,6 +275,47 @@
 .can-toggle.can-toggle--size-small label .can-toggle__switch:hover:after {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
 }
+
+.add_student2{
+  position: relative;
+  left: 0;
+  top: -50px;
+  display: none;
+}
+.add_student2 .a2{
+  cursor: pointer;
+  position: absolute;
+  background: greenyellow;
+  padding: 5px 8px 8px;
+  border-radius: 7px;
+  font-size: 20px;
+}
+.add_student2 div:hover{
+  opacity: 0.8;
+}
+.add_student2 .bb2{
+  display: none;
+  position: absolute;
+}
+.add_student2 .bb2 img{
+  position: relative;
+  left: 100px;
+  top: -6px;
+}
+.add_all{
+  margin: 0 0 55px 0;
+  display: none;
+}
+
+#edit_e .img_d .del_img{
+  width: 15px;
+  padding-top: 2px;
+  cursor: pointer;
+}
+#edit_e .img_d{
+  display: none;
+  margin-top: 11px;
+}
 /*data_base*/
 
 /*work_table*/

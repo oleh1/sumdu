@@ -3,12 +3,18 @@ jQuery(document).ready(function(){
   /*data_base*/
   jQuery(".off_on").click(function(){
     if(jQuery(".can-toggle #b").attr("checked") != "checked"){
-      jQuery("#tabs td").append("<div class='edit_form'><div>Редагувати</div></div>");
+      jQuery("#tabs #edit_e td.n").append("<div class='edit_form'><div>Редагувати</div></div>");
+      jQuery("#tabs .add_all").css("display", "block");
+      jQuery("#tabs .add_student2").css("display", "block");
+      jQuery("#edit_e .img_d").css("display", "block");
     }else if(jQuery(".can-toggle #b").attr("checked") == "checked"){
       jQuery("#tabs .edit_form").detach();
       jQuery("#tabs .add_cancel").detach();
-      jQuery("#tabs td input").detach();
+      jQuery("#tabs #edit_e td input").detach();
       jQuery("#tabs .v").css("display", "block");
+      jQuery("#tabs .add_all").css("display", "none");
+      jQuery("#tabs .add_student2").css("display", "none");
+      jQuery("#edit_e .img_d").css("display", "none");
     }
   });
 
@@ -78,6 +84,52 @@ jQuery(document).ready(function(){
       }
     );
 
+  });
+
+  jQuery(document).scroll(function(){
+    jQuery('.add_student2 div').css({
+      left: jQuery(document).scrollLeft()
+    });
+  });
+
+  jQuery("body").on("click", ".add_student2 div",function(){
+    jQuery(".add_student2 .bb2").css({'display':'block'});
+    var t = jQuery(this);
+    var table_name = t.parent().prev().attr('data-name_t');
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'add_all',
+        'table': table_name,
+        'b1': t.parent().prev().find( jQuery(".b1") ).val(),
+        'b2': t.parent().prev().find( jQuery(".b2") ).val()
+      },
+      function(result){
+        t.parent().next().find( jQuery('.'+table_name) ).detach();
+        t.parent().next().children().append(result);
+        jQuery(".add_student2 .bb2").css({'display':'none'});
+      }
+    );
+  });
+
+  jQuery("body").on("click", "#edit_e .del_img",function(){
+    jQuery(".add_student2 .bb2").css({'display':'block'});
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'del_img2',
+        'id': t.parent().attr('data-id'),
+        'table': t.parent().attr('data-table'),
+        'id_name': t.parent().attr('data-id_name')
+      },
+      function(result){
+        t.parent().parent().detach();
+        jQuery(".add_student2 .bb2").css({'display':'none'});
+      }
+    );
   });
   /*data_base*/
 
