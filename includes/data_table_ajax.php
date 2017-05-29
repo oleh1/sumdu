@@ -84,8 +84,21 @@ function f_add_all(){
   }
 
   if($table == 'meeting_present') {
-    $wpdb_dek->insert($table, array("id_meeting_present" => $b1, "date" => $b2, "start_time" => $b3, "end_time" => $b4, "id_chief" => $b5, "id_present_1" => $b6, "id_present_2" => $b7, "id_present_3" => $b8, "id_present_4" => $b9, "id_present_5" => $b10, "id_present_6" => $b11, "id_present_7" => $b12), array("%d", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d"));
 
+    if(!$b1){ $b1 = NULL; }
+    if(!$b2){ $b2 = date('Y-m-d'); }
+    if(!$b3){ $b3 = NULL; }
+    if(!$b4){ $b4 = NULL; }
+    if(!$b5){ $b5 = NULL; }
+    if(!$b6){ $b6 = NULL; }
+    if(!$b7){ $b7 = NULL; }
+    if(!$b8){ $b8 = NULL; }
+    if(!$b9){ $b9 = NULL; }
+    if(!$b10){ $b10 = NULL; }
+    if(!$b11){ $b11 = NULL; }
+    if(!$b12){ $b12 = NULL; }
+
+    $wpdb_dek->insert($table, array("id_meeting_present" => $b1, "date" => $b2, "start_time" => $b3, "end_time" => $b4, "id_chief" => $b5, "id_present_1" => $b6, "id_present_2" => $b7, "id_present_3" => $b8, "id_present_4" => $b9, "id_present_5" => $b10, "id_present_6" => $b11, "id_present_7" => $b12), array("%d", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d"));
     $r = $wpdb_dek->get_results("SELECT * FROM $table");
     foreach($r as $result){
       ?>

@@ -15,9 +15,9 @@
   </tr>
   <tr>
     <td><input class="b1" type="text" placeholder="int(10) AUTO_INCREMENT"></td>
-    <td><input class="b2" type="text" placeholder="date"></td>
-    <td><input class="b3" type="text" placeholder="time NULL"></td>
-    <td><input class="b4" type="text" placeholder="time NULL"></td>
+    <td><input class="b2" type="text" placeholder="date Y-m-d"></td>
+    <td><input class="b3" type="text" placeholder="time H:i:s NULL"></td>
+    <td><input class="b4" type="text" placeholder="time H:i:s NULL"></td>
     <td><input class="b5" type="text" placeholder="int(10) NULL"></td>
     <td><input class="b6" type="text" placeholder="int(10) NULL"></td>
     <td><input class="b7" type="text" placeholder="int(10) NULL"></td>
