@@ -113,7 +113,18 @@ jQuery(document).ready(function(){
         'b9': t.parent().prev().find( jQuery(".b9") ).val(),
         'b10': t.parent().prev().find( jQuery(".b10") ).val(),
         'b11': t.parent().prev().find( jQuery(".b11") ).val(),
-        'b12': t.parent().prev().find( jQuery(".b12") ).val()
+        'b12': t.parent().prev().find( jQuery(".b12") ).val(),
+        'b13': t.parent().prev().find( jQuery(".b13") ).val(),
+        'b14': t.parent().prev().find( jQuery(".b14") ).val(),
+        'b15': t.parent().prev().find( jQuery(".b15") ).val(),
+        'b16': t.parent().prev().find( jQuery(".b16") ).val(),
+        'b17': t.parent().prev().find( jQuery(".b17") ).val(),
+        'b18': t.parent().prev().find( jQuery(".b18") ).val(),
+        'b19': t.parent().prev().find( jQuery(".b19") ).val(),
+        'b20': t.parent().prev().find( jQuery(".b20") ).val(),
+        'b21': t.parent().prev().find( jQuery(".b21") ).val(),
+        'b22': t.parent().prev().find( jQuery(".b22") ).val(),
+        'b23': t.parent().prev().find( jQuery(".b23") ).val()
       },
       function(result){
         t.parent().next().find( jQuery('.'+table_name) ).detach();
