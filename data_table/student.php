@@ -29,7 +29,7 @@
     <td><input class="b11" type="text" placeholder="int(10) NULL"></td>
     <td><input class="b12" type="text" placeholder="int(10) NULL"></td>
     <td><input class="b13" type="text" placeholder="int(10)"></td>
-    <td><input class="b14" type="text" placeholder="year(4)"></td>
+    <td><input class="b14" type="text" placeholder="year(4) NULL"></td>
   </tr>
 </table>
 

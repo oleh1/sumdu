@@ -288,8 +288,59 @@ function f_add_all(){
 
   if($table == 'student') {
 
+    if(!$b5){ $b5 = NULL; }
+    if(!$b6){ $b6 = NULL; }
+    if(!$b7){ $b7 = NULL; }
+    if(!$b8){ $b8 = NULL; }
+    if(!$b9){ $b9 = NULL; }
+    if(!$b10){ $b10 = NULL; }
+    if(!$b11){ $b11 = NULL; }
+    if(!$b12){ $b12 = NULL; }
+    if(!$b14){ $b14 = NULL; }
 
-    
+    $wpdb_dek->insert($table, array("id_student" => $b1, "surname" => $b2, "name" => $b3, "middle_name" => $b4, "topic" => $b5, "group" => $b6, "form_education" => $b7, "id_head" => $b8, "id_reviewer" => $b9, "id_consultant_oxranu_truda" => $b10, "id_consultant_economica" => $b11, "id_consultant_it_project" => $b12, "id_qualification" => $b13, "year" => $b14), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%d", "%d", "%s"));
+
+    $student = $wpdb_dek->get_results("SELECT * FROM $table");
+    foreach($student as $result){
+      ?>
+      <tr class="<?php echo $table ?>" data-table="<?php echo $table ?>" data-id_name="id_student" data-id="<?php echo $result->id_student; ?>">
+        <td class="n" data-td="id_student"><div class="v"><?php echo $result->id_student; ?></div></td>
+        <td class="n" data-td="surname"><div class="v"><?php echo $result->surname; ?></div></td>
+        <td class="n" data-td="name"><div class="v"><?php echo $result->name; ?></div></td>
+        <td class="n" data-td="middle_name"><div class="v"><?php echo $result->middle_name; ?></div></td>
+        <td class="n" data-td="topic"><div class="v"><?php echo $result->topic; ?></div></td>
+        <td class="n" data-td="group"><div class="v"><?php echo $result->group; ?></div></td>
+        <td class="n" data-td="form_education"><div class="v"><?php echo $result->form_education; ?></div></td>
+        <td class="n" data-td="id_head"><div class="v"><?php echo $result->id_head; ?></div></td>
+        <td class="n" data-td="id_reviewer"><div class="v"><?php echo $result->id_reviewer; ?></div></td>
+        <td class="n" data-td="id_consultant_oxranu_truda"><div class="v"><?php echo $result->id_consultant_oxranu_truda; ?></div></td>
+        <td class="n" data-td="id_consultant_economica"><div class="v"><?php echo $result->id_consultant_economica; ?></div></td>
+        <td class="n" data-td="id_consultant_it_project"><div class="v"><?php echo $result->id_consultant_it_project; ?></div></td>
+        <td class="n" data-td="id_qualification"><div class="v"><?php echo $result->id_qualification; ?></div></td>
+        <td class="n" data-td="year"><div class="v"><?php echo $result->year; ?></div></td>
+        <td class="img_d" data-id_name="id_student" data-table="<?php echo $table; ?>" data-id="<?php echo $result->id_student; ?>"><img class="del_img" src="<?php echo get_template_directory_uri() ?>/images/delete.png"></td>
+      </tr>
+      <?php
+    }
+  }
+
+  if($table == 'valuation') {
+
+    $wpdb_dek->insert($table, array("id_valuation" => $b1, "national_value" => $b2, "ECTS_value" => $b3, "min" => $b4, "max" => $b5), array("%d", "%s", "%s", "%d", "%d"));
+
+    $valuation = $wpdb_dek->get_results("SELECT * FROM $table");
+    foreach($valuation as $result){
+      ?>
+      <tr class="<?php echo $table ?>" data-table="<?php echo $table ?>" data-id_name="id_valuation" data-id="<?php echo $result->id_valuation; ?>">
+        <td class="n" data-td="id_valuation"><div class="v"><?php echo $result->id_valuation; ?></div></td>
+        <td class="n" data-td="national_value"><div class="v"><?php echo $result->national_value; ?></div></td>
+        <td class="n" data-td="ECTS_value"><div class="v"><?php echo $result->ECTS_value; ?></div></td>
+        <td class="n" data-td="min"><div class="v"><?php echo $result->min; ?></div></td>
+        <td class="n" data-td="max"><div class="v"><?php echo $result->max; ?></div></td>
+        <td class="img_d" data-id_name="id_valuation" data-table="<?php echo $table; ?>" data-id="<?php echo $result->id_valuation; ?>"><img class="del_img" src="<?php echo get_template_directory_uri() ?>/images/delete.png"></td>
+      </tr>
+      <?php
+    }
   }
 
   wp_die();
