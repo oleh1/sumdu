@@ -131,6 +131,7 @@ jQuery(document).ready(function(){
         t.parent().next().children().append(result);
         jQuery(".add_student2 .bb2").css({'display':'none'});
 
+        jQuery(".edit_form").detach();
         jQuery("#tabs #edit_e td.n").append("<div class='edit_form'><div>Редагувати</div></div>");
         jQuery("#tabs .add_all").css("display", "block");
         jQuery("#tabs .add_student2").css("display", "block");
