@@ -7,15 +7,13 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
   <tr>
     <th>Номер теми</th>
     <th>ОКР</th>
-    <th>Прізвище студента</th>
-    <th>Ім'я студента</th>
-    <th>По батькові студента</th>
+    <th>П.І.Б</th>
     <th>Група</th>
-    <th>ПІБ керівника диплома</th>
-    <th>ПІБ керівника диплома за наказом МОН</th>
+    <th>П.І.Б керівника диплома</th>
+    <th>П.І.Б керівника диплома за наказом МОН</th>
     <th>Напрям кваліфікаційної роботи</th>
     <th>Тема англійською мовою</th>
-    <th>ПІБ рекомендуємого рецензента</th>
+    <th>П.І.Б рекомендуємого рецензента</th>
   </tr>
 
   <tr>
@@ -26,12 +24,16 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
         <option value="3">Магістр</option>
       </select>
     </td>
-    <td><input class="a3" style="width: 145px;"></td>
-    <td><input class="a4" style="width: 145px;"></td>
-    <td><input class="a5" style="width: 145px;"></td>
-    <td><input class="a6" style="width: 100px;"></td>
+<!--    <td><input class="a3" style="width: 300px;"></td>-->
+<!--    <td><input class="a4" style="width: 100px;"></td>-->
     <td>
-      <select class="a7">
+      <select class="a3"></select>
+    </td>
+    <td>
+      <select class="a4"></select>
+    </td>
+    <td>
+      <select class="a5">
         <?php
         foreach ($data_teacher as $r){
           ?>
@@ -42,7 +44,7 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
       </select>
     </td>
     <td>
-      <select class="a8">
+      <select class="a6">
         <?php
         foreach ($data_teacher as $r){
           ?>
@@ -52,10 +54,10 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
         ?>
       </select>
     </td>
-    <td><textarea class="a9"></textarea></td>
-    <td><textarea class="a10"></textarea></td>
+    <td><textarea class="a7"></textarea></td>
+    <td><textarea class="a8"></textarea></td>
     <td>
-      <select class="a11">
+      <select class="a9">
         <?php
         foreach ($data_teacher as $r){
           ?>
@@ -88,15 +90,13 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
     <th style="display: none">id</th>
     <th>Номер теми</th>
     <th>ОКР</th>
-    <th>Прізвище студента</th>
-    <th>Ім'я студента</th>
-    <th>По батькові студента</th>
+    <th>П.І.Б</th>
     <th>Група</th>
-    <th>ПІБ керівника диплома</th>
-    <th>ПІБ керівника диплома за наказом МОН</th>
+    <th>П.І.Б керівника диплома</th>
+    <th>П.І.Б керівника диплома за наказом МОН</th>
     <th>Напрям кваліфікаційної роботи</th>
     <th>Тема англійською мовою</th>
-    <th>ПІБ рекомендуємого рецензента</th>
+    <th>П.І.Б рекомендуємого рецензента</th>
   </tr>
   <?php
   global $wpdb;
@@ -132,9 +132,7 @@ $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middl
         </div>
       </td>
 
-      <td data-td="surname" class="e"><div class="v"><?php echo $result->surname; ?></div></td>
-      <td data-td="name_w" class="e"><div class="v"><?php echo $result->name_w; ?></div></td>
-      <td data-td="middle_name" class="e"><div class="v"><?php echo $result->middle_name; ?></div></td>
+      <td data-td="name_w" class="e"><div class="v"><?php echo $result->surname.' '.$result->name_w.' '.$result->middle_name; ?></div></td>
       <td data-td="group_w" class="e"><div class="v"><?php echo $result->group_w; ?></div></td>
 
       <td>

@@ -13,11 +13,9 @@ function f_add_student()
   $a7 = $_POST['a7'];
   $a8 = $_POST['a8'];
   $a9 = $_POST['a9'];
-  $a10 = $_POST['a10'];
-  $a11 = $_POST['a11'];
 
   global $wpdb;
-  $wpdb->insert('sumdu_work_table', array("id" => '', "number_theme" => $a1, "okr" => $a2, "surname" => $a3, "name_w" => $a4, "middle_name" => $a5, "group_w" => $a6, "name_head" => $a7, "name_head_mon" => $a8, "direction_work" => $a9, "theme_english" => $a10 , "name_reviewer" => $a11), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s"));
+  $wpdb->insert('sumdu_work_table', array("id" => '', "number_theme" => $a1, "okr" => $a2, "name_w" => $a3, "group_w" => $a4, "name_head" => $a5, "name_head_mon" => $a6, "direction_work" => $a7, "theme_english" => $a8 , "name_reviewer" => $a9), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s"));
   
   global $wpdb_dek;
   $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middle_name FROM members");
@@ -55,9 +53,7 @@ function f_add_student()
         </div>
       </td>
 
-      <td data-td="surname" class="e"><div class="v"><?php echo $result->surname; ?></div></td>
-      <td data-td="name_w" class="e"><div class="v"><?php echo $result->name_w; ?></div></td>
-      <td data-td="middle_name" class="e"><div class="v"><?php echo $result->middle_name; ?></div></td>
+      <td data-td="name_w" class="e"><div class="v"><?php echo $result->surname.' '.$result->name_w.' '.$result->middle_name; ?></div></td>
       <td data-td="group_w" class="e"><div class="v"><?php echo $result->group_w; ?></div></td>
 
       <td>
@@ -177,6 +173,52 @@ function f_del_img()
   
   global $wpdb;
   $wpdb->delete( 'sumdu_work_table', array( 'id' => $id ), array( '%d' ) );
+
+  wp_die();
+}
+
+add_action("wp_ajax_select_a2", "f_select_a2");
+add_action("wp_ajax_nopriv_select_a2", "f_select_a2");
+function f_select_a2()
+{
+  
+  $a2 = $_POST['a2'];
+
+  global $wpdb_dek;
+  $b_m = $wpdb_dek->get_results("SELECT `group` FROM student WHERE id_qualification = $a2");
+
+  $groups = array();
+  $i = 0;
+  foreach($b_m as $r){
+    $groups[$i] = $r->group;
+    $i++;
+  }
+  $groups = array_unique($groups);
+
+  $result = '';
+  foreach($groups as $g){
+    $result .= '<option value="'.$g.'">'.$g.'</option>';
+  }
+  echo $result;
+
+  wp_die();
+}
+
+add_action("wp_ajax_select_a4", "f_select_a4");
+add_action("wp_ajax_nopriv_select_a4", "f_select_a4");
+function f_select_a4()
+{
+
+  $a4 = $_POST['a4'];
+
+  global $wpdb_dek;
+  $b_m = $wpdb_dek->get_results("SELECT surname, `name`, middle_name FROM student WHERE `group` = '{$a4}'");
+  
+  $result = '';
+  foreach($b_m as $g){
+    $result .= '<option value="'.$g->surname.'|+|'.$g->name.'|+|'.$g->middle_name.'">'.$g->surname.' '.$g->name.' '.$g->middle_name.'</option>';
+  }
+  echo $result;
 
   wp_die();
 }

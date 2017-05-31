@@ -487,14 +487,13 @@ jQuery(document).ready(function(){
         'a6': t.parent().prev().find( jQuery('.a6') ).val(),
         'a7': t.parent().prev().find( jQuery('.a7') ).val(),
         'a8': t.parent().prev().find( jQuery('.a8') ).val(),
-        'a9': t.parent().prev().find( jQuery('.a9') ).val(),
-        'a10': t.parent().prev().find( jQuery('.a10') ).val(),
-        'a11': t.parent().prev().find( jQuery('.a11') ).val()
+        'a9': t.parent().prev().find( jQuery('.a9') ).val()
       },
       function(result){
         jQuery('.work_tr').detach();
         jQuery('.work_t > tbody').append(result);
         jQuery(".add_student .bb").css({'display':'none'});
+        jQuery("#work_table .e").append("<div class='edit_form'><div>Редагувати</div></div>");
       }
     );
   });
@@ -624,6 +623,56 @@ jQuery(document).ready(function(){
       }
     );
   });
+
+  jQuery(".a2").change(function(){
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'select_a2',
+        'a2': t.val()
+      },
+      function(result){
+        jQuery(".a4").html(result);
+
+        setTimeout(function () {
+          jQuery(".a4").change(function(){
+            var t = jQuery(this);
+            ajaxurl = '/wp-admin/admin-ajax.php';
+            jQuery.post(
+              ajaxurl,
+              {
+                'action': 'select_a4',
+                'a4': t.val()
+              },
+              function(result){
+                jQuery(".a3").html(result);
+              }
+            );
+          }).trigger("change");
+        }, 1000);
+
+      }
+    );
+  }).trigger("change");
+
+  setTimeout(function () {
+    jQuery(".a4").change(function(){
+      var t = jQuery(this);
+      ajaxurl = '/wp-admin/admin-ajax.php';
+      jQuery.post(
+        ajaxurl,
+        {
+          'action': 'select_a4',
+          'a4': t.val()
+        },
+        function(result){
+          jQuery(".a3").html(result);
+        }
+      );
+    }).trigger("change");
+  }, 1000);
   /*work_table*/
 
 });
