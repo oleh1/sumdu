@@ -97,6 +97,7 @@
   border: 1px solid darkgreen;
 }
 #tabs td input{
+  width: 185px;
   text-align: center;
 }
 #tabs td .edit_form{
