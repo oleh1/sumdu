@@ -80,7 +80,7 @@ jQuery(document).ready(function(){
 
   /*remove excess*/
   jQuery("#wp-admin-bar-wp-logo").detach();
-  jQuery("").detach();
+  jQuery("#wp-admin-bar-customize").detach();
   /*remove excess*/
 });
 
