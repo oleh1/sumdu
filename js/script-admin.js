@@ -695,6 +695,6 @@ jQuery(document).ready(function(){
   jQuery(".user-profile-picture").detach();
   jQuery("#qtranslate_highlight_enabled").closest('.form-table').prev().detach();
   jQuery("#qtranslate_highlight_enabled").closest('.form-table').detach();
-  jQuery("").detach();
+  jQuery(".wp-submenu.wp-submenu-wrap").children('li').eq(5).detach();
   /*remove excess*/
 });
