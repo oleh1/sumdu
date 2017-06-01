@@ -149,13 +149,13 @@ h1{
   background: rgba(173, 192, 206, .3);
 }
 .title_index{
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .title_index a{
-  display: inline-block;
+  font-size: 16pt;
 }
 .cont_content_index{
-  font-size: 14pt;
+  font-size: 13pt;
 }
 .more{
   color: green;

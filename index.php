@@ -4,10 +4,10 @@ get_sidebar();
 ?>
   <div id="content_sumdu">
     <?php
-    if (have_posts()): while (have_posts()): the_post();
+      query_posts('cat=11'); if (have_posts()): while (have_posts()): the_post();
       ?>
       <div class="one_content">
-        <div align="center" class="title_index"><a href="<?php the_permalink(); ?>"><h1><?php the_title(); ?></h1></a></div>
+        <div align="left" class="title_index"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
 
         <div class="cont_content_index">
           <?php the_excerpt(); ?>
