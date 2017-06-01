@@ -309,10 +309,7 @@ $cur_user_id = get_current_user_id();
 $roles = get_userdata($cur_user_id)->roles[0];
 
 if($roles == 'student' || $roles == 'teacher'){
-  add_action( 'admin_menu', 'remove_menu' );
-  function remove_menu() {
-    remove_menu_page('tools.php');
-  }
+
 }
 
 add_action('admin_menu', function(){
@@ -528,4 +525,25 @@ function dimox_breadcrumbs() {
   }
 } // end of dimox_breadcrumbs()
 
+/*remove excess*/
+add_action( 'admin_menu', 'remove_menu' );
+function remove_menu() {
+  remove_menu_page('tools.php');
+  remove_menu_page('themes.php');
+  remove_menu_page('plugins.php');
+  remove_menu_page('options-general.php');
+}
+
+function my_login_logo(){
+  echo '
+   <style type="text/css">
+        #login h1 a { background: url('. get_bloginfo('template_directory') .'/images/logo33.png) no-repeat 0 0 !important; width: 183px; height: 217px; }
+    </style>';
+}
+add_action('login_head', 'my_login_logo');
+
+add_filter( 'login_headerurl', create_function('', 'return get_home_url();') );
+
+add_filter( 'login_headertitle', create_function('', 'return false;') );
+/*remove excess*/
 ?>

@@ -684,4 +684,17 @@ jQuery(document).ready(function(){
     }).trigger("change");
   /*work_table*/
 
+
+  /*remove excess*/
+  jQuery("#dashboard_primary").detach();
+  jQuery("#screen-meta-links").detach();
+  jQuery("#wp-admin-bar-wp-logo").detach();
+  jQuery(".wp-submenu.wp-submenu-wrap").children('li').eq(2).detach();
+  jQuery("#wpfooter").detach();
+  jQuery("#wp-version-message").detach();
+  jQuery(".user-profile-picture").detach();
+  jQuery("#qtranslate_highlight_enabled").closest('.form-table').prev().detach();
+  jQuery("#qtranslate_highlight_enabled").closest('.form-table').detach();
+  jQuery("").detach();
+  /*remove excess*/
 });

@@ -77,6 +77,11 @@ jQuery(document).ready(function(){
   jQuery(".dataTables_wrapper .dataTables_filter").after("<div class='add_table_scroll'></div>");
   jQuery(".dataTables_wrapper .add_table_scroll").append( jQuery(".dataTables_wrapper table") );
   /*tablepress*/
+
+  /*remove excess*/
+  jQuery("#wp-admin-bar-wp-logo").detach();
+  jQuery("").detach();
+  /*remove excess*/
 });
 
 
