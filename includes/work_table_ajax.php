@@ -7,6 +7,7 @@ function f_add_student()
   $a1 = $_POST['a1'];
   $a2 = $_POST['a2'];
   $a3 = $_POST['a3'];
+  $student_id = $_POST['student_id'];
   $a4 = $_POST['a4'];
   $a5 = $_POST['a5'];
   $a6 = $_POST['a6'];
@@ -15,11 +16,12 @@ function f_add_student()
   $a9 = $_POST['a9'];
 
   global $wpdb;
-  $wpdb->insert('sumdu_work_table', array("id" => '', "number_theme" => $a1, "okr" => $a2, "name_w" => $a3, "group_w" => $a4, "name_head" => $a5, "name_head_mon" => $a6, "direction_work" => $a7, "theme_english" => $a8 , "name_reviewer" => $a9), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s"));
+  $wpdb->insert('sumdu_work_table', array("id" => $student_id, "number_theme" => $a1, "okr" => $a2, "name_w" => $a3, "group_w" => $a4, "name_head" => $a5, "name_head_mon" => $a6, "direction_work" => $a7, "theme_english" => $a8 , "name_reviewer" => $a9), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s"));
   
   global $wpdb_dek;
   $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middle_name FROM members");
-
+  $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, middle_name FROM student");
+  
   global $wpdb;
   $table = 'sumdu_work_table';
   $sumdu_work_table = $wpdb->get_results("SELECT * FROM $table");
@@ -46,14 +48,36 @@ function f_add_student()
         </div>
 
         <div class="w_s">
-          <select data-name="okr" data-id="<?php echo $result->id; ?>">
+          <select data-name="okr" data-id="<?php echo $result->id; ?>" data-x="0">
             <option value="1|+|Бакалавр" <?php echo $b1; ?>>Бакалавр</option>
             <option value="3|+|Магістр" <?php echo $b2; ?>>Магістр</option>
           </select>
         </div>
       </td>
 
-      <td data-td="name_w" class="e"><div class="v"><?php echo $result->surname.' '.$result->name_w.' '.$result->middle_name; ?></div></td>
+      <td>
+        <?php
+        foreach ($data_student as $r){
+          if($r->id_student == $result->id){
+            ?>
+            <div class="w_t"><?php echo $r->surname.' '.$r->name.' '.$r->middle_name; ?></div>
+          <?php } } ?>
+
+        <div class="w_s">
+          <select data-name="name_w" data-id="<?php echo $result->id; ?>" data-x="1">
+            <?php
+            foreach ($data_student as $r){
+              if($r->id_student == $result->id) { $c = "selected"; }else{ $c = ''; }
+              ?>
+              <option data-student="<?php echo $r->id_student; ?>" value="<?php echo $r->id_student; ?>|+|<?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?>" <?php echo $c; ?>><?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?></option>
+              <?php
+            }
+            ?>
+          </select>
+        </div>
+      </td>
+      
+<!--      <td data-td="name_w" class="e"><div class="v">--><?php //echo $result->surname.' '.$result->name_w.' '.$result->middle_name; ?><!--</div></td>-->
       <td data-td="group_w" class="e"><div class="v"><?php echo $result->group_w; ?></div></td>
 
       <td>
@@ -65,7 +89,7 @@ function f_add_student()
           <?php } } ?>
 
         <div class="w_s">
-          <select data-name="name_head" data-id="<?php echo $result->id; ?>">
+          <select data-name="name_head" data-id="<?php echo $result->id; ?>" data-x="0">
             <?php
             foreach ($data_teacher as $r){
               if($r->id_member == $result->name_head) { $c = "selected"; }else{ $c = ''; }
@@ -88,7 +112,7 @@ function f_add_student()
           <?php } } ?>
 
         <div class="w_s">
-          <select data-name="name_head_mon" data-id="<?php echo $result->id; ?>">
+          <select data-name="name_head_mon" data-id="<?php echo $result->id; ?>" data-x="0">
             <?php
             foreach ($data_teacher as $r){
               if($r->id_member == $result->name_head_mon) { $c = "selected"; }else{ $c = ''; }
@@ -113,7 +137,7 @@ function f_add_student()
           <?php } } ?>
 
         <div class="w_s">
-          <select data-name="name_reviewer" data-id="<?php echo $result->id; ?>">
+          <select data-name="name_reviewer" data-id="<?php echo $result->id; ?>" data-x="0">
             <?php
             foreach ($data_teacher as $r){
               if($r->id_member == $result->name_reviewer) { $c = "selected"; }else{ $c = ''; }
@@ -154,14 +178,21 @@ add_action("wp_ajax_w_select", "f_w_select");
 add_action("wp_ajax_nopriv_w_select", "f_w_select");
 function f_w_select(){
 
+  global $wpdb;
+
   $id = $_POST['id'];
   $name = $_POST['name'];
   $val = $_POST['val'];
   $r = explode('|+|',$val);
+  $x = $_POST['x'];
+  $student = $_POST['student'];
+  if($x == 1){
+    $wpdb->update( 'sumdu_work_table', array($name => $r[1], 'id' => (int)$r[0]), array('id' => (int)$id), array("%s", "%d"), array("%d") );
+  }else{
+    $wpdb->update( 'sumdu_work_table', array($name => $r[0]), array('id' => (int)$id), array("%s"), array("%d") );
+  }
   echo $r[1];
-
-  global $wpdb;
-  $wpdb->update( 'sumdu_work_table', array($name => $r[0]), array('id' => $id), array("%s"), array("%d") );
+  
   wp_die();
 }
 
@@ -212,11 +243,11 @@ function f_select_a4()
   $a4 = $_POST['a4'];
 
   global $wpdb_dek;
-  $b_m = $wpdb_dek->get_results("SELECT surname, `name`, middle_name FROM student WHERE `group` = '{$a4}'");
+  $b_m = $wpdb_dek->get_results("SELECT id_student, surname, `name`, middle_name FROM student WHERE `group` = '{$a4}'");
   
   $result = '';
   foreach($b_m as $g){
-    $result .= '<option value="'.$g->surname.'|+|'.$g->name.'|+|'.$g->middle_name.'">'.$g->surname.' '.$g->name.' '.$g->middle_name.'</option>';
+    $result .= '<option data-id="'.$g->id_student.'" value="'.$g->surname.' '.$g->name.' '.$g->middle_name.'">'.$g->surname.' '.$g->name.' '.$g->middle_name.'</option>';
   }
   echo $result;
 

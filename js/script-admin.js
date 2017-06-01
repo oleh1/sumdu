@@ -482,6 +482,7 @@ jQuery(document).ready(function(){
         'a1': t.parent().prev().find( jQuery('.a1') ).val(),
         'a2': t.parent().prev().find( jQuery('.a2') ).val(),
         'a3': t.parent().prev().find( jQuery('.a3') ).val(),
+        'student_id': t.parent().prev().find( jQuery('.a3 option:selected') ).attr('data-id'),
         'a4': t.parent().prev().find( jQuery('.a4') ).val(),
         'a5': t.parent().prev().find( jQuery('.a5') ).val(),
         'a6': t.parent().prev().find( jQuery('.a6') ).val(),
@@ -493,7 +494,7 @@ jQuery(document).ready(function(){
         jQuery('.work_tr').detach();
         jQuery('.work_t > tbody').append(result);
         jQuery(".add_student .bb").css({'display':'none'});
-        jQuery("#work_table .e").append("<div class='edit_form'><div>Редагувати</div></div>");
+        jQuery(".can-toggle #b").removeAttr('checked');
       }
     );
   });
@@ -588,8 +589,11 @@ jQuery(document).ready(function(){
     );
   });
   
+  jQuery(".w_s select").val()
+  
   jQuery("body").on("change", ".w_s select",function(){
     var t = jQuery(this);
+    var g = jQuery("option:selected", this).attr('data-student');
     t.before("<div class='d'><img src='/wp-content/themes/sumdu/images/load.gif'></div>");
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
@@ -598,11 +602,14 @@ jQuery(document).ready(function(){
         'action': 'w_select',
         'id': t.attr('data-id'),
         'name': t.attr('data-name'),
+        'x': t.attr('data-x'),
+        'student': g,
         'val': t.val()
       },
       function(result){
         t.prev().detach();
         t.parent().prev().text(result);
+        jQuery(".work_t .w_s select").attr( 'data-id', g );
       }
     );
   });
@@ -625,6 +632,7 @@ jQuery(document).ready(function(){
   });
 
   jQuery(".a2").change(function(){
+    jQuery(".add_student .bb").css({'display':'block'});
     var t = jQuery(this);
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
@@ -648,6 +656,7 @@ jQuery(document).ready(function(){
               },
               function(result){
                 jQuery(".a3").html(result);
+                jQuery(".add_student .bb").css({'display':'none'});
               }
             );
           }).trigger("change");
@@ -657,8 +666,8 @@ jQuery(document).ready(function(){
     );
   }).trigger("change");
 
-  setTimeout(function () {
     jQuery(".a4").change(function(){
+      jQuery(".add_student .bb").css({'display':'block'});
       var t = jQuery(this);
       ajaxurl = '/wp-admin/admin-ajax.php';
       jQuery.post(
@@ -669,10 +678,10 @@ jQuery(document).ready(function(){
         },
         function(result){
           jQuery(".a3").html(result);
+          jQuery(".add_student .bb").css({'display':'none'});
         }
       );
     }).trigger("change");
-  }, 1000);
   /*work_table*/
 
 });
