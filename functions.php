@@ -546,4 +546,13 @@ add_filter( 'login_headerurl', create_function('', 'return get_home_url();') );
 
 add_filter( 'login_headertitle', create_function('', 'return false;') );
 /*remove excess*/
+
+/*info*/
+add_action('admin_menu', function(){
+  add_menu_page(__('Інформація', 'sumdu'), __('Інформація', 'sumdu'), 'edit_pages', 'info', 'info', '', 85);
+} );
+function info(){
+  include 'info/info.php';
+}
+/*info*/
 ?>

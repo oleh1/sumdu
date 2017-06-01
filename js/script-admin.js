@@ -689,12 +689,13 @@ jQuery(document).ready(function(){
   jQuery("#dashboard_primary").detach();
   jQuery("#screen-meta-links").detach();
   jQuery("#wp-admin-bar-wp-logo").detach();
-  jQuery(".wp-submenu.wp-submenu-wrap").children('li').eq(2).detach();
+  jQuery(".update-plugins").parent().parent().detach();
+  jQuery("#menu-posts ul li:last-child").detach();
   jQuery("#wpfooter").detach();
   jQuery("#wp-version-message").detach();
   jQuery(".user-profile-picture").detach();
   jQuery("#qtranslate_highlight_enabled").closest('.form-table').prev().detach();
   jQuery("#qtranslate_highlight_enabled").closest('.form-table').detach();
-  jQuery(".wp-submenu.wp-submenu-wrap").children('li').eq(5).detach();
+  jQuery("#tagsdiv-post_tag").detach();
   /*remove excess*/
 });
