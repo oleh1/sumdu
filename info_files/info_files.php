@@ -31,6 +31,7 @@ $file_tmp_name = $_FILES["filename"]["tmp_name"];
 var_dump($file_size);
 var_dump($file_name);
 var_dump($file_tmp_name);
+var_dump( __DIR__.'/../download/' );
 
 if(is_uploaded_file($file_tmp_name)) {
 
