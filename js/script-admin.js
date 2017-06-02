@@ -698,6 +698,7 @@ jQuery(document).ready(function(){
         t.prev().prev().prev().detach();
         t.prev().prev().detach();
         t.prev().detach();
+        t.next().detach();
         t.detach();
       }
     );
