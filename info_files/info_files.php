@@ -28,6 +28,10 @@ $file_size = $_FILES["filename"]["size"];
 $file_name = $_FILES["filename"]["name"];
 $file_tmp_name = $_FILES["filename"]["tmp_name"];
 
+var_dump($file_size);
+var_dump($file_name);
+var_dump($file_tmp_name);
+
 if(is_uploaded_file($file_tmp_name)) {
 
   update_option($file_name, $file_size);
