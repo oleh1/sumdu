@@ -684,6 +684,26 @@ jQuery(document).ready(function(){
     }).trigger("change");
   /*work_table*/
 
+  /*info_files*/
+  jQuery(".delete_file").click(function(){
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'delete_file',
+        'file': t.attr('data-file')
+      },
+      function(result){
+        t.prev().prev().prev().detach();
+        t.prev().prev().detach();
+        t.prev().detach();
+        t.detach();
+      }
+    );
+  });
+  /*info_files*/
+
 
   /*remove excess*/
   jQuery("#dashboard_primary").detach();

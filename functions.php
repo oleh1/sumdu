@@ -549,10 +549,11 @@ add_filter( 'login_headertitle', create_function('', 'return false;') );
 
 /*info*/
 add_action('admin_menu', function(){
-  add_menu_page(__('Інформація', 'sumdu'), __('Інформація', 'sumdu'), 'edit_pages', 'info', 'info', '', 85);
+  add_menu_page(__('Інформація та файли', 'sumdu'), __('Інформація та файли', 'sumdu'), 'edit_pages', 'info_files', 'info_files', '', 85);
 } );
-function info(){
-  include 'info/info.php';
+function info_files(){
+  include 'info_files/info_files.php';
 }
+include 'includes/info_file_ajax.php';
 /*info*/
 ?>

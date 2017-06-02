@@ -1,1 +1,0 @@
-<a href="<?php get_template_directory_uri() ?>/download/dek2.zip" download="">Скачать</a>
