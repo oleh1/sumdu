@@ -296,7 +296,7 @@ function f_add_all(){
     if(!$b10){ $b10 = NULL; }
     if(!$b11){ $b11 = NULL; }
     if(!$b12){ $b12 = NULL; }
-    if(!$b14){ $b14 = NULL; }
+    if(!$b14){ $b14 = date('Y'); }
 
     $wpdb_dek->insert($table, array("id_student" => $b1, "surname" => $b2, "name" => $b3, "middle_name" => $b4, "topic" => $b5, "group" => $b6, "form_education" => $b7, "id_head" => $b8, "id_reviewer" => $b9, "id_consultant_oxranu_truda" => $b10, "id_consultant_economica" => $b11, "id_consultant_it_project" => $b12, "id_qualification" => $b13, "year" => $b14), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%d", "%d", "%s"));
 

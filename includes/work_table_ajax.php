@@ -14,9 +14,14 @@ function f_add_student()
   $a7 = $_POST['a7'];
   $a8 = $_POST['a8'];
   $a9 = $_POST['a9'];
+  $a10 = $_POST['a10'];
+
+  if(!$a10){
+    $a10 = date('Y');
+  }
 
   global $wpdb;
-  $wpdb->insert('sumdu_work_table', array("id" => $student_id, "number_theme" => $a1, "okr" => $a2, "name_w" => $a3, "group_w" => $a4, "name_head" => $a5, "name_head_mon" => $a6, "direction_work" => $a7, "theme_english" => $a8 , "name_reviewer" => $a9), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s"));
+  $wpdb->insert('sumdu_work_table', array("id" => $student_id, "number_theme" => $a1, "okr" => $a2, "name_w" => $a3, "group_w" => $a4, "name_head" => $a5, "name_head_mon" => $a6, "direction_work" => $a7, "theme_english" => $a8, "name_reviewer" => $a9, "year_w" => $a10), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d"));
   
   global $wpdb_dek;
   $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middle_name FROM members");
@@ -24,7 +29,7 @@ function f_add_student()
   
   global $wpdb;
   $table = 'sumdu_work_table';
-  $sumdu_work_table = $wpdb->get_results("SELECT * FROM $table");
+  $sumdu_work_table = $wpdb->get_results("SELECT * FROM $table GROUP BY number_theme");
   foreach($sumdu_work_table as $result){
     ?>
     <tr data-table="<?php echo $table ?>" data-id_name="id" data-id="<?php echo $result->id; ?>" class="work_tr">
@@ -149,6 +154,9 @@ function f_add_student()
           </select>
         </div>
       </td>
+
+      <td data-td="year_w" class="e"><div class="v"><?php echo $result->year_w; ?></div></td>
+      
       <td class="img_d" data-id="<?php echo $result->id; ?>"><img class="del_img" src="<?php echo get_template_directory_uri() ?>/images/delete.png"></td>
 
     </tr>

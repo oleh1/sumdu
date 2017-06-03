@@ -1,6 +1,8 @@
 <?php
 global $wpdb_dek;
-$data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middle_name FROM members");
+$data_teacher_head = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middle_name FROM members WHERE head = 1");
+$data_teacher_reviewer = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middle_name FROM members WHERE reviewer = 1");
+
 $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, middle_name FROM student");
 ?>
 
@@ -8,35 +10,37 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
   <tr>
     <th>Номер теми</th>
     <th>ОКР</th>
-    <th>П.І.Б</th>
     <th>Група</th>
+    <th>П.І.Б</th>
     <th>П.І.Б керівника диплома</th>
     <th>П.І.Б керівника диплома за наказом МОН</th>
     <th>Напрям кваліфікаційної роботи</th>
     <th>Тема англійською мовою</th>
     <th>П.І.Б рекомендуємого рецензента</th>
+    <th>Рік запису</th>
   </tr>
 
   <tr>
-    <td><input class="a1" style="width: 38px;"></td>
+    <td><input class="a1" style="width: 55px;" placeholder="int(10)"></td>
     <td>
       <select class="a2">
         <option value="1">Бакалавр</option>
         <option value="3">Магістр</option>
       </select>
     </td>
-<!--    <td><input class="a3" style="width: 300px;"></td>-->
-<!--    <td><input class="a4" style="width: 100px;"></td>-->
-    <td>
-      <select class="a3"></select>
-    </td>
+
     <td>
       <select class="a4"></select>
     </td>
+
+    <td>
+      <select class="a3"></select>
+    </td>
+
     <td>
       <select class="a5">
         <?php
-        foreach ($data_teacher as $r){
+        foreach ($data_teacher_head as $r){
           ?>
           <option value="<?php echo $r->id_member; ?>"><?php echo $r->surname.' '.$r->name.' '.$r->middle_name; ?></option>
           <?php
@@ -47,7 +51,7 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
     <td>
       <select class="a6">
         <?php
-        foreach ($data_teacher as $r){
+        foreach ($data_teacher_head as $r){
           ?>
           <option value="<?php echo $r->id_member; ?>"><?php echo $r->surname.' '.$r->name.' '.$r->middle_name; ?></option>
           <?php
@@ -55,12 +59,12 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
         ?>
       </select>
     </td>
-    <td><textarea class="a7"></textarea></td>
-    <td><textarea class="a8"></textarea></td>
+    <td><textarea class="a7" placeholder="text NULL"></textarea></td>
+    <td><textarea class="a8" placeholder="text NULL"></textarea></td>
     <td>
       <select class="a9">
         <?php
-        foreach ($data_teacher as $r){
+        foreach ($data_teacher_reviewer as $r){
           ?>
           <option value="<?php echo $r->id_member; ?>"><?php echo $r->surname.' '.$r->name.' '.$r->middle_name; ?></option>
           <?php
@@ -68,6 +72,8 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
         ?>
       </select>
     </td>
+
+    <td><input class="a10" style="width: 96px;" placeholder="year(4) NULL"></td>
   </tr>
 </table>
 
@@ -91,18 +97,19 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
     <th style="display: none">id</th>
     <th>Номер теми</th>
     <th>ОКР</th>
-    <th>П.І.Б</th>
     <th>Група</th>
+    <th>П.І.Б</th>
     <th>П.І.Б керівника диплома</th>
     <th>П.І.Б керівника диплома за наказом МОН</th>
     <th>Напрям кваліфікаційної роботи</th>
     <th>Тема англійською мовою</th>
     <th>П.І.Б рекомендуємого рецензента</th>
+    <th>Рік запису</th>
   </tr>
   <?php
   global $wpdb;
   $table = 'sumdu_work_table';
-  $sumdu_work_table = $wpdb->get_results("SELECT * FROM $table");
+  $sumdu_work_table = $wpdb->get_results("SELECT * FROM $table GROUP BY number_theme");
   foreach($sumdu_work_table as $result){
     ?>
     <tr data-table="<?php echo $table ?>" data-id_name="id" data-id="<?php echo $result->id; ?>" class="work_tr">
@@ -133,6 +140,8 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
         </div>
       </td>
 
+      <td data-td="group_w" class="e"><div class="v"><?php echo $result->group_w; ?></div></td>
+
       <td>
         <?php
         foreach ($data_student as $r){
@@ -154,9 +163,6 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
           </select>
         </div>
       </td>
-
-<!--      <td data-td="name_w" class="e"><div class="v">--><?php //echo $result->surname.' '.$result->name_w.' '.$result->middle_name; ?><!--</div></td>-->
-      <td data-td="group_w" class="e"><div class="v"><?php echo $result->group_w; ?></div></td>
 
       <td>
         <?php
@@ -227,6 +233,9 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
           </select>
         </div>
       </td>
+
+      <td data-td="year_w" class="e"><div class="v"><?php echo $result->year_w; ?></div></td>
+
       <td class="img_d" data-id="<?php echo $result->id; ?>"><img class="del_img" src="<?php echo get_template_directory_uri() ?>/images/delete.png"></td>
 
     </tr>

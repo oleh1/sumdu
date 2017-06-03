@@ -472,14 +472,21 @@ jQuery(document).ready(function(){
 
   /*work_table*/
   jQuery("body").on("click", ".add_student div",function(){
-    jQuery(".add_student .bb").css({'display':'block'});
     var t = jQuery(this);
+    var number_theme = t.parent().prev().find( jQuery('.a1') );
+    if(!number_theme.val()){
+      number_theme.css({'background':'red'});
+      return false;
+    }else{
+      number_theme.css({'background':'#fff'});
+    }
+    jQuery(".add_student .bb").css({'display':'block'});
     ajaxurl = '/wp-admin/admin-ajax.php';
     jQuery.post(
       ajaxurl,
       {
         'action': 'add_student',
-        'a1': t.parent().prev().find( jQuery('.a1') ).val(),
+        'a1': number_theme.val(),
         'a2': t.parent().prev().find( jQuery('.a2') ).val(),
         'a3': t.parent().prev().find( jQuery('.a3') ).val(),
         'student_id': t.parent().prev().find( jQuery('.a3 option:selected') ).attr('data-id'),
@@ -488,7 +495,8 @@ jQuery(document).ready(function(){
         'a6': t.parent().prev().find( jQuery('.a6') ).val(),
         'a7': t.parent().prev().find( jQuery('.a7') ).val(),
         'a8': t.parent().prev().find( jQuery('.a8') ).val(),
-        'a9': t.parent().prev().find( jQuery('.a9') ).val()
+        'a9': t.parent().prev().find( jQuery('.a9') ).val(),
+        'a10': t.parent().prev().find( jQuery('.a10') ).val()
       },
       function(result){
         jQuery('.work_tr').detach();
