@@ -736,6 +736,7 @@ jQuery(document).ready(function(){
   jQuery("#wp-admin-bar-wp-logo").detach();
   jQuery(".update-plugins").parent().parent().detach();
   jQuery("#menu-posts ul li:last-child").detach();
+  jQuery("#menu-posts ul li:last-child").detach();
   jQuery("#wpfooter").detach();
   jQuery("#wp-version-message").detach();
   jQuery(".user-profile-picture").detach();

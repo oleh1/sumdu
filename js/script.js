@@ -81,6 +81,9 @@ jQuery(document).ready(function(){
   /*remove excess*/
   jQuery("#wp-admin-bar-wp-logo").detach();
   jQuery("#wp-admin-bar-customize").detach();
+  jQuery("#wp-admin-bar-themes").detach();
+  jQuery("#wp-admin-bar-widgets").detach();
+  jQuery("#wp-admin-bar-menus").detach();
   /*remove excess*/
 });
 

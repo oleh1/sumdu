@@ -1,5 +1,7 @@
 <div class="info_file">
-<div class="in">dek2.zip</div><a class="in load_file" href="<?php echo get_template_directory_uri(); ?>/files/dek2.zip" download>Завантажити</a>
+<div class="in">Web - dek2_web.zip</div><a class="in load_file" href="<?php echo get_template_directory_uri(); ?>/files/dek2_web.zip" download>Завантажити</a><br>
+<div class="in">Local - dek2_local.zip</div><a class="in load_file" href="<?php echo get_template_directory_uri(); ?>/files/dek2_local.zip" download>Завантажити</a>
+
 
 <div class="ii">Додаткова інформація</div>
 <div>
