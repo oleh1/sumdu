@@ -690,6 +690,23 @@ jQuery(document).ready(function(){
         }
       );
     }).trigger("change");
+
+  jQuery(".import_work_t").click(function(){
+    jQuery(".add_student .bb").css({'display':'block'});
+    var t = jQuery(this);
+    ajaxurl = '/wp-admin/admin-ajax.php';
+    jQuery.post(
+      ajaxurl,
+      {
+        'action': 'import_work_t',
+        'start': 1
+      },
+      function(result){
+        jQuery(".add_student .bb").css({'display':'none'});
+        alert(result);
+      }
+    );
+  });
   /*work_table*/
 
   /*info_files*/

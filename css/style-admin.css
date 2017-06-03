@@ -428,4 +428,22 @@
   display: none;
   margin-top: 11px;
 }
+
+.iw{
+  display: inline-block;
+}
+.import_work_t{
+  background: cadetblue;
+  position: relative;
+  left: 135px;
+  top: -9px;
+  color: white;
+  cursor: pointer;
+  padding: 3px 7px;
+  font-size: 15px;
+  border-radius: 6px;
+}
+.import_work_t:hover{
+  opacity: 0.8;
+}
 /*work_table*/

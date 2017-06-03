@@ -24,7 +24,9 @@ function f_add_student()
   $wpdb->insert('sumdu_work_table', array("id" => $student_id, "number_theme" => $a1, "okr" => $a2, "name_w" => $a3, "group_w" => $a4, "name_head" => $a5, "name_head_mon" => $a6, "direction_work" => $a7, "theme_english" => $a8, "name_reviewer" => $a9, "year_w" => $a10), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d"));
   
   global $wpdb_dek;
-  $data_teacher = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middle_name FROM members");
+  $data_teacher_head = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middle_name FROM members WHERE head = 1");
+  $data_teacher_reviewer = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middle_name FROM members WHERE reviewer = 1");
+
   $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, middle_name FROM student");
   
   global $wpdb;
@@ -60,6 +62,8 @@ function f_add_student()
         </div>
       </td>
 
+      <td data-td="group_w" class="e"><div class="v"><?php echo $result->group_w; ?></div></td>
+
       <td>
         <?php
         foreach ($data_student as $r){
@@ -81,13 +85,10 @@ function f_add_student()
           </select>
         </div>
       </td>
-      
-<!--      <td data-td="name_w" class="e"><div class="v">--><?php //echo $result->surname.' '.$result->name_w.' '.$result->middle_name; ?><!--</div></td>-->
-      <td data-td="group_w" class="e"><div class="v"><?php echo $result->group_w; ?></div></td>
 
       <td>
         <?php
-        foreach ($data_teacher as $r){
+        foreach ($data_teacher_head as $r){
           if($r->id_member == $result->name_head){
             ?>
             <div class="w_t"><?php echo $r->surname.' '.$r->name.' '.$r->middle_name; ?></div>
@@ -96,7 +97,7 @@ function f_add_student()
         <div class="w_s">
           <select data-name="name_head" data-id="<?php echo $result->id; ?>" data-x="0">
             <?php
-            foreach ($data_teacher as $r){
+            foreach ($data_teacher_head as $r){
               if($r->id_member == $result->name_head) { $c = "selected"; }else{ $c = ''; }
               ?>
               <option
@@ -110,7 +111,7 @@ function f_add_student()
 
       <td>
         <?php
-        foreach ($data_teacher as $r){
+        foreach ($data_teacher_head as $r){
           if($r->id_member == $result->name_head_mon){
             ?>
             <div class="w_t"><?php echo $r->surname.' '.$r->name.' '.$r->middle_name; ?></div>
@@ -119,7 +120,7 @@ function f_add_student()
         <div class="w_s">
           <select data-name="name_head_mon" data-id="<?php echo $result->id; ?>" data-x="0">
             <?php
-            foreach ($data_teacher as $r){
+            foreach ($data_teacher_head as $r){
               if($r->id_member == $result->name_head_mon) { $c = "selected"; }else{ $c = ''; }
               ?>
               <option value="<?php echo $r->id_member; ?>|+|<?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?>" <?php echo $c; ?>><?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?></option>
@@ -135,7 +136,7 @@ function f_add_student()
 
       <td>
         <?php
-        foreach ($data_teacher as $r){
+        foreach ($data_teacher_reviewer as $r){
           if($r->id_member == $result->name_reviewer){
             ?>
             <div class="w_t"><?php echo $r->surname.' '.$r->name.' '.$r->middle_name; ?></div>
@@ -144,7 +145,7 @@ function f_add_student()
         <div class="w_s">
           <select data-name="name_reviewer" data-id="<?php echo $result->id; ?>" data-x="0">
             <?php
-            foreach ($data_teacher as $r){
+            foreach ($data_teacher_reviewer as $r){
               if($r->id_member == $result->name_reviewer) { $c = "selected"; }else{ $c = ''; }
               ?>
               <option value="<?php echo $r->id_member; ?>|+|<?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?>" <?php echo $c; ?>><?php echo $r->surname . ' ' . $r->name . ' ' . $r->middle_name; ?></option>
@@ -260,5 +261,63 @@ function f_select_a4()
   echo $result;
 
   wp_die();
+}
+
+add_action("wp_ajax_import_work_t", "f_import_work_t");
+add_action("wp_ajax_nopriv_import_work_t", "f_import_work_t");
+function f_import_work_t()
+{
+
+  if( $_POST['start'] == 1) {
+
+    global $wpdb_dek;
+    global $wpdb;
+    $export_import = $wpdb->get_results("SELECT * FROM sumdu_work_table");
+
+    foreach ($export_import as $r){
+
+      $name = explode(' ', $r->name_w, 3);
+
+      echo $name[0];
+      echo $name[1];
+      echo $name[2];
+
+      if(!$r->group_w){
+        $group = NULL;
+      }else{
+        $group = $r->group_w;
+      }
+
+      if(!$r->name_head){
+        $name_head = NULL;
+      }else{
+        $name_head = $r->name_head;
+      }
+
+      if(!$r->direction_work){
+        $direction_work = NULL;
+      }else{
+        $direction_work = $r->direction_work;
+      }
+
+      if(!$r->name_reviewer){
+        $name_reviewer = NULL;
+      }else{
+        $name_reviewer = $r->name_reviewer;
+      }
+
+      if(!$r->year_w){
+        $year_w = NULL;
+      }else{
+        $year_w = $r->year_w;
+      }
+
+      $wpdb_dek->update( 'student', array('surname' => $name[0], 'name' => $name[1], 'middle_name' => $name[2], 'topic' => $direction_work, 'group' => $group, 'form_education' => NULL, 'id_head' => $name_head, 'id_reviewer' => $name_reviewer, 'id_consultant_oxranu_truda' => NULL, 'id_consultant_economica' => NULL, 'id_consultant_it_project' => NULL, 'id_qualification' => $r->okr, 'year' => $year_w), array('id_student' => (int)$r->id), array("%s", "%s", "%s", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%d", "%d", "%d"), array("%d") );
+
+    }
+
+    wp_die();
+
+  }
 }
 ?>
