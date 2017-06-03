@@ -12,6 +12,7 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
     <th>ОКР</th>
     <th>Група</th>
     <th>П.І.Б</th>
+    <th>Форма навчання</th>
     <th>П.І.Б керівника диплома</th>
     <th>П.І.Б керівника диплома за наказом МОН</th>
     <th>Напрям кваліфікаційної роботи</th>
@@ -36,6 +37,8 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
     <td>
       <select class="a3"></select>
     </td>
+
+    <td><input class="a11" style="width: 124px;" placeholder="varchar(25) NULL"></td>
 
     <td>
       <select class="a5">
@@ -100,6 +103,7 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
     <th>ОКР</th>
     <th>Група</th>
     <th>П.І.Б</th>
+    <th>Форма навчання</th>
     <th>П.І.Б керівника диплома</th>
     <th>П.І.Б керівника диплома за наказом МОН</th>
     <th>Напрям кваліфікаційної роботи</th>
@@ -164,6 +168,8 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
           </select>
         </div>
       </td>
+
+      <td data-td="form_education_w" class="e"><div class="v"><?php echo $result->form_education_w; ?></div></td>
 
       <td>
         <?php

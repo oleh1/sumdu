@@ -86,6 +86,8 @@ function f_add_student()
         </div>
       </td>
 
+      <td data-td="form_education_w" class="e"><div class="v"><?php echo $result->form_education_w; ?></div></td>
+
       <td>
         <?php
         foreach ($data_teacher_head as $r){
@@ -312,7 +314,13 @@ function f_import_work_t()
         $year_w = $r->year_w;
       }
 
-      $wpdb_dek->update( 'student', array('surname' => $name[0], 'name' => $name[1], 'middle_name' => $name[2], 'topic' => $direction_work, 'group' => $group, 'form_education' => NULL, 'id_head' => $name_head, 'id_reviewer' => $name_reviewer, 'id_consultant_oxranu_truda' => NULL, 'id_consultant_economica' => NULL, 'id_consultant_it_project' => NULL, 'id_qualification' => $r->okr, 'year' => $year_w), array('id_student' => (int)$r->id), array("%s", "%s", "%s", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%d", "%d", "%d"), array("%d") );
+      if(!$r->form_education_w){
+        $form_education_w = NULL;
+      }else{
+        $form_education_w = $r->form_education_w;
+      }
+
+      $wpdb_dek->update( 'student', array('surname' => $name[0], 'name' => $name[1], 'middle_name' => $name[2], 'topic' => $direction_work, 'group' => $group, 'form_education' => $form_education_w, 'id_head' => $name_head, 'id_reviewer' => $name_reviewer, 'id_consultant_oxranu_truda' => NULL, 'id_consultant_economica' => NULL, 'id_consultant_it_project' => NULL, 'id_qualification' => $r->okr, 'year' => $year_w), array('id_student' => (int)$r->id), array("%s", "%s", "%s", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%d", "%d", "%d"), array("%d") );
 
     }
 
