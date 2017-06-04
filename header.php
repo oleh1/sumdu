@@ -22,6 +22,10 @@
             'menu_class' => 'header-menu'
         ));
     ?>
+    <div class="login_registration">
+        <div class="l"><a href="<?php echo get_home_url(); ?>/wp-login.php"><?php _e('Увійти', 'sumdu'); ?></a></div>
+        <div class="r"><a href="<?php echo get_home_url(); ?>/wp-login.php?action=register"><?php _e('Зареєструватися', 'sumdu'); ?></a></div>
+    </div>
     <div class="lang">
         <ul>
             <li <?php show_lang('ua'); ?>><a href="<?php url_country('ua'); ?>" hreflang="ua" title="Українська (ua)"><img src="<?php echo get_template_directory_uri(); ?>/images/lang/ua.png" alt="Українська (ua)" /></a></li>

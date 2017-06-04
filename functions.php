@@ -532,6 +532,7 @@ function remove_menu() {
   remove_menu_page('themes.php');
   remove_menu_page('plugins.php');
   remove_menu_page('options-general.php');
+  remove_menu_page('edit.php?post_type=page');
 }
 
 function my_login_logo(){
