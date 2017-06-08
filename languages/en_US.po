@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sumdu v1.0\n"
-"POT-Creation-Date: 2017-05-14 22:15+0300\n"
-"PO-Revision-Date: 2017-05-14 22:27+0300\n"
+"POT-Creation-Date: 2017-06-09 00:30+0300\n"
+"PO-Revision-Date: 2017-06-09 00:35+0300\n"
 "Last-Translator: Oleh Kopytsia <lyboleg@gmail.com>\n"
 "Language-Team: Sumdu <lyboleg@gmail.com>\n"
 "Language: en\n"
@@ -15,16 +15,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
-
-#: ../category.php:16 ../index.php:16 ../page.php:16 ../search.php:30
-#: ../single.php:16
-msgid "Автор"
-msgstr "Author"
-
-#: ../category.php:17 ../index.php:17 ../page.php:17 ../search.php:31
-#: ../single.php:17
-msgid "Дата публікації"
-msgstr "Date of publication"
 
 #: ../category.php:30 ../index.php:30
 msgid "Ще не було жодного запису."
@@ -133,13 +123,25 @@ msgstr "Database"
 msgid "Система оповіщення"
 msgstr "Warning system"
 
-#: ../functions.php:318
+#: ../functions.php:316
 msgid "Графік захистів дипломних робіт"
-msgstr "График защиты дипломной работы"
+msgstr "Protection of theses"
 
-#: ../functions.php:339
+#: ../functions.php:337
 msgid "Робоча таблиця"
 msgstr "Working table"
+
+#: ../functions.php:553
+msgid "Інформація та файли"
+msgstr "Information and files"
+
+#: ../header.php:26
+msgid "Увійти"
+msgstr "Log in"
+
+#: ../header.php:27
+msgid "Зареєструватися"
+msgstr "Sign up"
 
 #: ../list_themes/list_themes_bachelor.php:15
 #: ../list_themes/list_themes_master.php:15
@@ -175,6 +177,14 @@ msgstr "Supervisor"
 #: ../protection_schedule/list_protection_schedule_m.php:27
 msgid "Рецензент"
 msgstr "Reviewer"
+
+#: ../page.php:17 ../single.php:17
+msgid "Автор"
+msgstr "Author"
+
+#: ../page.php:18 ../single.php:18
+msgid "Дата публікації"
+msgstr "Date of publication"
 
 #: ../protection_schedule/list_protection_schedule_b.php:22
 #: ../protection_schedule/list_protection_schedule_m.php:22
