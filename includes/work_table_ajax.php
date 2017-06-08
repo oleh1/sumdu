@@ -280,10 +280,6 @@ function f_import_work_t()
 
       $name = explode(' ', $r->name_w, 3);
 
-      echo $name[0];
-      echo $name[1];
-      echo $name[2];
-
       if(!$r->group_w){
         $group = NULL;
       }else{
@@ -321,11 +317,9 @@ function f_import_work_t()
       }
 
       $wpdb_dek->update( 'student', array('surname' => $name[0], 'name' => $name[1], 'middle_name' => $name[2], 'topic' => $direction_work, 'group' => $group, 'form_education' => $form_education_w, 'id_head' => $name_head, 'id_reviewer' => $name_reviewer, 'id_consultant_oxranu_truda' => NULL, 'id_consultant_economica' => NULL, 'id_consultant_it_project' => NULL, 'id_qualification' => $r->okr, 'year' => $year_w), array('id_student' => (int)$r->id), array("%s", "%s", "%s", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%d", "%d", "%d"), array("%d") );
-
     }
-
+    
     wp_die();
-
   }
 }
 ?>

@@ -250,4 +250,7 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
   }
   ?>
 </table>
+  
+  <div class="import_yes">Імпортування даних пройшло успішно</div>
+  
 </div>

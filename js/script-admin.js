@@ -703,6 +703,10 @@ jQuery(document).ready(function(){
       },
       function(result){
         jQuery(".add_student .bb").css({'display':'none'});
+        jQuery(".import_yes").show();
+        setTimeout(function () {
+          jQuery(".import_yes").hide();
+        }, 2000);
       }
     );
   });

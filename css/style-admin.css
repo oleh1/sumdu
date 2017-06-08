@@ -446,4 +446,16 @@
 .import_work_t:hover{
   opacity: 0.8;
 }
+
+.import_yes{
+  display: none;
+  position: fixed;
+  top: 136px;
+  left: 576px;
+  font-size: 20px;
+  background: green;
+  color: white;
+  padding: 14px 13px;
+  border-radius: 7px;
+}
 /*work_table*/
