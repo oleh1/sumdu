@@ -72,8 +72,8 @@ h1{
 
 #header .lang{
   float: right;
-  width: 100px;
-  height: 50px;
+  width: 50px;
+  height: 25px;
 }
 #header .lang ul{
   position: absolute;
@@ -92,6 +92,7 @@ h1{
 }
 #header .lang img{
   border-radius: 5px;
+  width: 50px;
 }
 
 .login_registration{
@@ -100,7 +101,8 @@ h1{
 .login_registration .l,
 .login_registration .r{
   position: relative;
-  left: 950px;
+  left: 1013px;
+  top: 6px;
 }
   /*header*/
 
