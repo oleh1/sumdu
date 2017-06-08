@@ -747,5 +747,6 @@ jQuery(document).ready(function(){
   jQuery("#qtranslate_highlight_enabled").closest('.form-table').prev().detach();
   jQuery("#qtranslate_highlight_enabled").closest('.form-table').detach();
   jQuery("#tagsdiv-post_tag").detach();
+  jQuery("#wp-admin-bar-new-page").detach();
   /*remove excess*/
 });
