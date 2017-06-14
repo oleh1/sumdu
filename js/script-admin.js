@@ -496,7 +496,8 @@ jQuery(document).ready(function(){
         'a7': t.parent().prev().find( jQuery('.a7') ).val(),
         'a8': t.parent().prev().find( jQuery('.a8') ).val(),
         'a9': t.parent().prev().find( jQuery('.a9') ).val(),
-        'a10': t.parent().prev().find( jQuery('.a10') ).val()
+        'a10': t.parent().prev().find( jQuery('.a10') ).val(),
+        'a11': t.parent().prev().find( jQuery('.a11') ).val()
       },
       function(result){
         jQuery('.work_tr').detach();
@@ -702,6 +703,7 @@ jQuery(document).ready(function(){
         'start': 1
       },
       function(result){
+        alert(result);
         jQuery(".add_student .bb").css({'display':'none'});
         jQuery(".import_yes").show();
         setTimeout(function () {

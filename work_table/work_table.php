@@ -38,8 +38,14 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
       <select class="a3"></select>
     </td>
 
-    <td><input class="a11" style="width: 124px;" placeholder="varchar(25) NULL"></td>
-
+    <td>
+      <select class="a11">
+        <option value="1">Денна</option>
+        <option value="2">Заочна</option>
+        <option value="3">Дистанційна</option>
+      </select>
+    </td>
+    
     <td>
       <select class="a5">
         <?php
@@ -169,8 +175,38 @@ $data_student = $wpdb_dek->get_results("SELECT id_student, surname, `name`, midd
         </div>
       </td>
 
-      <td data-td="form_education_w" class="e"><div class="v"><?php echo $result->form_education_w; ?></div></td>
+      <td>
+        <div class="w_t">
+          <?php
+          $r = $result->form_education_w;
+          if($r == 1){
+            echo 'Денна';
+            $b1 = 'selected';
+            $b2 = '';
+            $b3 = '';
+          }elseif($r == 2){
+            echo 'Заочна';
+            $b1 = '';
+            $b2 = 'selected';
+            $b3 = '';
+          }else{
+            echo 'Дистанційна';
+            $b1 = '';
+            $b2 = '';
+            $b3 = 'selected';
+          }
+          ?>
+        </div>
 
+        <div class="w_s">
+          <select data-name="form_education_w" data-id="<?php echo $result->id; ?>" data-x="0">
+            <option value="1|+|Денна" <?php echo $b1; ?>>Денна</option>
+            <option value="2|+|Заочна" <?php echo $b2; ?>>Заочна</option>
+            <option value="3|+|Дистанційна" <?php echo $b3; ?>>Дистанційна</option>
+          </select>
+        </div>
+      </td>
+      
       <td>
         <?php
         foreach ($data_teacher_head as $r){

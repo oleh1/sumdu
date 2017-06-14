@@ -15,13 +15,14 @@ function f_add_student()
   $a8 = $_POST['a8'];
   $a9 = $_POST['a9'];
   $a10 = $_POST['a10'];
+  $a11 = $_POST['a11'];
 
   if(!$a10){
     $a10 = date('Y');
   }
 
   global $wpdb;
-  $wpdb->insert('sumdu_work_table', array("id" => $student_id, "number_theme" => $a1, "okr" => $a2, "name_w" => $a3, "group_w" => $a4, "name_head" => $a5, "name_head_mon" => $a6, "direction_work" => $a7, "theme_english" => $a8, "name_reviewer" => $a9, "year_w" => $a10), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d"));
+  $wpdb->insert('sumdu_work_table', array("id" => $student_id, "number_theme" => $a1, "okr" => $a2, "name_w" => $a3, "group_w" => $a4, "name_head" => $a5, "name_head_mon" => $a6, "direction_work" => $a7, "theme_english" => $a8, "name_reviewer" => $a9, "year_w" => $a10, 'form_education_w' => $a11), array("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d", "%s"));
   
   global $wpdb_dek;
   $data_teacher_head = $wpdb_dek->get_results("SELECT id_member, surname, `name`, middle_name FROM members WHERE head = 1");
@@ -86,7 +87,37 @@ function f_add_student()
         </div>
       </td>
 
-      <td data-td="form_education_w" class="e"><div class="v"><?php echo $result->form_education_w; ?></div></td>
+      <td>
+        <div class="w_t">
+          <?php
+          $r = $result->form_education_w;
+          if($r == 1){
+            echo 'Денна';
+            $b1 = 'selected';
+            $b2 = '';
+            $b3 = '';
+          }elseif($r == 2){
+            echo 'Заочна';
+            $b1 = '';
+            $b2 = 'selected';
+            $b3 = '';
+          }else{
+            echo 'Дистанційна';
+            $b1 = '';
+            $b2 = '';
+            $b3 = 'selected';
+          }
+          ?>
+        </div>
+
+        <div class="w_s">
+          <select data-name="form_education_w" data-id="<?php echo $result->id; ?>" data-x="0">
+            <option value="1|+|Денна" <?php echo $b1; ?>>Денна</option>
+            <option value="2|+|Заочна" <?php echo $b2; ?>>Заочна</option>
+            <option value="3|+|Дистанційна" <?php echo $b3; ?>>Дистанційна</option>
+          </select>
+        </div>
+      </td>
 
       <td>
         <?php
@@ -313,12 +344,24 @@ function f_import_work_t()
       if(!$r->form_education_w){
         $form_education_w = NULL;
       }else{
-        $form_education_w = $r->form_education_w;
+        $r = $r->form_education_w;
+        if($r == 1){
+          $form_education_w = 'Денна';
+        }elseif($r == 2){
+          $form_education_w = 'Заочна';
+        }else{
+          $form_education_w = 'Дистанційна';
+        }
       }
 
+      echo $id = $r->id;
+      echo $okr = $r->okr;
+      echo $name[0].' '.$name[1].' '.$name[2].' '.$direction_work.' '.$group.' '.$form_education_w.' '.$name_head.' '.$name_reviewer.' '.$okr.' '.$year_w.' '.$id;
       $wpdb_dek->update( 'student', array('surname' => $name[0], 'name' => $name[1], 'middle_name' => $name[2], 'topic' => $direction_work, 'group' => $group, 'form_education' => $form_education_w, 'id_head' => $name_head, 'id_reviewer' => $name_reviewer, 'id_consultant_oxranu_truda' => NULL, 'id_consultant_economica' => NULL, 'id_consultant_it_project' => NULL, 'id_qualification' => $r->okr, 'year' => $year_w), array('id_student' => (int)$r->id), array("%s", "%s", "%s", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%d", "%d", "%d"), array("%d") );
     }
-    
+
+//    $wpdb_dek->update( 'student', array('surname' => '1', 'name' => '2', 'middle_name' => '3', 'topic' => 'sx', 'group' => 'csdc', 'form_education' => 'scds', 'id_head' => 2, 'id_reviewer' => 4, 'id_consultant_oxranu_truda' => NULL, 'id_consultant_economica' => NULL, 'id_consultant_it_project' => NULL, 'id_qualification' => 3, 'year' => 2017), array('id_student' => 1), array("%s", "%s", "%s", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%d", "%d", "%d"), array("%d") );
+
     wp_die();
   }
 }
