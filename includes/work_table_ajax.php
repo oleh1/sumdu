@@ -309,6 +309,9 @@ function f_import_work_t()
 
     foreach ($export_import as $r){
 
+      $id = $r->id;
+      $okr = $r->okr;
+
       $name = explode(' ', $r->name_w, 3);
 
       if(!$r->group_w){
@@ -353,15 +356,10 @@ function f_import_work_t()
           $form_education_w = 'Дистанційна';
         }
       }
-
-      echo $id = $r->id;
-      echo $okr = $r->okr;
-      echo $name[0].' '.$name[1].' '.$name[2].' '.$direction_work.' '.$group.' '.$form_education_w.' '.$name_head.' '.$name_reviewer.' '.$okr.' '.$year_w.' '.$id;
-      $wpdb_dek->update( 'student', array('surname' => $name[0], 'name' => $name[1], 'middle_name' => $name[2], 'topic' => $direction_work, 'group' => $group, 'form_education' => $form_education_w, 'id_head' => $name_head, 'id_reviewer' => $name_reviewer, 'id_consultant_oxranu_truda' => NULL, 'id_consultant_economica' => NULL, 'id_consultant_it_project' => NULL, 'id_qualification' => $r->okr, 'year' => $year_w), array('id_student' => (int)$r->id), array("%s", "%s", "%s", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%d", "%d", "%d"), array("%d") );
+      
+      $wpdb_dek->update( 'student', array('surname' => $name[0], 'name' => $name[1], 'middle_name' => $name[2], 'topic' => $direction_work, 'group' => $group, 'form_education' => $form_education_w, 'id_head' => $name_head, 'id_reviewer' => $name_reviewer, 'id_consultant_oxranu_truda' => NULL, 'id_consultant_economica' => NULL, 'id_consultant_it_project' => NULL, 'id_qualification' => $okr, 'year' => $year_w), array('id_student' => (int)$id), array("%s", "%s", "%s", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%d", "%d", "%d"), array("%d") );
     }
-
-//    $wpdb_dek->update( 'student', array('surname' => '1', 'name' => '2', 'middle_name' => '3', 'topic' => 'sx', 'group' => 'csdc', 'form_education' => 'scds', 'id_head' => 2, 'id_reviewer' => 4, 'id_consultant_oxranu_truda' => NULL, 'id_consultant_economica' => NULL, 'id_consultant_it_project' => NULL, 'id_qualification' => 3, 'year' => 2017), array('id_student' => 1), array("%s", "%s", "%s", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%d", "%d", "%d"), array("%d") );
-
+    
     wp_die();
   }
 }
