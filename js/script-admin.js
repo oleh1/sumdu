@@ -703,7 +703,6 @@ jQuery(document).ready(function(){
         'start': 1
       },
       function(result){
-        alert(result);
         jQuery(".add_student .bb").css({'display':'none'});
         jQuery(".import_yes").show();
         setTimeout(function () {
